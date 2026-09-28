@@ -1,0 +1,508 @@
+00:01 hi everyone I want to record another
+00:03 
+
+00:03 video this is a new video for 2024
+00:06 
+
+00:06 Edition it's been a while since I
+00:08 
+
+00:08 recorded any videos for this course and
+00:10 
+
+00:10 the reason I'm doing this is I want to
+00:12 
+
+00:12 show you this amazing tool this amazing
+00:14 
+
+00:14 service called GitHub Cod spaces it's
+00:17 
+
+00:17 amazing for many reasons but one of them
+00:19 
+
+00:19 is it requires almost no configuration
+00:22 
+
+00:22 you just have a remote environment with
+00:25 
+
+00:25 almost everything we need we of course
+00:27 
+
+00:27 need to install a few more things there
+00:30 
+
+00:30 and I want to show you in this video how
+00:32 
+
+00:32 we want how we can do that so uh right
+00:36 
+
+00:36 now I will create a new repository in
+00:39 
+
+00:39 GitHub and I can call it
+00:44 
+
+00:44 machine Zoom Camp
+00:46 
+
+00:46 homework right or like whatever other
+00:49 
+
+00:49 name um so this will be the repository
+00:52 
+
+00:52 where we put homework so later uh you
+00:56 
+
+00:56 can when you submit your homework you
+00:59 
+
+00:59 can use um um you can use it right so
+01:02 
+
+01:02 then we add readme file it should be
+01:05 
+
+01:05 public and then get ignore let's say
+01:09 
+
+01:09 Python and we create a
+01:12 
+
+01:12 repository so now the repository is
+01:14 
+
+01:14 there and we go to code um there are two
+01:17 
+
+01:17 options local and cod spaces we're
+01:19 
+
+01:19 interested in COD spaces so I create Cod
+01:22 
+
+01:22 space on Main and right now it's going
+01:25 
+
+01:25 to create a visual studio code instance
+01:28 
+
+01:28 within your browser um I don't like
+01:32 
+
+01:32 using the browser uh of course you can
+01:35 
+
+01:35 use it like there there are no problems
+01:36 
+
+01:36 it should just work from the browser uh
+01:39 
+
+01:39 I have Visual Studio desktop and I
+01:41 
+
+01:41 typically use that so if you also have
+01:45 
+
+01:45 Visual Studio desktop you can uh open it
+01:49 
+
+01:49 by clicking here in the corner open in
+01:52 
+
+01:52 vs code
+01:54 
+
+01:54 desktop and then you
+01:56 
+
+01:56 just click here and you can close this
+01:59 
+
+01:59 one
+02:03 
+
+02:03 uh is it actually
+02:12 
+
+02:12 opening yeah I think this is
+02:19 
+
+02:19 opening so yeah it's um setting up some
+02:24 
+
+02:24 stuff and it's ready so
+02:28 
+
+02:28 we can do whatever want so it feels like
+02:31 
+
+02:31 we're developing locally we can say like
+02:33 
+
+02:33 Hello
+02:35 
+
+02:35 World um and everything we do here so
+02:38 
+
+02:38 for example right now if we look so I
+02:40 
+
+02:40 Pro I pressed control Tilda to open the
+02:44 
+
+02:44 terminal there's probably another way to
+02:47 
+
+02:47 see terminal yeah view terminal right um
+02:53 
+
+02:53 and then like this is just usual file
+02:55 
+
+02:55 system this is the remote uh Ubuntu
+02:57 
+
+02:57 machine I think it's Ubuntu this some
+02:59 
+
+02:59 Linux
+03:00 
+
+03:00 where if you do get status cuz I changed
+03:04 
+
+03:04 uh me file now it says modified and I
+03:07 
+
+03:07 can do get commit
+03:11 
+
+03:11 am
+03:14 
+
+03:14 um let me change
+03:18 
+
+03:18 right uh it should be
+03:20 
+
+03:20 oops what I also like doing is you see
+03:24 
+
+03:24 that this line is pretty long so I don't
+03:27 
+
+03:27 really see the command I type so what I
+03:29 
+
+03:29 can do
+03:30 
+
+03:30 is this PS then just uh greater than
+03:35 
+
+03:35 sign in quotes and then our prompt here
+03:39 
+
+03:39 becomes this small thing right so now
+03:41 
+
+03:41 there is more space to actually see the
+03:45 
+
+03:45 input get commit
+03:48 
+
+03:48 am read me
+03:51 
+
+03:51 update and now just do kit
+03:54 
+
+03:54 push and what we just did we updated the
+03:58 
+
+03:58 rme file we can see that we pushed
+04:02 
+
+04:02 successfully it to
+04:04 
+
+04:04 GitHub uh right now let's install the
+04:06 
+
+04:06 libraries we need for that we'll use
+04:08 
+
+04:08 Peep Peep install we you we need to do
+04:10 
+
+04:10 we need to use Jupiter we need to use
+04:12 
+
+04:12 sampai we need pandas we need uh psyit
+04:19 
+
+04:19 learn uh what else we need Seaborn
+04:21 
+
+04:21 caborn is a library for
+04:25 
+
+04:25 visualization we have uh a list of
+04:28 
+
+04:28 libraries here
+04:31 
+
+04:31 I think I mentioned I typed all of them
+04:34 
+
+04:34 later we will need exg boost and tflow
+04:37 
+
+04:37 but this is exactly how you install them
+04:41 
+
+04:41 too so right now should be pretty fast
+04:46 
+
+04:46 and now we have all the libraries we
+04:48 
+
+04:48 need at least for the first five modules
+04:52 
+
+04:52 or four four modules yeah um and right
+04:56 
+
+04:56 now we can start our Jupiter notebook
+05:01 
+
+05:01 oops not not
+05:06 
+
+05:06 book
+05:07 
+
+05:07 that and what happens now is it started
+05:12 
+
+05:12 jupyter notebook remotely on this remote
+05:15 
+
+05:15 code spaces but we can use it locally
+05:18 
+
+05:18 for that I can see ports here cuz like
+05:22 
+
+05:22 the name is very long that's why it's
+05:25 
+
+05:25 kind of hidden but there is this thing
+05:27 
+
+05:27 called ports and it automatically
+05:29 
+
+05:29 detected that there is something running
+05:31 
+
+05:31 on Port
+05:32 
+
+05:32 8888 and it forwarded it to my uh local
+05:36 
+
+05:36 machine to my host machine so right now
+05:39 
+
+05:39 if I open this it redirects me to
+05:43 
+
+05:43 Jupiter and I what I can do is I can
+05:46 
+
+05:46 simply take the token from here or the
+05:49 
+
+05:49 entire
+05:50 
+
+05:50 URL and paste it here so now I have
+05:54 
+
+05:54 Jupiter uh here and I can create a new
+06:01 
+
+06:01 well I canot really create a new folder
+06:03 
+
+06:03 here but what I can do is I can just
+06:05 
+
+06:05 create a new folder here let's call it
+06:09 
+
+06:09 um 01 intro and then yeah if I
+06:15 
+
+06:15 refresh I can see it here and then I can
+06:18 
+
+06:18 create a new
+06:21 
+
+06:21 notbook so here uh select I
+06:26 
+
+06:26 will rename
+06:29 
+
+06:29 it can I not rename it okay well we will
+06:33 
+
+06:33 rename it later uh and then here we
+06:36 
+
+06:36 already have pandas for example import
+06:39 
+
+06:39 pandas aspd and now for homework you
+06:42 
+
+06:42 need to do read CSV um and then uh what
+06:47 
+
+06:47 was that in the
+06:55 
+
+06:55 homework typ
+06:57 
+
+06:57 2024 so this is the
+07:01 
+
+07:01 file
+07:02 
+
+07:02 weuse
+07:04 
+
+07:04 so we can already read it and then
+07:11 
+
+07:11 um so this is um how you do this and now
+07:16 
+
+07:16 you finish your homework and let me
+07:20 
+
+07:20 close it
+07:22 
+
+07:22 I'll also rename the file I don't know
+07:25 
+
+07:25 why I cannot do this from jupyter
+07:27 
+
+07:27 notebook but I'll call it homework
+07:30 
+
+07:30 you can also install python extension
+07:32 
+
+07:32 and by the way uh one of the things I
+07:34 
+
+07:34 forgot to mention is when you first
+07:36 
+
+07:36 launch vs desktop it will prompt you to
+07:39 
+
+07:39 install an extension for uh code spaces
+07:44 
+
+07:44 if it doesn't do this you can go to
+07:46 
+
+07:46 extensions and
+07:48 
+
+07:48 go look for code spaces here so here you
+07:51 
+
+07:51 have it GitHub Cod
+07:53 
+
+07:53 spaces um so you need that in order to
+07:57 
+
+07:57 connect to a remote instance okay now we
+08:00 
+
+08:00 have the
+08:01 
+
+08:01 homework and um yeah I will just create
+08:05 
+
+08:05 another terminal by pressing this plus
+08:08 
+
+08:08 button and see okay we have this new
+08:11 
+
+08:11 file we will add
+08:13 
+
+08:13 it uh we will commit it as
+08:17 
+
+08:17 homework and we push it so now our
+08:20 
+
+08:20 homework is done hopefully so we have it
+08:27 
+
+08:27 here we have our homework here and then
+08:31 
+
+08:31 we go
+08:32 
+
+08:32 to uh courses machine learning Zoom
+08:35 
+
+08:35 machine learning Zoom Camp the first
+08:37 
+
+08:37 homework we fill in all the answers and
+08:40 
+
+08:40 we put this here as our homework URL
+08:44 
+
+08:44 right and click
+08:46 
+
+08:46 submit so this is how you configure
+08:48 
+
+08:48 environment this is how you submit
+08:49 
+
+08:49 homework and I hope it's useful and
+08:52 
+
+08:52 enjoy the course

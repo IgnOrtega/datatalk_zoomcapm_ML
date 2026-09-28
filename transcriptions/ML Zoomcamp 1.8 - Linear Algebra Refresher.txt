@@ -1,0 +1,2113 @@
+00:00 welcome back this is lesson four of
+00:03 
+
+00:03 machine learning zoom comp session one
+00:05 
+
+00:05 and we will talk about linear algebra
+00:08 
+
+00:08 now
+00:09 
+
+00:09 so we'll talk about simple uh
+00:12 
+
+00:12 simple operations of linear algebra like
+00:14 
+
+00:14 vector operations we'll talk about
+00:16 
+
+00:16 multiplication and we talk about a
+00:18 
+
+00:18 special operation called matex inverse
+00:21 
+
+00:21 so we'll start with the simple vector
+00:25 
+
+00:25 operation which is
+00:28 
+
+00:28 multiplication so if you want to
+00:29 
+
+00:29 multiply a vector by some number
+00:32 
+
+00:32 uh so let's say we want to multiply a
+00:34 
+
+00:34 vector by number two what we do is we
+00:37 
+
+00:37 multiply every element of this
+00:40 
+
+00:40 this this vector by two
+00:42 
+
+00:42 so in this case it's 4
+00:45 
+
+00:45 8
+00:46 
+
+00:46 10
+00:47 
+
+00:47 12.
+00:50 
+
+00:50 and you see that the the way i write
+00:52 
+
+00:52 vector is it's like a column so it's a
+00:55 
+
+00:55 column
+00:57 
+
+00:57 column vector
+00:60 
+
+00:60 and this is just a notation this is how
+01:03 
+
+01:03 things are usually written in linear
+01:05 
+
+01:05 algebra so in linear algebra typically
+01:07 
+
+01:07 the vectors are columns not
+01:10 
+
+01:10 not rows
+01:12 
+
+01:12 if you remember the way we did it in
+01:13 
+
+01:13 numpy
+01:14 
+
+01:14 so let me just quickly show you
+01:17 
+
+01:17 so in numpy actually the vectors are
+01:20 
+
+01:20 rows
+01:22 
+
+01:22 so here we have it as a row notice the
+01:24 
+
+01:24 column so this is just the convention so
+01:26 
+
+01:26 this is just how
+01:28 
+
+01:28 things are written usually in linear
+01:30 
+
+01:30 algebra so they are columns
+01:32 
+
+01:32 and if we want to add two vectors let's
+01:34 
+
+01:34 say this is vector u
+01:36 
+
+01:36 this is vector v so what we do
+01:39 
+
+01:39 is and if we want to
+01:43 
+
+01:43 add two vectors what we do is
+01:45 
+
+01:45 we add
+01:46 
+
+01:46 each element of a vector and the result
+01:49 
+
+01:49 is
+01:49 
+
+01:49 so 3
+01:51 
+
+01:51 4
+01:52 
+
+01:52 5
+01:53 
+
+01:53 so so this is pretty much the same
+01:56 
+
+01:56 um
+01:57 
+
+01:57 as we saw in the previous lecture in
+01:59 
+
+01:59 numpy so we just add things element-wise
+02:02 
+
+02:02 so if you see so here i have these two
+02:04 
+
+02:04 vectors
+02:05 
+
+02:05 u and v
+02:07 
+
+02:07 and if we at u plus b then we have
+02:11 
+
+02:11 element wise addition
+02:13 
+
+02:13 and
+02:14 
+
+02:14 yeah here you you remember from the
+02:16 
+
+02:16 previous lecture that we can multiply
+02:19 
+
+02:19 a numpy array by two and then it the
+02:21 
+
+02:21 result is multiplication element wise so
+02:24 
+
+02:24 this is
+02:25 
+
+02:25 basically the same happens in
+02:27 
+
+02:27 linear algebra
+02:29 
+
+02:29 now we'll talk a bit about more
+02:31 
+
+02:31 interesting things about
+02:34 
+
+02:34 how we can multiply vectors with vectors
+02:37 
+
+02:37 and how we can multiply a matrix by a
+02:39 
+
+02:39 vector and how we can multiply
+02:41 
+
+02:41 a matrix by matrix so let's start with
+02:44 
+
+02:44 vector vector multiplication so it's
+02:47 
+
+02:47 also called dot product or sometimes
+02:49 
+
+02:49 inner product so let's say again we have
+02:52 
+
+02:52 two vectors
+02:53 
+
+02:53 u and v
+02:54 
+
+02:54 and we want to multiply vector u by
+02:57 
+
+02:57 vector v
+02:58 
+
+02:58 and this is not element by
+02:60 
+
+02:60 multiplication like we do in numpy so
+03:02 
+
+03:02 remember in numpy
+03:04 
+
+03:04 if
+03:06 
+
+03:06 we do this u times v
+03:09 
+
+03:09 so we have an array where we
+03:10 
+
+03:11 [Music]
+03:13 
+
+03:13 multiply elements
+03:15 
+
+03:15 element wise we have element device
+03:17 
+
+03:17 multiplication so actually in linear
+03:19 
+
+03:19 algebra this dot product produces a
+03:21 
+
+03:21 number
+03:22 
+
+03:22 so the way
+03:23 
+
+03:23 we compute it
+03:25 
+
+03:25 is uh
+03:26 
+
+03:26 we multiply again each
+03:29 
+
+03:29 number separately like for uh
+03:33 
+
+03:33 for element for the first element of u
+03:36 
+
+03:36 multiplied with the first element of v
+03:39 
+
+03:39 for second element of u we multiply the
+03:42 
+
+03:42 second element of v and so on
+03:44 
+
+03:44 and what we get is 2 times 1
+03:50 
+
+03:50 so here we have
+03:51 
+
+03:51 4 times 0
+03:53 
+
+03:53 5 times 0 6 times 2 and then what we do
+03:57 
+
+03:57 we
+03:57 
+
+03:57 [Music]
+03:58 
+
+03:58 sum them some results
+04:02 
+
+04:02 and what we have
+04:03 
+
+04:03 as a result is we have
+04:06 
+
+04:06 2 plus 12 here
+04:08 
+
+04:08 and the result is 14.
+04:11 
+
+04:11 so basically
+04:14 
+
+04:14 the formula if we want to write the
+04:15 
+
+04:15 formula so we have a sum that goes uh
+04:19 
+
+04:19 over all elements of
+04:22 
+
+04:22 of our
+04:24 
+
+04:24 vectors
+04:25 
+
+04:25 right so
+04:26 
+
+04:26 let's say it calls goes from one uh till
+04:30 
+
+04:30 n
+04:31 
+
+04:31 where n is dimension of the vector
+04:34 
+
+04:34 and then we just multiply if
+04:38 
+
+04:38 element of u
+04:39 
+
+04:39 with the if element of v
+04:42 
+
+04:42 and this is the result of a dot product
+04:44 
+
+04:44 so we just saw it
+04:47 
+
+04:47 however the way we usually write it in
+04:49 
+
+04:49 linear algebra is uh maybe it's a bit
+04:53 
+
+04:53 intuitive at first so the way we do it
+04:57 
+
+04:57 is
+04:58 
+
+04:58 so this is remember so this is u
+05:01 
+
+05:01 which is a column vector
+05:05 
+
+05:05 but
+05:06 
+
+05:06 this this is we
+05:07 
+
+05:07 which is a
+05:09 
+
+05:09 row vector
+05:13 
+
+05:13 and if we want to turn a column vector
+05:16 
+
+05:16 into a row vector we use a transpose
+05:18 
+
+05:18 operation so transpose operation turns
+05:22 
+
+05:22 columns into rows and so this is again
+05:25 
+
+05:25 this is just notation so if we want to
+05:28 
+
+05:28 uh and you will see later when we
+05:30 
+
+05:30 multiply matrix with vectors y is the
+05:33 
+
+05:33 case
+05:34 
+
+05:34 but this is just notation for dot
+05:36 
+
+05:36 product so
+05:38 
+
+05:38 we
+05:38 
+
+05:38 for for multiplication we will need to
+05:41 
+
+05:41 have a row vector and a column vector
+05:43 
+
+05:43 and the result is a dot product
+05:46 
+
+05:46 so
+05:48 
+
+05:48 this is how we usually
+05:50 
+
+05:50 write dot product so this is annotation
+05:52 
+
+05:52 for dot product
+05:53 
+
+05:53 and as we already
+05:55 
+
+05:55 uh
+05:56 
+
+05:56 saw
+05:57 
+
+05:57 that the formula for computing the dot
+05:59 
+
+05:59 product
+06:00 
+
+06:00 is like this so until e goes from
+06:04 
+
+06:04 uh first element to the last element
+06:07 
+
+06:07 so this is the
+06:08 
+
+06:08 the dot product we can quickly implement
+06:11 
+
+06:11 it so let's say
+06:14 
+
+06:14 yeah we want to write a function
+06:18 
+
+06:18 that does vector vector multiplication
+06:24 
+
+06:24 multiplication and then we have two
+06:27 
+
+06:27 vectors here u and v
+06:30 
+
+06:30 so first what we need to do is make sure
+06:32 
+
+06:32 that these vectors have the same size
+06:36 
+
+06:36 and we usually do this by checking the
+06:38 
+
+06:38 shape of the vectors
+06:42 
+
+06:42 so if you remember so let me
+06:46 
+
+06:46 let me just show you
+06:48 
+
+06:48 what shapes prints shape the shape is
+06:51 
+
+06:51 the size of the
+06:54 
+
+06:54 the
+06:55 
+
+06:55 the array
+06:56 
+
+06:56 right and the
+06:58 
+
+06:58 first element of this tuple is four
+07:01 
+
+07:01 right and then
+07:03 
+
+07:03 v
+07:04 
+
+07:04 should also have four
+07:06 
+
+07:06 and if they are different then
+07:07 
+
+07:07 multiplication doesn't make sense so we
+07:09 
+
+07:09 need to have to make sure that
+07:12 
+
+07:12 the vectors have the same size so that's
+07:14 
+
+07:14 why we have this assertion here
+07:17 
+
+07:17 and then
+07:18 
+
+07:18 yes basically
+07:20 
+
+07:20 what we do next is
+07:23 
+
+07:23 again in our formula we have also n
+07:25 
+
+07:25 which is the number of
+07:28 
+
+07:28 elements the vector have
+07:29 
+
+07:29 so let's say we can write that n is
+07:33 
+
+07:33 this shape of u or shape of e doesn't
+07:36 
+
+07:36 matter because they have the same shape
+07:38 
+
+07:38 and we just go over a loop
+07:42 
+
+07:42 go over all the elements
+07:45 
+
+07:45 here of the the arrays
+07:48 
+
+07:48 so we say okay we first need to have a
+07:50 
+
+07:50 result
+07:52 
+
+07:52 the result variable which contains our
+07:54 
+
+07:54 dot product
+07:56 
+
+07:56 right and then we say that result
+07:60 
+
+07:60 should contain
+08:01 
+
+08:01 so first of all
+08:04 
+
+08:04 so we do this product between each
+08:06 
+
+08:06 element so
+08:08 
+
+08:08 let me just draw the formula here
+08:12 
+
+08:12 so the formula is uh if element of u
+08:15 
+
+08:15 times uh is element of b right and then
+08:19 
+
+08:19 we go from
+08:21 
+
+08:21 one to n
+08:23 
+
+08:23 so actually because we are in race
+08:26 
+
+08:26 and numpy arrays are indexed from
+08:30 
+
+08:30 0 to
+08:31 
+
+08:31 n minus 1
+08:33 
+
+08:33 and then the size of the array is n so
+08:35 
+
+08:35 instead of going from
+08:37 
+
+08:37 1 to n we go from
+08:39 
+
+08:39 0 to n minus 1
+08:43 
+
+08:43 and
+08:44 
+
+08:44 this is how we implement this right so
+08:47 
+
+08:47 we have
+08:48 
+
+08:48 this part here
+08:50 
+
+08:50 which corresponds to
+08:52 
+
+08:52 the part inside the sum
+08:55 
+
+08:55 and this for loop is actually the sum
+08:60 
+
+09:00 and then what we need to do at the end
+09:02 
+
+09:02 is just return the result
+09:04 
+
+09:04 so this is how we translate this formula
+09:08 
+
+09:08 into code
+09:09 
+
+09:09 so now we can test it
+09:12 
+
+09:12 vector vector multiplication between u
+09:15 
+
+09:15 and v
+09:16 
+
+09:16 so it should return 14.
+09:19 
+
+09:19 so
+09:20 
+
+09:20 yes like we calculated
+09:23 
+
+09:23 actually in uh
+09:25 
+
+09:25 in numpy there is already a function
+09:27 
+
+09:27 that is doing this it's called dot
+09:30 
+
+09:30 product
+09:31 
+
+09:31 and we this is how we use it we just
+09:34 
+
+09:34 multiply vector u by a vector v
+09:37 
+
+09:37 and the result is also 14.
+09:40 
+
+09:40 so this is how we translate this formula
+09:42 
+
+09:42 into code so we talked about vector
+09:45 
+
+09:45 vector multiplication now let's talk
+09:47 
+
+09:47 about
+09:48 
+
+09:48 matrix vector multiplication
+09:51 
+
+09:51 so in matrix vector multiplication so
+09:54 
+
+09:54 let's say we have this matrix u
+09:57 
+
+09:57 that we want to multiply by a vector v
+10:00 
+
+10:00 so this is a capital
+10:02 
+
+10:02 and this is lowercase so we want to
+10:04 
+
+10:04 actually
+10:05 
+
+10:05 compute u times v so u is a matrix
+10:09 
+
+10:09 v is a vector
+10:12 
+
+10:12 and the way we do it
+10:13 
+
+10:13 is
+10:15 
+
+10:15 so take the
+10:17 
+
+10:17 first row of
+10:20 
+
+10:20 matrix u
+10:21 
+
+10:21 and multiply it with
+10:23 
+
+10:23 the vector v so you see this is a row
+10:27 
+
+10:27 and we multiply it by b so this is
+10:30 
+
+10:30 exactly like we have here so we have a
+10:32 
+
+10:32 row vector and the column vector and
+10:34 
+
+10:34 again we have a row
+10:36 
+
+10:36 vector here so this is let's call it
+10:39 
+
+10:39 u
+10:41 
+
+10:41 0 so we will just use the the same
+10:44 
+
+10:44 notation as in
+10:45 
+
+10:45 numpy so we'll start with zero so you
+10:48 
+
+10:48 want
+10:49 
+
+10:49 your first and your second
+10:52 
+
+10:52 right so what we
+10:54 
+
+10:54 need to do now to calculate uh
+10:57 
+
+10:57 the multiplication between matrix and
+10:60 
+
+10:60 vector
+11:00 
+
+11:00 for each row of the matrix
+11:04 
+
+11:04 we multiply it with v
+11:06 
+
+11:06 okay so this is how we
+11:07 
+
+11:07 [Music]
+11:10 
+
+11:10 do this so we take the
+11:13 
+
+11:13 zero
+11:14 
+
+11:14 row of u
+11:16 
+
+11:16 and multiplied with b
+11:18 
+
+11:18 then we take the first row of u and
+11:21 
+
+11:21 multiply it with b
+11:22 
+
+11:22 and the second row and multiply
+11:26 
+
+11:26 right so this is the result so basically
+11:29 
+
+11:29 for each row we do a matrix sorry for
+11:33 
+
+11:33 each row of u we do a vector vector
+11:36 
+
+11:36 multiplication with v so this is how we
+11:39 
+
+11:39 compute uh
+11:40 
+
+11:40 matrix vector multiplication so let me
+11:43 
+
+11:43 just
+11:45 
+
+11:45 write it once again so let's say we have
+11:47 
+
+11:47 this
+11:48 
+
+11:48 vector u
+11:51 
+
+11:51 matrix u
+11:53 
+
+11:53 and then we have
+11:55 
+
+11:55 let's say we have
+11:58 
+
+11:58 k elements of uh here so from u
+12:02 
+
+12:02 0
+12:04 
+
+12:04 to
+12:06 
+
+12:06 u
+12:07 
+
+12:07 k minus 1.
+12:09 
+
+12:09 so in total there are
+12:12 
+
+12:12 k
+12:12 
+
+12:12 rows
+12:14 
+
+12:14 and we want to multiply it with
+12:16 
+
+12:16 vector v
+12:18 
+
+12:18 so this will be just
+12:20 
+
+12:20 vector v
+12:22 
+
+12:22 and of course dimensionality here should
+12:24 
+
+12:24 match so
+12:26 
+
+12:26 this vector here
+12:28 
+
+12:28 and this vector here should be the same
+12:31 
+
+12:31 see let's say dimensionality can be n so
+12:34 
+
+12:34 both have n elements
+12:37 
+
+12:37 and yeah and the result is a
+12:41 
+
+12:41 dot product between each row of the
+12:45 
+
+12:45 matrix u and the vector
+12:47 
+
+12:47 and vector v
+12:49 
+
+12:49 so
+12:50 
+
+12:50 this is how we do it let's implement
+12:52 
+
+12:52 this in numpy
+12:54 
+
+12:54 so let's implement it in python
+12:57 
+
+12:57 so we i already have the
+12:60 
+
+12:60 the matrix u here
+13:01 
+
+13:01 this is it
+13:03 
+
+13:03 and let's implement
+13:05 
+
+13:05 matrix
+13:06 
+
+13:06 vector
+13:08 
+
+13:08 multiplication
+13:12 
+
+13:12 so we have a
+13:13 
+
+13:13 big capital u and i use capital here to
+13:17 
+
+13:17 denote that this is matrix
+13:21 
+
+13:21 so first we need to make sure that
+13:23 
+
+13:23 dimensionality match and if you remember
+13:26 
+
+13:26 so here we will have the shape
+13:29 
+
+13:29 field
+13:30 
+
+13:30 here and
+13:32 
+
+13:32 we are interested in the number of
+13:35 
+
+13:35 columns so remember here if i go back so
+13:38 
+
+13:38 the number of columns in u
+13:41 
+
+13:41 should match uh the number of elements
+13:44 
+
+13:44 in v so the number of columns in u is
+13:46 
+
+13:46 basically the dimensionality of each
+13:49 
+
+13:49 row vector of u right so if there are
+13:51 
+
+13:51 four columns it means that the
+13:54 
+
+13:54 the vector u0 has dimensionality of four
+13:56 
+
+13:56 it has four elements
+13:58 
+
+13:58 so it means that
+14:00 
+
+14:00 the
+14:01 
+
+14:01 the second
+14:03 
+
+14:03 dimension the number of columns should
+14:05 
+
+14:05 match the first dimension so then we
+14:08 
+
+14:08 have the number of rows we can use k or
+14:10 
+
+14:10 maybe we just put
+14:12 
+
+14:12 code number of rows
+14:16 
+
+14:16 which is cu shape
+14:18 
+
+14:18 zero
+14:19 
+
+14:19 so this is uh the dimensionality of our
+14:22 
+
+14:22 resulting vector so this is the results
+14:24 
+
+14:24 so because we have three rows
+14:27 
+
+14:27 so there are three rows in
+14:30 
+
+14:30 in matrix u that's why we have three
+14:33 
+
+14:33 elements in the result of the
+14:35 
+
+14:35 multiplication
+14:37 
+
+14:37 so
+14:38 
+
+14:38 this is our result matrix
+14:41 
+
+14:41 let's initialize it with zeros
+14:44 
+
+14:44 and number of uh
+14:47 
+
+14:47 the dimensionality of this this vector
+14:49 
+
+14:49 the size of this array
+14:51 
+
+14:51 is a number of rows so okay
+14:54 
+
+14:54 and then we have a loop um so we want
+14:57 
+
+14:57 now to go through
+14:59 
+
+14:59 uh each row of the matrix u
+15:04 
+
+15:04 so we do this
+15:07 
+
+15:07 loop
+15:10 
+
+15:10 and now we need to access the if
+15:12 
+
+15:12 row of u
+15:14 
+
+15:14 this is what how we do this
+15:17 
+
+15:17 and we need to calculate a dot product
+15:21 
+
+15:21 so this is vector vector multiplication
+15:24 
+
+15:24 between
+15:26 
+
+15:26 the ether of u
+15:28 
+
+15:28 and the vector v
+15:30 
+
+15:30 and actually we write the result as the
+15:33 
+
+15:33 if element of
+15:35 
+
+15:35 the result
+15:37 
+
+15:37 and then what we do at the end is we
+15:39 
+
+15:39 just return the result
+15:42 
+
+15:42 so this is how we translate this
+15:45 
+
+15:45 this formula
+15:48 
+
+15:48 into
+15:48 
+
+15:48 [Music]
+15:49 
+
+15:49 a
+15:50 
+
+15:50 python code right so again we
+15:53 
+
+15:53 create
+15:54 
+
+15:54 a first
+15:56 
+
+15:56 we create an m3 and then for each
+15:58 
+
+15:58 element of the array we compute the
+16:01 
+
+16:01 vector vector multiplication between
+16:03 
+
+16:03 each row of view
+16:05 
+
+16:05 and the vector v
+16:07 
+
+16:07 and
+16:08 
+
+16:08 so let's test it
+16:10 
+
+16:10 matrix vector multiplication so we do it
+16:13 
+
+16:13 between u and v
+16:15 
+
+16:15 and we get
+16:17 
+
+16:17 a one dimensional array so in our case
+16:19 
+
+16:19 this is a
+16:21 
+
+16:21 vector
+16:23 
+
+16:23 and
+16:24 
+
+16:24 again in numpy if we want to use numpy
+16:27 
+
+16:27 for that of course we don't want to
+16:29 
+
+16:29 write a function for computing
+16:32 
+
+16:32 this
+16:33 
+
+16:33 this multiplication every time we just
+16:35 
+
+16:35 use a function again dot
+16:38 
+
+16:38 so because we invoke this function on a
+16:41 
+
+16:41 two-dimensional array numpy knows how to
+16:44 
+
+16:44 actually multiply it that it needs a dot
+16:46 
+
+16:46 product and you see that
+16:48 
+
+16:48 the result is the same
+16:52 
+
+16:52 so this is how we do matrix vector
+16:54 
+
+16:54 multiplication now let's talk about
+16:56 
+
+16:56 matrix matrix multiplication
+16:59 
+
+16:59 let's say we have a matrix u which is a
+17:03 
+
+17:03 capital u and we have a matrix v capital
+17:06 
+
+17:06 v and what we want to compute
+17:09 
+
+17:09 is multiplication between matrix u and
+17:12 
+
+17:12 matrix v what we do here is we
+17:16 
+
+17:16 look at
+17:17 
+
+17:17 so we take a matrix v
+17:20 
+
+17:20 and we break it down into
+17:22 
+
+17:22 multiple columns so we have have a
+17:25 
+
+17:25 column v0
+17:27 
+
+17:27 v1
+17:28 
+
+17:28 and v2
+17:31 
+
+17:31 and we look at the entire matrix u
+17:33 
+
+17:33 as is
+17:35 
+
+17:35 and the result of this multiplication is
+17:38 
+
+17:38 a new matrix
+17:41 
+
+17:41 where for each column
+17:43 
+
+17:43 so it will have the
+17:45 
+
+17:45 three columns
+17:47 
+
+17:47 for each column we have so column first
+17:51 
+
+17:51 is
+17:52 
+
+17:52 a matrix u multiplied by
+17:55 
+
+17:55 vector v 0
+17:58 
+
+17:58 then its
+17:59 
+
+17:59 matrix u multiplied by vector v 1
+18:02 
+
+18:02 and
+18:03 
+
+18:03 matrix u multiplied by a vector v 2.
+18:08 
+
+18:08 we represent matrix multi matrix
+18:10 
+
+18:10 multiplication as
+18:12 
+
+18:12 a bunch of matrix vector multiplications
+18:16 
+
+18:16 so
+18:17 
+
+18:17 let's implement this
+18:20 
+
+18:20 so we already have a matrix e here
+18:24 
+
+18:24 so we will do
+18:27 
+
+18:27 matrix
+18:29 
+
+18:29 matrix
+18:31 
+
+18:31 multiplication
+18:33 
+
+18:33 to have two matrices here u and v
+18:36 
+
+18:36 so what we need to check here is uh the
+18:39 
+
+18:39 same so that
+18:41 
+
+18:41 here that
+18:42 
+
+18:42 actually this multiplication makes sense
+18:44 
+
+18:44 that we can multiply a
+18:48 
+
+18:48 row of u
+18:50 
+
+18:50 with uh
+18:53 
+
+18:53 with a column of e right so we need to
+18:55 
+
+18:55 make sure that
+18:56 
+
+18:56 the dimensions much so we basically can
+19:00 
+
+19:00 use the same thing here
+19:02 
+
+19:02 so this is the check that makes sure
+19:04 
+
+19:04 that
+19:06 
+
+19:06 the multiplication makes sense
+19:10 
+
+19:10 then we need to create a new matrix so
+19:12 
+
+19:12 let's call it result
+19:14 
+
+19:14 okay and we use
+19:17 
+
+19:17 initialize it with zeros
+19:20 
+
+19:20 so the size of this matrix will be
+19:23 
+
+19:23 the number of
+19:26 
+
+19:26 rows of this matrix will come from here
+19:30 
+
+19:30 when we multiply
+19:32 
+
+19:32 u
+19:33 
+
+19:33 by
+19:35 
+
+19:35 v
+19:36 
+
+19:36 we will have
+19:38 
+
+19:38 a new
+19:39 
+
+19:39 vector that has dimensionality 3 because
+19:41 
+
+19:41 there are three numbers
+19:43 
+
+19:43 so it will be 3
+19:45 
+
+19:45 so ub
+19:46 
+
+19:46 will have
+19:47 
+
+19:47 3 rows and it will have also 3 columns
+19:50 
+
+19:50 because there are 3 columns in b
+19:53 
+
+19:53 so number of rows comes from u
+19:56 
+
+19:56 so this is the number of rows
+19:59 
+
+19:59 of u and number
+20:01 
+
+20:01 of columns
+20:03 
+
+20:03 comes from
+20:05 
+
+20:05 the number of columns of b
+20:09 
+
+20:09 and then we create
+20:11 
+
+20:11 a matrix
+20:13 
+
+20:13 with results which with number of rows
+20:16 
+
+20:16 coming from u
+20:18 
+
+20:18 and number of columns coming from v and
+20:20 
+
+20:20 then we do a loop
+20:23 
+
+20:23 so here
+20:24 
+
+20:24 we
+20:25 
+
+20:25 loop over the rows of b so we first do
+20:29 
+
+20:29 it for v 0 then v 1
+20:32 
+
+20:32 v 1 and b second
+20:36 
+
+20:36 so we do it over uh
+20:39 
+
+20:39 for each column
+20:42 
+
+20:42 and then we let's take you
+20:44 
+
+20:44 [Music]
+20:45 
+
+20:45 take
+20:47 
+
+20:47 the eighth column of u
+20:49 
+
+20:49 which is uh
+20:52 
+
+20:52 we use this notation so we take all the
+20:54 
+
+20:54 rows and eighth column
+20:56 
+
+20:56 so now we multiply
+20:58 
+
+20:58 this
+20:59 
+
+20:59 so
+21:01 
+
+21:01 it is out of multiplication it will be a
+21:05 
+
+21:05 matrix vector multiplication between uh
+21:09 
+
+21:09 so sorry it should be
+21:12 
+
+21:12 e
+21:14 
+
+21:14 right and then we multiply
+21:17 
+
+21:17 u by
+21:18 
+
+21:18 this uh
+21:19 
+
+21:19 if column of v
+21:22 
+
+21:22 right and
+21:24 
+
+21:24 then we get some result
+21:26 
+
+21:26 and u
+21:27 
+
+21:27 d e
+21:28 
+
+21:28 so this is the result of multiplication
+21:31 
+
+21:31 of our matrix u with
+21:34 
+
+21:34 vector v
+21:35 
+
+21:35 and what we need to do now is put it to
+21:38 
+
+21:38 the result so this is our matrix
+21:41 
+
+21:41 result
+21:44 
+
+21:44 the result and it has so let's say it's
+21:47 
+
+21:47 three by three matrix
+21:50 
+
+21:50 filled with zeros yeah actually these
+21:53 
+
+21:53 are zero here so what we want to do here
+21:56 
+
+21:56 is replace these zeros
+21:60 
+
+21:60 with some numbers so we want to replace
+22:02 
+
+22:02 this with results of multiplication so
+22:04 
+
+22:04 here it will be u
+22:07 
+
+22:07 times the
+22:09 
+
+22:09 first
+22:12 
+
+22:12 and
+22:13 
+
+22:13 to reassign a column of
+22:17 
+
+22:17 a two-dimensional array
+22:19 
+
+22:19 this is the syntax we use so we say that
+22:22 
+
+22:22 for if column
+22:24 
+
+22:24 of
+22:24 
+
+22:24 the result
+22:26 
+
+22:26 the result is
+22:28 
+
+22:28 this multiplication
+22:30 
+
+22:30 right
+22:31 
+
+22:31 so we do this for we repeat this for
+22:34 
+
+22:34 every column of v
+22:36 
+
+22:36 and we return the result
+22:38 
+
+22:38 and this is
+22:40 
+
+22:40 our multiplication then let's check it
+22:46 
+
+22:46 so between u and v
+22:50 
+
+22:50 and this is the result and again you
+22:53 
+
+22:53 probably figured out this pattern by now
+22:56 
+
+22:56 is that if we want to do it with plane
+22:58 
+
+22:58 numpy
+22:60 
+
+22:60 if we want to multiply two matrices with
+23:02 
+
+23:02 plane number
+23:03 
+
+23:03 we use the
+23:05 
+
+23:05 dot method
+23:06 
+
+23:06 and you see it returns the same result
+23:09 
+
+23:09 right so
+23:10 
+
+23:10 which means that our
+23:12 
+
+23:12 matrix matrix multiplication method
+23:14 
+
+23:14 works and
+23:15 
+
+23:15 this way
+23:16 
+
+23:16 we managed to
+23:18 
+
+23:18 express matrix matrix multiplication
+23:20 
+
+23:20 using matrix vector multiplication
+23:23 
+
+23:23 and then in turn we
+23:25 
+
+23:25 expressed matrix vector multiplication
+23:27 
+
+23:27 with vector vector multiplication there
+23:29 
+
+23:29 are still two topics we want to talk
+23:30 
+
+23:30 about
+23:31 
+
+23:31 let's talk about them so first i want to
+23:34 
+
+23:34 talk about the identity matrix we
+23:36 
+
+23:36 call identity matrix as capital capital
+23:40 
+
+23:40 i
+23:41 
+
+23:41 so this is the identity matrix and
+23:43 
+
+23:43 identity matrix is a square matrix
+23:46 
+
+23:46 where on the
+23:48 
+
+23:48 diagonal we have
+23:50 
+
+23:50 ones
+23:51 
+
+23:51 and we have zeros everywhere when we
+23:54 
+
+23:54 take any matrix let's say we have matrix
+23:56 
+
+23:56 u
+23:57 
+
+23:57 and we multiplied by i
+23:60 
+
+23:60 and of course like dimensions should
+24:02 
+
+24:02 match here
+24:03 
+
+24:03 we get u back
+24:05 
+
+24:05 or we can put it
+24:07 
+
+24:07 in front and we can again get u
+24:10 
+
+24:10 so
+24:12 
+
+24:12 identity matrix is like
+24:14 
+
+24:14 a number one so if we multiply number
+24:17 
+
+24:17 one by any number we get the number back
+24:21 
+
+24:21 right
+24:22 
+
+24:22 and
+24:23 
+
+24:23 no matter on which side we have this one
+24:26 
+
+24:26 we get the number back
+24:27 
+
+24:27 so in principle
+24:30 
+
+24:30 now
+24:31 
+
+24:31 this is the same right so this is the
+24:33 
+
+24:33 same but for
+24:34 
+
+24:34 so this is like a number one but for
+24:37 
+
+24:37 matrices if we need
+24:39 
+
+24:39 to create uh this identity matrix so in
+24:42 
+
+24:42 numpy we use the
+24:45 
+
+24:45 function i i don't know why it's called
+24:47 
+
+24:47 i
+24:48 
+
+24:48 but here we just specify the dimension
+24:50 
+
+24:50 the identity matrix and it gives us a
+24:53 
+
+24:53 matrix
+24:54 
+
+24:54 where on the diagonal we have ones
+24:57 
+
+24:57 and we have zeros everywhere else yeah
+25:00 
+
+25:00 and we can see let's say if we create
+25:03 
+
+25:03 this identity matrix of
+25:06 
+
+25:06 size three
+25:07 
+
+25:07 then let's say we have
+25:10 
+
+25:10 b here
+25:12 
+
+25:12 so
+25:15 
+
+25:15 we can test it and we see that
+25:18 
+
+25:18 yeah when we multiply
+25:22 
+
+25:22 v by i
+25:24 
+
+25:24 we get the matrix key back
+25:27 
+
+25:27 and here we have uh three columns so
+25:30 
+
+25:30 that's why
+25:31 
+
+25:31 our i should be three dimensions uh it
+25:34 
+
+25:34 should have
+25:36 
+
+25:36 like the size of three so it should be a
+25:37 
+
+25:37 three by three matrix so why we are
+25:39 
+
+25:39 talking about this i matrix it's useful
+25:42 
+
+25:42 for explaining what a matrix inverse is
+25:44 
+
+25:44 so let's say we have matrix a and then
+25:48 
+
+25:48 the inverse of a
+25:50 
+
+25:50 we usually call it a minus 1 is a matrix
+25:55 
+
+25:55 such that when we multiply it by a
+25:58 
+
+25:58 we get i
+25:59 
+
+25:59 to compute
+26:01 
+
+26:01 the inverse so first of all um only
+26:04 
+
+26:04 square matrices have inverse so square
+26:06 
+
+26:06 matrices matrix is a matrix for which
+26:08 
+
+26:08 the number of rows goes to the number of
+26:10 
+
+26:10 columns so actually we need to have
+26:14 
+
+26:14 a square matrix so let's just take the
+26:17 
+
+26:17 first three
+26:19 
+
+26:19 rows of b
+26:23 
+
+26:23 so this is our matrix
+26:26 
+
+26:26 uh square matrix and let's call it v
+26:29 
+
+26:29 square
+26:30 
+
+26:30 yes
+26:34 
+
+26:34 this is our matrix and to compute
+26:36 
+
+26:36 inverse of this matrix we use a method
+26:39 
+
+26:39 from
+26:40 
+
+26:40 from numpy called inf it lives in the
+26:44 
+
+26:44 lean arc package which stands for linear
+26:46 
+
+26:46 algebra i assume
+26:48 
+
+26:48 and
+26:49 
+
+26:49 so this is how we use it
+26:51 
+
+26:51 and then the result is some matrix which
+26:54 
+
+26:54 let's call it a
+26:56 
+
+26:56 vs inf so this is the inverse
+26:59 
+
+26:59 this then again let's print it
+27:02 
+
+27:02 and when we multiply
+27:05 
+
+27:05 the s inverse when we multiply the
+27:09 
+
+27:09 multiply these two matrices
+27:11 
+
+27:11 what we get is uh is an identity matrix
+27:15 
+
+27:15 this will be quite useful for
+27:17 
+
+27:17 linear regression we will see that in
+27:19 
+
+27:19 the next in the next session
+27:23 
+
+27:23 and for this lesson that's all
+27:26 
+
+27:26 and next
+27:27 
+
+27:27 we will have our last lesson of this
+27:30 
+
+27:30 section we will talk about pandas which
+27:32 
+
+27:32 is a library for manipulating tabular
+27:34 
+
+27:34 data in python

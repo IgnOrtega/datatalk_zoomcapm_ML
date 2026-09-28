@@ -1,0 +1,553 @@
+00:00 welcome back this is the last video for
+00:03 
+
+00:03 this session and we'll just do a short
+00:05 
+
+00:05 summary of what we learned
+00:07 
+
+00:07 so
+00:09 
+
+00:09 in uh
+00:10 
+
+00:10 first lesson we
+00:11 
+
+00:11 did a quick introduction into machine
+00:13 
+
+00:13 learning and we talked about the
+00:16 
+
+00:16 car price prediction example so we
+00:18 
+
+00:18 wanted to predict the price of a car and
+00:21 
+
+00:21 we looked at
+00:23 
+
+00:23 what the features are so the features
+00:27 
+
+00:27 are
+00:27 
+
+00:27 all the characteristics of a car that we
+00:30 
+
+00:30 have so this is everything we know about
+00:32 
+
+00:32 the car and then we have the target
+00:35 
+
+00:35 variable
+00:37 
+
+00:37 this is what we want to predict uh about
+00:39 
+
+00:39 the car so these things go to a machine
+00:43 
+
+00:43 learning algorithm
+00:44 
+
+00:44 and the output is a model
+00:47 
+
+00:47 and model is something we can use later
+00:50 
+
+00:50 to
+00:52 
+
+00:52 to predict the prices for cars for which
+00:54 
+
+00:54 we don't know price so if there is a
+00:57 
+
+00:57 there are some cars let's say for this
+00:59 
+
+00:59 audi we don't know what the price is we
+01:01 
+
+01:01 put it into inside a model and the model
+01:04 
+
+01:04 tells us that the price for this car is
+01:06 
+
+01:06 23 000.
+01:08 
+
+01:08 in the second lesson we compared
+01:10 
+
+01:10 rule by base systems with
+01:12 
+
+01:12 machine learning so in a rule-based
+01:14 
+
+01:14 system
+01:15 
+
+01:15 uh humans come up with rules and then
+01:18 
+
+01:18 convert these rules into a programming
+01:20 
+
+01:20 language
+01:22 
+
+01:22 like python and we talked about an
+01:23 
+
+01:23 example of spam prediction so we would
+01:26 
+
+01:26 manually in a rule-based system we would
+01:28 
+
+01:28 manually analyze the data we'll try to
+01:30 
+
+01:30 extract patterns from this data and code
+01:32 
+
+01:32 them as rules
+01:34 
+
+01:34 and it becomes quite messy over time and
+01:38 
+
+01:38 with machine learning we don't have this
+01:39 
+
+01:39 date with this problem because we don't
+01:41 
+
+01:41 need to encode this manually and models
+01:44 
+
+01:44 extract
+01:45 
+
+01:45 patterns
+01:46 
+
+01:46 themselves so they pick they just look
+01:49 
+
+01:49 at
+01:50 
+
+01:50 the training data at our features
+01:53 
+
+01:53 and they use statistics and mathematics
+01:56 
+
+01:56 to figure out uh
+01:58 
+
+01:58 like what are the
+01:60 
+
+01:60 patterns present in these features
+02:03 
+
+02:03 and what we can use to actually make a
+02:05 
+
+02:05 decision if something is a spam or not
+02:10 
+
+02:10 then we talked about this concept of
+02:12 
+
+02:12 supervised learning because both these
+02:14 
+
+02:14 examples of
+02:15 
+
+02:15 price prediction and spam prediction
+02:18 
+
+02:18 is supervised learning because we have
+02:20 
+
+02:20 the target variable so the y here is our
+02:23 
+
+02:23 target variable
+02:24 
+
+02:24 so this is the information we want to
+02:26 
+
+02:26 predict
+02:28 
+
+02:28 we
+02:28 
+
+02:28 know this and this is something we want
+02:30 
+
+02:30 to learn so our model
+02:33 
+
+02:33 g
+02:34 
+
+02:34 so this is a model
+02:36 
+
+02:36 so the model extracts patterns from data
+02:40 
+
+02:40 and then
+02:41 
+
+02:41 for data for which we don't know the
+02:43 
+
+02:43 price so this is our feature matrix
+02:46 
+
+02:46 capital x we apply the model and we get
+02:48 
+
+02:48 something that is close as possible to
+02:51 
+
+02:51 target
+02:54 
+
+02:54 then we talked about
+02:56 
+
+02:56 the bigger picture so modeling so this
+02:59 
+
+02:59 machine learning so this is like this
+03:02 
+
+03:02 g
+03:03 
+
+03:03 from x
+03:04 
+
+03:04 equals y so this is only a part of the
+03:07 
+
+03:07 entire process
+03:08 
+
+03:08 and in addition to modeling there are
+03:10 
+
+03:10 many other things so from business
+03:13 
+
+03:13 understanding when we need to understand
+03:15 
+
+03:15 the problem then
+03:17 
+
+03:17 oh like about standing data sources
+03:19 
+
+03:19 about preparing the data because this x
+03:23 
+
+03:23 needs to be
+03:24 
+
+03:24 prepared in the right form right so we
+03:26 
+
+03:26 can actually put this
+03:28 
+
+03:28 in a model
+03:29 
+
+03:29 and then of course there is also a
+03:31 
+
+03:31 deployment step because without this
+03:32 
+
+03:32 deployment step
+03:34 
+
+03:34 even the best model is not useful
+03:37 
+
+03:37 so and
+03:38 
+
+03:38 machine learning is just a part of the
+03:40 
+
+03:40 entire process
+03:42 
+
+03:42 we talked then in more details about
+03:44 
+
+03:44 this
+03:46 
+
+03:46 the modeling step and we talked about
+03:48 
+
+03:48 the process of selecting the best model
+03:51 
+
+03:51 and
+03:52 
+
+03:52 there we take the entire data set we
+03:55 
+
+03:55 split it into three parts
+03:57 
+
+03:57 and we use one part validation data set
+04:00 
+
+04:00 for
+04:02 
+
+04:02 finding the bus model and then we use
+04:04 
+
+04:04 another part
+04:05 
+
+04:05 training
+04:06 
+
+04:06 testing data set to make sure that we
+04:08 
+
+04:08 don't accidentally
+04:10 
+
+04:10 pick a model that got good results just
+04:13 
+
+04:13 by chance
+04:15 
+
+04:15 then uh lesson six wasn't uh
+04:19 
+
+04:19 really a lesson so you just need to
+04:21 
+
+04:21 install all the environment
+04:23 
+
+04:23 so
+04:24 
+
+04:24 for this course we need numpy pandas
+04:26 
+
+04:26 second turn to sleep
+04:29 
+
+04:29 and the easiest option
+04:31 
+
+04:31 to get all of these is to install
+04:33 
+
+04:33 anaconda and for those who are
+04:36 
+
+04:36 interested it's also possible to
+04:37 
+
+04:37 actually create a
+04:39 
+
+04:39 server to run the server on aws or other
+04:41 
+
+04:41 cloud providers and use it as well
+04:45 
+
+04:45 then in lesson seven we talked about
+04:47 
+
+04:47 numpy so numpy is a library in python
+04:50 
+
+04:50 for manipulating
+04:52 
+
+04:52 numerical data so numerical arrays and
+04:55 
+
+04:55 we talked about different operations
+04:57 
+
+04:57 that are useful for data science and
+04:60 
+
+04:60 machine learning
+05:01 
+
+05:01 that are available in number
+05:04 
+
+05:04 then in the lesson eight we talked about
+05:07 
+
+05:07 linear algebra we talked about
+05:09 
+
+05:09 multiplication so we talked about uh
+05:12 
+
+05:12 vector vector multiplication so if you
+05:14 
+
+05:14 remember we had two vectors u and v and
+05:17 
+
+05:17 we talked about multiplication between
+05:18 
+
+05:18 them then we talked about matrix vector
+05:21 
+
+05:21 multiplication when one is matrix
+05:24 
+
+05:24 denoted as capital
+05:26 
+
+05:26 u and then others letter
+05:28 
+
+05:28 small letter v and then we talked about
+05:32 
+
+05:32 matrix matrix multiplication and in all
+05:34 
+
+05:34 these cases so for matrix matrix
+05:36 
+
+05:36 multiplication it's possible to express
+05:39 
+
+05:39 matrix matrix multiplication as a set of
+05:41 
+
+05:41 matrix vector multiplications and also
+05:44 
+
+05:44 matrix vector multiplication is possible
+05:46 
+
+05:46 to express as a bunch of
+05:50 
+
+05:50 vector vector multiplications
+05:52 
+
+05:52 and we saw that actually if you
+05:55 
+
+05:55 implement everything in code the
+05:56 
+
+05:56 formulas no longer look scary
+05:59 
+
+05:59 and then
+05:60 
+
+05:60 finally in lesson nine we talked about
+06:02 
+
+06:02 pandas which is a library in python for
+06:05 
+
+06:05 processing tableau data
+06:08 
+
+06:08 basically dealing with tables and the
+06:11 
+
+06:11 main abstraction there is a data frame
+06:13 
+
+06:13 and we talked about
+06:15 
+
+06:15 different operations that we can do with
+06:17 
+
+06:17 pandas
+06:19 
+
+06:19 and that's it that's what we covered
+06:22 
+
+06:22 and in the last next session we will do
+06:25 
+
+06:25 something practical so in this this
+06:27 
+
+06:27 session was more abstract it was it was
+06:30 
+
+06:30 about
+06:30 
+
+06:30 like
+06:32 
+
+06:32 more abstract things like okay what you
+06:34 
+
+06:34 can do with machine learning what you
+06:35 
+
+06:35 can do with numpy what you can do with
+06:36 
+
+06:36 pandas
+06:38 
+
+06:38 but in the next next section we will
+06:40 
+
+06:40 actually do a project
+06:42 
+
+06:42 we will predict the price of a car
+06:44 
+
+06:44 so stay tuned

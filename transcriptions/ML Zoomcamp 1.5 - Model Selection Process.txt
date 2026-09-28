@@ -1,0 +1,1669 @@
+00:01 welcome back this is our fifth lesson of
+00:04 
+
+00:04 session number one of machine learning
+00:06 
+
+00:06 zoom camp and we will talk about the
+00:08 
+
+00:08 modeling step and we will talk about the
+00:10 
+
+00:10 process of selecting the best model
+00:12 
+
+00:12 which is called the model selection
+00:13 
+
+00:13 process
+00:15 
+
+00:15 in the previous lesson we talked about
+00:17 
+
+00:17 uh this modeling step right this is the
+00:19 
+
+00:19 step where the actual
+00:21 
+
+00:21 machine learning happens
+00:23 
+
+00:23 so in this step
+00:25 
+
+00:25 we
+00:26 
+
+00:26 try different models so we already have
+00:28 
+
+00:28 the data extracted on the previous tab
+00:30 
+
+00:30 so we try different models and our goal
+00:33 
+
+00:33 is to choose the best model so here you
+00:35 
+
+00:35 don't need to worry about logistic
+00:36 
+
+00:36 regression decision tree neural network
+00:38 
+
+00:38 mean we will cover them later in other
+00:42 
+
+00:42 in other sessions
+00:44 
+
+00:44 but they are different models some of
+00:46 
+
+00:46 them might work well on this particular
+00:48 
+
+00:48 problem problem some of them might not
+00:50 
+
+00:50 work well
+00:52 
+
+00:52 and what we need to do is try some of
+00:54 
+
+00:54 them and see what works best and for
+00:56 
+
+00:56 that we need to have a way of doing this
+00:59 
+
+00:59 and this is called the model selection
+01:01 
+
+01:01 process that we will talk about
+01:04 
+
+01:04 if you think about
+01:05 
+
+01:05 the way we
+01:07 
+
+01:07 use a model for our sum example so let's
+01:09 
+
+01:09 say
+01:11 
+
+01:11 now it's
+01:13 
+
+01:13 july
+01:15 
+
+01:15 and
+01:16 
+
+01:16 we train a model right so we take our uh
+01:20 
+
+01:20 capital x we take y
+01:23 
+
+01:23 we produce our model g right
+01:26 
+
+01:26 and then we deploy the model in august
+01:31 
+
+01:31 and in august we take
+01:33 
+
+01:33 the model g that we trained on the data
+01:35 
+
+01:35 from july and before that
+01:38 
+
+01:38 and we apply this model to spam messages
+01:43 
+
+01:43 and it produces some score for example
+01:45 
+
+01:45 that this email uh
+01:49 
+
+01:49 the probability that this email is palm
+01:51 
+
+01:51 is 70 right
+01:54 
+
+01:54 so this is how we use a model in
+01:56 
+
+01:56 practice
+01:58 
+
+01:58 and
+01:59 
+
+01:59 when evaluating the model we want to
+02:02 
+
+02:02 sort of mimic this
+02:05 
+
+02:05 this way of using it so we want to to
+02:07 
+
+02:07 see how well our model will perform on
+02:10 
+
+02:10 data it hasn't seen the model from july
+02:13 
+
+02:13 didn't see the data from august it only
+02:16 
+
+02:16 saw the the data from july right
+02:19 
+
+02:19 and in july we don't know how well
+02:23 
+
+02:23 the model will perform
+02:25 
+
+02:25 so what we want to do is we want to
+02:28 
+
+02:28 do something similar
+02:29 
+
+02:29 of course we cannot go back in the
+02:31 
+
+02:31 future and take the data from august
+02:34 
+
+02:34 when we are in july
+02:35 
+
+02:35 but we can do something
+02:38 
+
+02:38 that is quite close enough so we can
+02:40 
+
+02:40 take
+02:41 
+
+02:41 the entire data set that we have
+02:45 
+
+02:45 and we can take a small part of this
+02:47 
+
+02:47 data set
+02:48 
+
+02:48 let's say 20 of this
+02:51 
+
+02:51 and we
+02:53 
+
+02:53 hide this so we take this data
+02:56 
+
+02:56 put it away
+02:58 
+
+02:58 and pretend this data doesn't exist
+02:60 
+
+02:60 right so we take
+03:01 
+
+03:01 the remaining 80 percent
+03:04 
+
+03:04 right
+03:05 
+
+03:05 and we use this uh twenty percent for
+03:08 
+
+03:08 training only
+03:11 
+
+03:11 right
+03:12 
+
+03:12 and the twenty percent we don't use for
+03:14 
+
+03:14 training so this is sort of the data
+03:16 
+
+03:16 from august and this is sort of the data
+03:18 
+
+03:18 from july
+03:20 
+
+03:20 in a way right so we kind of hide this
+03:22 
+
+03:22 data and this data set we call it
+03:24 
+
+03:24 validation data set so this data set
+03:27 
+
+03:27 is not used in training
+03:29 
+
+03:29 so let's say we have this training data
+03:32 
+
+03:32 set right
+03:34 
+
+03:34 terrain
+03:36 
+
+03:36 and we have the validation data set
+03:38 
+
+03:38 right
+03:39 
+
+03:39 so what we do
+03:41 
+
+03:41 is a
+03:42 
+
+03:42 we need to extract this feature matrix
+03:45 
+
+03:45 right this capital capital x
+03:49 
+
+03:49 and we do this from
+03:51 
+
+03:51 the training data so we have the x
+03:54 
+
+03:54 we also have the y
+03:56 
+
+03:56 also coming from the training data
+03:59 
+
+03:59 and we train our model g
+04:02 
+
+04:02 only using this x and y right so we have
+04:05 
+
+04:05 a gene
+04:06 
+
+04:06 then from the validation data set
+04:09 
+
+04:09 we extract another x
+04:11 
+
+04:11 that mosel the model didn't see it
+04:13 
+
+04:13 during training and we can call this x
+04:16 
+
+04:16 x validation
+04:18 
+
+04:18 x
+04:18 
+
+04:18 b
+04:19 
+
+04:19 and again we can do this uh y v
+04:23 
+
+04:23 right so this is the target variable
+04:24 
+
+04:24 from the validation data set and the x
+04:27 
+
+04:27 variable from the validation data set
+04:29 
+
+04:29 and we have our x over we have our
+04:32 
+
+04:32 g the model that we trained on the
+04:34 
+
+04:34 training data set so we take the g
+04:37 
+
+04:37 and we apply it to
+04:39 
+
+04:39 the
+04:41 
+
+04:41 validation data set and we get some
+04:43 
+
+04:43 predictions now we can call call them
+04:45 
+
+04:45 just by hard
+04:47 
+
+04:47 right so these are the predictions
+04:50 
+
+04:50 what we do next is we need to compare
+04:53 
+
+04:53 this y hat
+04:56 
+
+04:56 predictions
+04:57 
+
+04:57 with
+04:58 
+
+04:58 the actual
+04:60 
+
+04:60 values
+05:01 
+
+05:01 so this is our spam
+05:03 
+
+05:03 this is not spam and the way it looks in
+05:06 
+
+05:06 practice is
+05:09 
+
+05:09 so let me just insert a new page here
+05:13 
+
+05:13 so the way it looks in practice
+05:15 
+
+05:15 is uh so
+05:17 
+
+05:17 so we have this
+05:19 
+
+05:19 predictions
+05:21 
+
+05:21 why
+05:21 
+
+05:21 cut and we have the actual
+05:24 
+
+05:24 uh target variable right and for
+05:28 
+
+05:28 um this uh
+05:30 
+
+05:30 so actual could be one zero one zero one
+05:33 
+
+05:33 zero so this is palm not spawn spam not
+05:35 
+
+05:35 spam
+05:37 
+
+05:37 uh
+05:38 
+
+05:38 right and for this
+05:40 
+
+05:40 yeah remember that the output of this
+05:41 
+
+05:41 thing is a probability
+05:43 
+
+05:43 so it can be 0.8 0.7
+05:48 
+
+05:48 0.6
+05:50 
+
+05:50 0.1
+05:52 
+
+05:52 0.9
+05:54 
+
+05:54 0.6 right this is the probabilities that
+05:57 
+
+05:57 we later convert to
+05:59 
+
+05:59 um
+06:00 
+
+06:00 two predictions so for this one it's
+06:02 
+
+06:02 greater than
+06:04 
+
+06:04 uh 0.5 so for this we predict one sperm
+06:09 
+
+06:09 for this one we also predict sperm for
+06:11 
+
+06:11 this one we predict spam for this one we
+06:13 
+
+06:13 predict not spam
+06:14 
+
+06:14 this is spam and this is spam again
+06:17 
+
+06:17 so now we can see
+06:19 
+
+06:19 so these are our predictions
+06:22 
+
+06:22 and this is our target variable
+06:26 
+
+06:26 and we can see in how many cases this is
+06:28 
+
+06:28 correct so
+06:30 
+
+06:30 this is correct this is not correct
+06:31 
+
+06:31 correct
+06:32 
+
+06:32 correct correct not correct
+06:36 
+
+06:36 so actually in four hours of six cases
+06:39 
+
+06:39 it's correct
+06:41 
+
+06:41 um
+06:42 
+
+06:42 so this is uh
+06:43 
+
+06:43 sixty percent sixty six percent
+06:48 
+
+06:48 right so in this case the the model we
+06:52 
+
+06:52 have is 66 accurate
+06:54 
+
+06:54 so we can do this let's say for
+06:58 
+
+06:58 logistic regression we do this and we
+07:00 
+
+07:00 see that our model is
+07:03 
+
+07:03 correct
+07:04 
+
+07:04 let's say it was our logistic regression
+07:06 
+
+07:06 so it has 66 accuracy
+07:09 
+
+07:09 then we take a decision tree which is a
+07:11 
+
+07:11 different uh model family
+07:14 
+
+07:14 it's uh like like the g here
+07:18 
+
+07:18 and g here
+07:19 
+
+07:19 are different g's like different
+07:21 
+
+07:21 functions
+07:22 
+
+07:22 and uh for decision tree maybe accuracy
+07:24 
+
+07:24 is 60
+07:26 
+
+07:26 right
+07:27 
+
+07:27 so then we take another model can be
+07:29 
+
+07:29 random first right and we
+07:32 
+
+07:32 see that uh maybe it's
+07:34 
+
+07:34 67 correct and we take a neural network
+07:38 
+
+07:38 and neural network can be maybe 80
+07:40 
+
+07:40 correct for example this i just made up
+07:43 
+
+07:43 these numbers and we see that uh
+07:47 
+
+07:47 this model neural network
+07:50 
+
+07:50 has the best accuracy
+07:53 
+
+07:53 so we select this model as our best
+07:55 
+
+07:55 model so this is how it works right
+07:59 
+
+07:59 however there could be a problem
+08:02 
+
+08:02 right um i don't know what happened here
+08:04 
+
+08:04 like it's supposed to be
+08:06 
+
+08:06 like let's uh
+08:09 
+
+08:09 like this one think with a heart this is
+08:13 
+
+08:13 spam
+08:14 
+
+08:14 and this
+08:15 
+
+08:15 mail is like a usual name so let's
+08:18 
+
+08:18 remove this
+08:20 
+
+08:20 so there is a problem with this approach
+08:23 
+
+08:23 so and i want to illustrate this
+08:25 
+
+08:25 problem
+08:27 
+
+08:27 with uh like a made-up example but i
+08:30 
+
+08:30 think it's a good illustration um let's
+08:32 
+
+08:32 say our model is not a logistic
+08:34 
+
+08:34 regression model it's not
+08:36 
+
+08:36 a
+08:37 
+
+08:37 neural net it's a coin right so we take
+08:42 
+
+08:42 uh our twenty percent of data
+08:45 
+
+08:45 which happen to be these five emails
+08:49 
+
+08:49 uh and uh
+08:52 
+
+08:52 um
+08:53 
+
+08:53 yeah
+08:54 
+
+08:54 and what we do is now we flip a coin
+08:57 
+
+08:57 and if a coin uh
+08:60 
+
+08:60 lands on heads we say it's palm
+09:02 
+
+09:02 it has some tails
+09:04 
+
+09:04 if it lands on tails then we say it's
+09:06 
+
+09:06 not spawn right very simple model
+09:09 
+
+09:09 and
+09:10 
+
+09:10 we take one euro
+09:13 
+
+09:13 the first model
+09:15 
+
+09:15 and uh
+09:16 
+
+09:16 yeah we make a prediction for our
+09:18 
+
+09:18 validation data set
+09:20 
+
+09:20 right so the prediction is
+09:23 
+
+09:23 so this is actually spam
+09:25 
+
+09:25 not spam
+09:26 
+
+09:26 spam not spam not spam
+09:30 
+
+09:30 so the model says that the first one is
+09:33 
+
+09:33 spam the second one is spam
+09:36 
+
+09:36 the third one is not spam not spam and
+09:38 
+
+09:38 spam
+09:39 
+
+09:39 so it's uh
+09:43 
+
+09:43 yeah so it got only one right right
+09:46 
+
+09:46 so it's 20 correct
+09:49 
+
+09:49 then we take one american dollar and we
+09:52 
+
+09:52 do the same so it says
+09:54 
+
+09:54 spam not spam not spam not spam spam
+09:58 
+
+09:58 right and then it got
+10:00 
+
+10:00 one
+10:02 
+
+10:02 two right so 40 correct
+10:05 
+
+10:05 then we take one polish zloty
+10:08 
+
+10:08 and uh one polish zloty
+10:11 
+
+10:11 gives this sequence so g
+10:13 
+
+10:13 g
+10:14 
+
+10:14 uh good good uh spam spam uh spam
+10:18 
+
+10:18 right so
+10:19 
+
+10:19 one correct uh yeah twenty percent
+10:21 
+
+10:21 correct
+10:22 
+
+10:22 then we take one ruble
+10:24 
+
+10:24 so it can be
+10:26 
+
+10:26 um good not good good not good right so
+10:30 
+
+10:30 then it's uh
+10:32 
+
+10:32 correct in um
+10:34 
+
+10:34 yeah it got only one right right and
+10:36 
+
+10:36 then we take you ukrainian rivena
+10:39 
+
+10:39 and then uh grievna just produces the
+10:43 
+
+10:43 exact sequence right
+10:45 
+
+10:45 it just got lucky right
+10:47 
+
+10:47 so and then it's one hundred percent
+10:49 
+
+10:49 correct
+10:51 
+
+10:51 and then uh so krivna here got really
+10:54 
+
+10:54 lucky
+10:55 
+
+10:55 and we say okay like we see we look at
+10:57 
+
+10:57 the numbers
+10:58 
+
+10:58 so
+10:59 
+
+10:59 like the dollars are quite good um like
+11:03 
+
+11:03 euros slow test and troubles are very
+11:06 
+
+11:06 bad at predicting
+11:08 
+
+11:08 uh spam
+11:10 
+
+11:10 krivna is the best one it has
+11:12 
+
+11:12 100 accuracy
+11:15 
+
+11:15 for predicting our sum messages but we
+11:17 
+
+11:17 all know that this is
+11:20 
+
+11:20 this is really random right so we cannot
+11:21 
+
+11:21 really control the sequence
+11:24 
+
+11:24 this uh this coin just got particularly
+11:27 
+
+11:27 lucky and it managed to produce the same
+11:30 
+
+11:30 sequence as we had in the validation
+11:32 
+
+11:32 data set
+11:34 
+
+11:34 and while this is a two example the
+11:36 
+
+11:36 exact same thing can happen with a real
+11:39 
+
+11:39 model so a model can just get lucky so
+11:41 
+
+11:41 maybe let's say
+11:42 
+
+11:42 this is a neural net
+11:45 
+
+11:45 and this is i don't know uh decision
+11:48 
+
+11:48 tree this is logistic regression i don't
+11:50 
+
+11:50 know this is random forest and this is
+11:51 
+
+11:51 uh i know gradient boosting
+11:54 
+
+11:54 different kind of models and neural net
+11:57 
+
+11:57 just got lucky at predicting
+11:60 
+
+11:60 this particular
+12:02 
+
+12:02 part of the data set so this particular
+12:06 
+
+12:06 subset of our data
+12:09 
+
+12:09 it just happen to
+12:11 
+
+12:11 to do really well on this just by pure
+12:14 
+
+12:14 chance right
+12:15 
+
+12:15 and if we take another part if we take
+12:18 
+
+12:18 another 20
+12:21 
+
+12:21 and apply the same model then the
+12:23 
+
+12:23 results would be totally different so if
+12:25 
+
+12:25 we take ukrainian grievna and apply to a
+12:27 
+
+12:27 different 20
+12:29 
+
+12:29 probably it's very unlikely that we
+12:31 
+
+12:31 again will manage to
+12:33 
+
+12:33 predict it with 100 accuracy
+12:37 
+
+12:37 so this
+12:38 
+
+12:38 in statistics this is called multiple
+12:40 
+
+12:40 comparison problems when we perform the
+12:43 
+
+12:43 same comparison many many times so when
+12:45 
+
+12:45 we use many many different models
+12:48 
+
+12:48 and evaluate them against the same
+12:50 
+
+12:50 validation data set
+12:52 
+
+12:52 one of the models can get
+12:54 
+
+12:54 particularly lucky for no reason just by
+12:57 
+
+12:57 chance it gets lucky and it produces a
+12:59 
+
+12:59 good result
+13:01 
+
+13:01 this can happen with machine learning a
+13:03 
+
+13:03 lot right so because at the end these
+13:06 
+
+13:06 methods are probabilistic so a thing
+13:08 
+
+13:08 like this can happen that a model just
+13:11 
+
+13:11 gets lucky
+13:13 
+
+13:13 to guard against cases like this what we
+13:16 
+
+13:16 do instead of
+13:18 
+
+13:18 holding out just one data set we
+13:20 
+
+13:20 actually hold out two data sets so let's
+13:23 
+
+13:23 say this is our data set
+13:25 
+
+13:25 so we
+13:27 
+
+13:27 take 20 of this data
+13:29 
+
+13:29 for validation purposes
+13:33 
+
+13:33 we take twenty percent
+13:34 
+
+13:34 more
+13:35 
+
+13:35 for
+13:36 
+
+13:36 testing purposes
+13:39 
+
+13:39 and we take the remaining sixty percent
+13:42 
+
+13:42 and by the way this sixty twenty twenty
+13:44 
+
+13:44 this is not set at stone it can be any
+13:46 
+
+13:46 value
+13:47 
+
+13:47 and the remaining 60 we take for
+13:50 
+
+13:50 training
+13:53 
+
+13:53 right so
+13:54 
+
+13:54 what we have is we have three
+13:57 
+
+13:57 not overlapping subsets of our data
+14:01 
+
+14:01 training data validation data and test
+14:03 
+
+14:03 data
+14:04 
+
+14:04 and what we do next
+14:06 
+
+14:06 is
+14:07 
+
+14:07 we
+14:08 
+
+14:08 hide this data set so we just put it
+14:10 
+
+14:10 away
+14:11 
+
+14:11 we forget about this
+14:14 
+
+14:14 and we do the model selection in the
+14:16 
+
+14:16 same way as i described previously so we
+14:18 
+
+14:18 take our
+14:20 
+
+14:20 x we take our y we train our model g
+14:22 
+
+14:22 then we take our x validation y
+14:24 
+
+14:24 validation we apply g and we
+14:28 
+
+14:28 calculate all this accuracy and so on
+14:32 
+
+14:32 and here at this step we select the best
+14:34 
+
+14:34 model right so
+14:37 
+
+14:37 it could be let's say neural network
+14:39 
+
+14:39 so we did all this exercise of selecting
+14:41 
+
+14:41 the best model
+14:43 
+
+14:43 and then next to make sure that this
+14:46 
+
+14:46 model didn't get
+14:48 
+
+14:48 particularly lucky on this validation
+14:50 
+
+14:50 set what we do next
+14:52 
+
+14:52 is we apply this neural network to the
+14:55 
+
+14:55 test data set so we take the test data
+14:58 
+
+14:58 set we again extract the
+14:60 
+
+15:00 our feature matrix or target variable
+15:03 
+
+15:03 from the test data set
+15:04 
+
+15:04 and we again do an extra round of
+15:07 
+
+15:07 validation on the test data set
+15:09 
+
+15:09 we just want to make sure that um
+15:12 
+
+15:12 our model
+15:14 
+
+15:14 the model we think is best is actually
+15:16 
+
+15:16 the best one
+15:18 
+
+15:18 and this is how it works okay so let's
+15:20 
+
+15:20 say
+15:21 
+
+15:21 for our example so we had
+15:24 
+
+15:24 logistic regression we have a decision
+15:26 
+
+15:26 tree we have random forest and we have a
+15:29 
+
+15:29 neural net
+15:30 
+
+15:30 so
+15:31 
+
+15:31 i think this one was 60
+15:34 
+
+15:34 six percent correct this may be 60 i
+15:36 
+
+15:36 don't remember i think this was 67
+15:39 
+
+15:39 and this was 80.
+15:41 
+
+15:41 so if we see okay
+15:43 
+
+15:43 this neural network is the best one
+15:45 
+
+15:45 right
+15:47 
+
+15:47 so what we do next is we take the neural
+15:49 
+
+15:49 network only we forget about this
+15:52 
+
+15:52 and we take our test data set
+15:56 
+
+15:56 and now we apply the neural network to
+15:58 
+
+15:58 the test data set and get a number and
+16:01 
+
+16:01 we see let's say the number is it says
+16:03 
+
+16:03 the accuracy is 79 percent i don't see
+16:06 
+
+16:06 okay we have percent here we have 78
+16:10 
+
+16:10 here
+16:10 
+
+16:10 it's very close it's reasonably close
+16:12 
+
+16:12 and we conclude that this model
+16:16 
+
+16:16 behaves quite well so this process is
+16:18 
+
+16:18 called the
+16:20 
+
+16:20 model selection process
+16:21 
+
+16:21 and this is one of the most important
+16:24 
+
+16:24 things in machine learning to be able to
+16:26 
+
+16:26 actually
+16:27 
+
+16:27 set this up and
+16:29 
+
+16:29 this is quite simple like as you see all
+16:31 
+
+16:31 we need to do is we need to split our
+16:33 
+
+16:33 data set into three parts
+16:35 
+
+16:35 so let me just
+16:37 
+
+16:37 so first one
+16:39 
+
+16:39 is split the data set
+16:41 
+
+16:41 split the data set so this is our first
+16:44 
+
+16:44 step
+16:45 
+
+16:45 right
+16:48 
+
+16:48 then what you do next is you
+16:50 
+
+16:50 train a model
+16:53 
+
+16:53 then you
+16:56 
+
+16:56 validate the model using the validation
+16:58 
+
+16:58 data set if you remember we have three
+16:60 
+
+17:00 data sets so the first one is
+17:02 
+
+17:02 train
+17:04 
+
+17:04 then we have validation and we have test
+17:06 
+
+17:06 data set
+17:08 
+
+17:08 so we split it into three parts we train
+17:11 
+
+17:11 our model training data set
+17:14 
+
+17:14 we apply the model to the validation
+17:15 
+
+17:15 data set
+17:18 
+
+17:18 and we see we record
+17:20 
+
+17:20 what is the
+17:22 
+
+17:22 accuracy or how good it is and we see
+17:25 
+
+17:25 that for logistic regression it's 66
+17:29 
+
+17:29 right
+17:30 
+
+17:30 and we repeat this uh two steps
+17:33 
+
+17:33 uh three and four two and
+17:35 
+
+17:35 three how many times we need so we can
+17:38 
+
+17:38 repeat it for many many different models
+17:41 
+
+17:41 and then we will have
+17:43 
+
+17:43 this table like on the previous slide
+17:45 
+
+17:45 for different models
+17:47 
+
+17:47 different
+17:49 
+
+17:49 values right
+17:50 
+
+17:50 so and then what happens next we did
+17:53 
+
+17:53 this
+17:53 
+
+17:53 for many different models
+17:56 
+
+17:56 and we select the best one
+18:02 
+
+18:02 the
+18:03 
+
+18:03 best
+18:05 
+
+18:05 so we have that
+18:06 
+
+18:06 and then we
+18:09 
+
+18:09 using the best value the best model we
+18:11 
+
+18:11 have from the previous step
+18:13 
+
+18:13 we
+18:15 
+
+18:15 applied to the
+18:17 
+
+18:17 test data and this is our
+18:20 
+
+18:20 like we check if everything is good
+18:25 
+
+18:25 and this is the model selection process
+18:27 
+
+18:27 right so it's a
+18:28 
+
+18:28 six step process
+18:30 
+
+18:30 uh
+18:32 
+
+18:32 split the data into three
+18:34 
+
+18:34 three parts
+18:36 
+
+18:36 do the
+18:37 
+
+18:37 model selection on the
+18:39 
+
+18:39 validation data set and then at the end
+18:41 
+
+18:41 make sure that the model didn't get
+18:44 
+
+18:44 particularly lucky
+18:45 
+
+18:45 uh by testing it one more time
+18:49 
+
+18:49 um usually uh like here between four and
+18:53 
+
+18:53 five so
+18:55 
+
+18:55 let me just create another slide
+18:58 
+
+18:58 so we have this hundred percent of our
+19:01 
+
+19:01 data
+19:03 
+
+19:03 right
+19:04 
+
+19:04 so we have 20 percent for
+19:08 
+
+19:08 uh training and we have 20 percent
+19:16 
+
+19:16 we have 20 for uh
+19:19 
+
+19:19 validation
+19:21 
+
+19:21 so
+19:22 
+
+19:22 train
+19:24 
+
+19:24 validation test
+19:27 
+
+19:27 so we train a model here right and we
+19:29 
+
+19:29 use only sixty percent
+19:32 
+
+19:32 and
+19:34 
+
+19:34 um
+19:35 
+
+19:35 we use sixty percent of training we
+19:37 
+
+19:37 validate and then we do the testing and
+19:40 
+
+19:40 here this data set is kinda this part of
+19:43 
+
+19:43 the data is kind of wasted so we only
+19:45 
+
+19:45 use it for checking so what we can
+19:47 
+
+19:47 actually do
+19:48 
+
+19:48 is instead of just throwing this away
+19:51 
+
+19:51 completely what we can do is we first
+19:54 
+
+19:54 we first do the
+19:56 
+
+19:56 model selection processes usual
+19:59 
+
+19:59 but then we take
+20:02 
+
+20:02 we take the training data
+20:04 
+
+20:04 take the validation data set
+20:07 
+
+20:07 and combine them into one big train
+20:10 
+
+20:10 train data
+20:13 
+
+20:13 then we train a model
+20:16 
+
+20:16 like model g
+20:17 
+
+20:17 and then we apply it for testing data so
+20:20 
+
+20:20 in this case
+20:21 
+
+20:21 we will not just throw away with the
+20:23 
+
+20:23 validation data we will use it for
+20:25 
+
+20:25 training
+20:26 
+
+20:26 a new model g right
+20:28 
+
+20:28 which should be a bit better because it
+20:30 
+
+20:30 uses more data for training
+20:33 
+
+20:33 and then we
+20:35 
+
+20:35 check it against the test data set and
+20:37 
+
+20:37 see okay this model indeed didn't get
+20:40 
+
+20:40 just like on the validation set it was
+20:42 
+
+20:42 actually good and this way we don't
+20:44 
+
+20:44 throw away validation uh
+20:46 
+
+20:46 set we still use it for our final model
+20:51 
+
+20:51 so this was a bit theoretical uh
+20:54 
+
+20:54 introduction
+20:56 
+
+20:56 and
+20:56 
+
+20:56 in the next section session we actually
+20:59 
+
+20:59 will use all these things in practice we
+21:01 
+
+21:01 will code everything
+21:03 
+
+21:03 but to be able to do this we need to
+21:05 
+
+21:05 know some tools so we use python for
+21:08 
+
+21:08 that and in python there are some
+21:11 
+
+21:11 libraries that we use
+21:12 
+
+21:12 like numpy pandas and other libraries so
+21:16 
+
+21:16 they are pretty important so before we
+21:19 
+
+21:19 move to the
+21:20 
+
+21:20 practical practical part of
+21:23 
+
+21:23 applying machine learning we will cover
+21:25 
+
+21:25 libraries like numpy in the next lesson
+21:28 
+
+21:28 and we will cover pandas in the lesson
+21:31 
+
+21:31 after that

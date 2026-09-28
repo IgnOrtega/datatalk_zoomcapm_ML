@@ -1,0 +1,1705 @@
+00:00 hello everyone welcome back to
+00:03 
+
+00:03 lesson seven of machine learning zoom
+00:04 
+
+00:04 cup session one number one
+00:07 
+
+00:07 and in this lesson we will talk about
+00:09 
+
+00:09 numpy so previously you installed you
+00:12 
+
+00:12 configured the environment you installed
+00:15 
+
+00:15 all the libraries we needed installed
+00:17 
+
+00:17 num
+00:18 
+
+00:18 python numpy jupiter
+00:21 
+
+00:21 uh pandas and other things
+00:24 
+
+00:24 and now in this lesson we will
+00:27 
+
+00:27 do a quick introduction to numpy i'll
+00:29 
+
+00:29 show you the functions i use quite often
+00:32 
+
+00:32 from numpy
+00:34 
+
+00:34 and
+00:35 
+
+00:35 things that will be quite useful in that
+00:38 
+
+00:38 course so let's start
+00:42 
+
+00:42 so we
+00:43 
+
+00:43 have
+00:44 
+
+00:44 numpy already so now what we need to do
+00:47 
+
+00:47 is import it
+00:48 
+
+00:48 so to import a packaging python use
+00:51 
+
+00:51 import num import and name of the
+00:53 
+
+00:53 package import numpy
+00:56 
+
+00:56 but typically what we do is we don't
+00:57 
+
+00:57 just import numpy but we use an ids
+01:01 
+
+01:01 this way it's shorter to write so
+01:02 
+
+01:02 instead of writing
+01:04 
+
+01:04 numpy we can just write np
+01:08 
+
+01:08 so this is a convention so usually in
+01:10 
+
+01:10 python list data science
+01:12 
+
+01:12 this is how you do this
+01:14 
+
+01:14 so we'll start with creating arrays and
+01:17 
+
+01:17 the simplest
+01:19 
+
+01:19 method for that is called zeros simplest
+01:22 
+
+01:22 function
+01:23 
+
+01:23 so it takes one argument this is the
+01:25 
+
+01:25 size of the array
+01:27 
+
+01:27 and it just creates an array of this
+01:30 
+
+01:30 size of the specified size
+01:32 
+
+01:32 with
+01:33 
+
+01:33 zeros right can be let's say 10.
+01:37 
+
+01:37 there is a similar function to that one
+01:39 
+
+01:39 called once instead of filling the array
+01:42 
+
+01:42 with
+01:43 
+
+01:43 zeros it fills it with once
+01:46 
+
+01:46 uh then yeah it creates an array of size
+01:48 
+
+01:48 10.
+01:49 
+
+01:49 then if you want to fill
+01:52 
+
+01:52 an array with some arbitrary number so
+01:54 
+
+01:54 then you use a function uh called full
+01:57 
+
+01:57 so first specify the size of the
+02:00 
+
+02:00 array and then you specify the
+02:03 
+
+02:03 element you want to
+02:05 
+
+02:05 fill the array with so in this case it's
+02:08 
+
+02:08 2.5
+02:09 
+
+02:09 and array of size 10. so this is how you
+02:11 
+
+02:11 create
+02:14 
+
+02:14 arrays with numpy
+02:16 
+
+02:16 and
+02:20 
+
+02:20 if you want to convert a let's say you
+02:22 
+
+02:22 have a python list so 1 2
+02:26 
+
+02:26 3 5 7 12. so for example
+02:29 
+
+02:29 we have this
+02:30 
+
+02:30 python list and if you want to create an
+02:33 
+
+02:33 array from this
+02:34 
+
+02:34 use a function called array and then
+02:37 
+
+02:37 pass the list as
+02:38 
+
+02:38 the argument and then the result
+02:41 
+
+02:41 is an array so yeah let's call this
+02:44 
+
+02:44 array a
+02:47 
+
+02:47 yeah so we have terry
+02:50 
+
+02:50 and if we want to access an element of
+02:52 
+
+02:52 this array
+02:54 
+
+02:54 then let's say if we want to access
+02:56 
+
+02:56 element three
+02:57 
+
+02:57 which we have
+02:59 
+
+02:59 here
+03:00 
+
+03:00 right so what we need to do
+03:02 
+
+03:02 is we just uh
+03:06 
+
+03:06 write
+03:07 
+
+03:07 index two so remember indexing in python
+03:10 
+
+03:10 starts with zero
+03:11 
+
+03:11 so and then this is how we access uh
+03:14 
+
+03:14 the third
+03:15 
+
+03:15 like in this case element number three
+03:18 
+
+03:18 and
+03:20 
+
+03:20 likewise if we want to change this to
+03:22 
+
+03:22 something else let's say we want to
+03:25 
+
+03:25 change it to replace three with 10 so we
+03:27 
+
+03:27 just use the assignment operator
+03:30 
+
+03:30 and here after executing this code
+03:34 
+
+03:34 um here we have 10 instead of three
+03:37 
+
+03:37 okay um a few other useful functions for
+03:41 
+
+03:41 creating arrays is one
+03:44 
+
+03:44 range
+03:45 
+
+03:45 so this creates a range uh from let's
+03:49 
+
+03:49 say if we want to create a range from
+03:51 
+
+03:51 0 to 9 we use 10 so 10 is
+03:55 
+
+03:55 like the last element not in
+03:57 
+
+03:57 its exclusive so basically up to 10
+04:02 
+
+04:02 and by default it's from 0 to 10
+04:05 
+
+04:05 exclusive
+04:06 
+
+04:06 so in this case it's from 0 to 9 and
+04:09 
+
+04:09 let's say if we want to start with some
+04:11 
+
+04:11 other
+04:13 
+
+04:13 number not with three not with zero but
+04:15 
+
+04:15 with three so we just
+04:18 
+
+04:18 put another uh
+04:20 
+
+04:20 parameter here and then it creates a
+04:21 
+
+04:21 range
+04:22 
+
+04:22 from uh three to
+04:25 
+
+04:25 nine this is very similar to
+04:27 
+
+04:27 a python function
+04:29 
+
+04:29 called range right so it's doing the
+04:31 
+
+04:31 same thing except
+04:34 
+
+04:34 instead of giving us an iterator from
+04:35 
+
+04:35 python it gives us a numpy array
+04:39 
+
+04:39 then another useful
+04:40 
+
+04:40 function in
+04:44 
+
+04:44 in numpy is called linspace
+04:46 
+
+04:46 which creates
+04:48 
+
+04:48 an array filled with numbers between
+04:51 
+
+04:51 the first parameter and the second
+04:53 
+
+04:53 parameter so let's say we want to create
+04:55 
+
+04:55 an array
+04:56 
+
+04:56 with numbers from 0 to 1
+05:00 
+
+05:00 so the first element of this array
+05:03 
+
+05:03 is 0 the last is 1 and then it just
+05:06 
+
+05:06 creates an array of size 10 of size 11
+05:09 
+
+05:09 like specify here and it fills
+05:11 
+
+05:11 everything between
+05:13 
+
+05:13 these these two numbers and of course
+05:15 
+
+05:15 like instead of one we can put
+05:18 
+
+05:18 anything you you want here
+05:20 
+
+05:20 and
+05:21 
+
+05:21 yeah it will just figure out how exactly
+05:23 
+
+05:23 to to fill it in and so i put here 11 or
+05:27 
+
+05:27 10 because if you put 10
+05:29 
+
+05:29 then yeah it will not be as nice
+05:32 
+
+05:32 and if you put 11 it just looks kind of
+05:35 
+
+05:35 nicer because the steps are
+05:37 
+
+05:37 rounder
+05:39 
+
+05:39 and so far we created just uh one
+05:41 
+
+05:41 dimensional arrays so
+05:44 
+
+05:44 usual arrays
+05:45 
+
+05:45 if we want to create
+05:47 
+
+05:47 i mean numpy it's possible to create
+05:50 
+
+05:50 two-dimensional and multi-dimensional
+05:52 
+
+05:52 arrays
+05:53 
+
+05:53 so let's say if we want to create a
+05:56 
+
+05:56 multi-dimensional array so we use the
+05:59 
+
+05:59 same function
+06:01 
+
+06:01 as
+06:02 
+
+06:02 previously zeros
+06:04 
+
+06:04 but here we can specify the dimensions
+06:07 
+
+06:07 of the array so we can say that we want
+06:08 
+
+06:08 to
+06:09 
+
+06:09 create an array with five rows and two
+06:12 
+
+06:12 columns so the first number here
+06:14 
+
+06:14 is rows takes second is columns
+06:17 
+
+06:17 and then it creates an array with five
+06:19 
+
+06:19 columns two rows filled with zeros
+06:23 
+
+06:23 right
+06:24 
+
+06:24 in the same way we can
+06:26 
+
+06:26 create
+06:29 
+
+06:29 an array from a python list
+06:33 
+
+06:33 so let's say we have an array
+06:36 
+
+06:36 we have a list of lists in python one
+06:39 
+
+06:39 two three then
+06:40 
+
+06:40 four five six
+06:42 
+
+06:42 then seven eight nine so this is a list
+06:45 
+
+06:45 of lists in python we pass it to the
+06:48 
+
+06:48 array function
+06:50 
+
+06:50 and it creates a two-dimensional array
+06:52 
+
+06:52 for us
+06:54 
+
+06:54 right so let's call it
+06:57 
+
+06:57 n
+06:58 
+
+06:58 right
+06:59 
+
+06:59 and again if we want to access elements
+07:03 
+
+07:03 of this array
+07:06 
+
+07:06 so
+07:07 
+
+07:07 we
+07:09 
+
+07:09 this is basically the same
+07:12 
+
+07:12 as with one dimensional except we have
+07:14 
+
+07:14 now two indices
+07:16 
+
+07:16 and
+07:17 
+
+07:17 it's indexed with
+07:19 
+
+07:19 so
+07:21 
+
+07:21 it starts with zero so zero one two
+07:25 
+
+07:25 uh for rows and
+07:27 
+
+07:27 zero one two four columns
+07:31 
+
+07:31 and if we want to now
+07:34 
+
+07:34 let's say access
+07:35 
+
+07:35 this element here
+07:37 
+
+07:37 so element number
+07:41 
+
+07:41 from
+07:42 
+
+07:42 row number zero and column number one
+07:45 
+
+07:45 uh so we use so first we specify zero
+07:48 
+
+07:48 and then one so it gives us uh
+07:51 
+
+07:51 this element right and then of course we
+07:54 
+
+07:54 can
+07:55 
+
+07:55 can use the assignment operator so if we
+07:56 
+
+07:56 want to replace this
+07:58 
+
+07:58 uh 2 with 20
+08:00 
+
+08:00 so we just use the assignment operator
+08:03 
+
+08:03 and then
+08:04 
+
+08:04 yeah we see that it changes
+08:07 
+
+08:07 so now we change the this element to 20.
+08:11 
+
+08:11 if we only want to access
+08:14 
+
+08:14 uh rows then
+08:16 
+
+08:16 we instead of passing uh two indices
+08:19 
+
+08:19 here we can pass one
+08:21 
+
+08:21 and let's say if we want to get the zero
+08:23 
+
+08:23 row we
+08:25 
+
+08:25 to say pro number zero
+08:27 
+
+08:27 row number one or
+08:30 
+
+08:30 row number two
+08:31 
+
+08:31 right so this is how we access the
+08:33 
+
+08:33 entire row
+08:35 
+
+08:35 and again we can use the assignment
+08:36 
+
+08:36 operator
+08:37 
+
+08:37 let's say if we want to rewrite the
+08:39 
+
+08:39 entire row
+08:41 
+
+08:41 we can say
+08:42 
+
+08:42 okay the last row
+08:44 
+
+08:44 should be just once we can say that so
+08:48 
+
+08:48 we can assign
+08:49 
+
+08:49 using python list or numpy array
+08:52 
+
+08:52 uh
+08:54 
+
+08:54 like the only condition that it should
+08:56 
+
+08:56 match the dimension here
+08:58 
+
+08:58 so let's do that and now we can see
+09:01 
+
+09:01 [Music]
+09:02 
+
+09:02 that
+09:03 
+
+09:03 the last
+09:04 
+
+09:04 row changes
+09:06 
+
+09:06 and then the same we can do with uh if
+09:09 
+
+09:09 we want to access a column we can get
+09:11 
+
+09:11 the entire column if we want
+09:14 
+
+09:14 and for that we need to use
+09:16 
+
+09:16 only the to specify only the second
+09:18 
+
+09:18 argument
+09:20 
+
+09:20 but
+09:21 
+
+09:21 yeah let's say if we want to get the
+09:22 
+
+09:22 second
+09:23 
+
+09:23 array a second column we use one
+09:27 
+
+09:27 but we cannot leave it empty so we need
+09:30 
+
+09:30 to put something and we put the column
+09:32 
+
+09:32 column operator meaning we want to get
+09:34 
+
+09:34 all the rows
+09:36 
+
+09:36 but just keep the
+09:38 
+
+09:38 the column indexed by number one
+09:42 
+
+09:42 and we get this
+09:44 
+
+09:44 we get this
+09:46 
+
+09:46 second column here right
+09:49 
+
+09:49 and actually this column operator means
+09:51 
+
+09:51 return all the rows so we can just use
+09:53 
+
+09:53 that as it returns everything
+09:56 
+
+09:56 and yeah so let's say if we want to get
+09:58 
+
+09:58 the last column this is what we get and
+10:01 
+
+10:01 likewise we can
+10:02 
+
+10:02 assign something else to this let's say
+10:05 
+
+10:05 if we want to reassign it to
+10:07 
+
+10:07 zero one two we do that and then when we
+10:12 
+
+10:12 look again at
+10:13 
+
+10:13 um our array we see that we managed to
+10:19 
+
+10:19 change it here right so this is the same
+10:26 
+
+10:26 so these are two dimensional arrays
+10:29 
+
+10:29 so next
+10:31 
+
+10:31 what we can do is we can generate arrays
+10:33 
+
+10:33 randomly using
+10:35 
+
+10:35 this random package in numpy
+10:38 
+
+10:38 so let's say if we want to generate
+10:41 
+
+10:41 a two dimensional array of size with
+10:44 
+
+10:44 five rows two columns
+10:47 
+
+10:47 this is what we do
+10:48 
+
+10:48 so we just specify the number of
+10:50 
+
+10:50 rows number of columns
+10:52 
+
+10:52 and it gives us an array with random
+10:55 
+
+10:55 numbers between zero and one so this is
+10:58 
+
+10:58 like a uniform distribution
+10:60 
+
+10:60 standard uniform distribution
+11:02 
+
+11:02 so and every time we execute this cell
+11:06 
+
+11:06 we
+11:06 
+
+11:06 get a different number
+11:09 
+
+11:09 but if we want to make the results
+11:10 
+
+11:10 reproducible and if you run this code
+11:13 
+
+11:13 and if i run this code we get the same
+11:14 
+
+11:14 numbers it's possible to do this by
+11:17 
+
+11:17 fixing the random sheet because these
+11:19 
+
+11:19 numbers they are not really random they
+11:21 
+
+11:21 are students pseudorandom so they are
+11:23 
+
+11:23 generated
+11:26 
+
+11:26 they are generated and we can set the
+11:29 
+
+11:29 seed
+11:30 
+
+11:30 of this generator
+11:31 
+
+11:31 and
+11:32 
+
+11:32 if we do this the sequence of random
+11:35 
+
+11:35 numbers
+11:36 
+
+11:36 that
+11:37 
+
+11:37 is produced on my computer and on your
+11:39 
+
+11:39 computer will be the same
+11:42 
+
+11:42 so let's say if we set seat to two
+11:45 
+
+11:45 then we get
+11:47 
+
+11:47 an array that looks random so these
+11:49 
+
+11:49 numbers are random
+11:51 
+
+11:51 but every time we execute this cell the
+11:53 
+
+11:53 results
+11:54 
+
+11:54 are the same right because we fixed the
+11:56 
+
+11:56 random sheet
+11:59 
+
+11:59 like the seed number here for the random
+12:02 
+
+12:02 generation generator
+12:04 
+
+12:04 that's why if you execute you probably
+12:06 
+
+12:06 will have the same one
+12:08 
+
+12:08 a bit varies depending on the version of
+12:11 
+
+12:11 numpy
+12:12 
+
+12:12 or operating system you have but in
+12:14 
+
+12:14 general the sequence you get the the
+12:16 
+
+12:16 matrix you get should be
+12:18 
+
+12:18 the same as i
+12:19 
+
+12:19 get and then
+12:21 
+
+12:21 so here we sample from the
+12:25 
+
+12:25 uniform distribution standard uniform
+12:27 
+
+12:27 distribution there are
+12:29 
+
+12:29 many different distributions so let's
+12:31 
+
+12:31 say if we want to
+12:33 
+
+12:33 draw numbers from the standard normal
+12:36 
+
+12:36 distribution we just add an n here so
+12:39 
+
+12:39 it's around
+12:40 
+
+12:40 around n meaning and normal and then the
+12:43 
+
+12:43 distribution looks a bit
+12:46 
+
+12:46 different
+12:47 
+
+12:47 right
+12:50 
+
+12:50 and then for integers like let's say if
+12:52 
+
+12:52 we want to have numbers between
+12:55 
+
+12:55 um
+12:56 
+
+12:56 0 and 100 so one simple thing we can do
+13:01 
+
+13:01 is we can multiply every number here by
+13:03 
+
+13:03 100
+13:05 
+
+13:05 and actually uh since this is numpy
+13:08 
+
+13:08 arrays we can just use that and this is
+13:10 
+
+13:10 something i'll show you explain later in
+13:12 
+
+13:12 this section but yeah you can just
+13:14 
+
+13:14 multiply every element by 100 and then
+13:18 
+
+13:18 you will get instead of having numbers
+13:20 
+
+13:20 between
+13:21 
+
+13:21 0 and 1 you will have numbers between 0
+13:24 
+
+13:24 and 100 but if you
+13:26 
+
+13:26 want there is also a function that you
+13:28 
+
+13:28 can use for generating random integers
+13:31 
+
+13:31 so you can specify here
+13:33 
+
+13:33 the low
+13:35 
+
+13:35 lowest numbers the highest numbers
+13:38 
+
+13:38 uh that is possible to get i think it's
+13:42 
+
+13:42 this one is includes included this one
+13:44 
+
+13:44 is probably excluded so it's between 0
+13:47 
+
+13:47 and 99 and then you can say that i want
+13:50 
+
+13:50 to have five rows and two columns and it
+13:53 
+
+13:53 will generate you
+13:55 
+
+13:55 a matrix
+13:57 
+
+13:57 and a two-dimensional array like that
+13:60 
+
+13:60 with random integers
+14:02 
+
+14:02 so yeah here we did this multiplication
+14:05 
+
+14:05 let me explain how it works
+14:08 
+
+14:08 so
+14:10 
+
+14:10 now just create an array first a range
+14:13 
+
+14:13 of five so it's numbers from between
+14:16 
+
+14:16 zero and
+14:18 
+
+14:18 five
+14:18 
+
+14:18 um four in this case
+14:21 
+
+14:21 right and uh
+14:22 
+
+14:22 we can
+14:27 
+
+14:27 do let's say what if we want to add a
+14:29 
+
+14:29 number to this array so we want to add
+14:32 
+
+14:32 one to all the
+14:34 
+
+14:34 elements of this array
+14:36 
+
+14:36 so what we can do is we can just write
+14:38 
+
+14:38 like that
+14:39 
+
+14:39 instead of writing a for loop so if it
+14:41 
+
+14:41 was a usual python list
+14:45 
+
+14:45 then we won't be able to do this we
+14:47 
+
+14:47 would need to
+14:48 
+
+14:48 write a loop and then add number to each
+14:51 
+
+14:51 element
+14:52 
+
+14:52 but numpy makes it easier for us we can
+14:54 
+
+14:54 just write plus one one and it adds an
+14:59 
+
+14:59 element to each number here and let's
+15:01 
+
+15:01 say if we want to multiply by 2 then
+15:04 
+
+15:04 every element of this array you can see
+15:06 
+
+15:06 so 0 is multiplied
+15:08 
+
+15:08 by 2 this one is multiplied by 2 so
+15:11 
+
+15:11 basically every element is multiplied
+15:14 
+
+15:14 by this number and this is what we used
+15:17 
+
+15:17 here we just multiplied everything by
+15:19 
+
+15:19 100
+15:21 
+
+15:21 and of course
+15:22 
+
+15:22 we can divide
+15:24 
+
+15:24 it subtract do everything we want and
+15:28 
+
+15:28 not only that we can also chain them so
+15:30 
+
+15:30 let's say we can first divide
+15:34 
+
+15:34 multiply by 2 and then add 10
+15:37 
+
+15:37 and then this is what we'll have
+15:39 
+
+15:39 and even
+15:40 
+
+15:40 let's say take uh
+15:44 
+
+15:44 the power
+15:46 
+
+15:46 of it so yeah
+15:48 
+
+15:48 so we can change this say operation
+15:50 
+
+15:50 anyway
+15:51 
+
+15:51 we want
+15:53 
+
+15:53 and uh
+15:54 
+
+15:54 yeah
+15:55 
+
+15:55 we can do that and uh
+15:58 
+
+15:58 yeah
+15:59 
+
+15:59 like whatever we want
+16:02 
+
+16:02 let's save it to a different array so
+16:06 
+
+16:06 now we
+16:07 
+
+16:07 have array one array a and three b what
+16:11 
+
+16:11 we can do also we can
+16:14 
+
+16:14 combine combine these two arrays so we
+16:16 
+
+16:16 can do element wise sum so we can take
+16:21 
+
+16:21 let's see so for
+16:24 
+
+16:24 for b
+16:26 
+
+16:26 yeah so what we can do here
+16:29 
+
+16:29 is uh
+16:31 
+
+16:31 add
+16:31 
+
+16:31 elementwise these two arrays so for
+16:34 
+
+16:34 first element we would compute the sound
+16:36 
+
+16:36 for second element we would compute the
+16:38 
+
+16:38 sum
+16:39 
+
+16:39 and
+16:40 
+
+16:40 you can see here that uh
+16:43 
+
+16:43 let's say the last element here
+16:45 
+
+16:45 is the sum of these two
+16:47 
+
+16:47 or the second is some of these two
+16:51 
+
+16:51 basically does the
+16:52 
+
+16:52 sum element twice
+16:55 
+
+16:55 and
+16:56 
+
+16:56 again we can multiply
+16:59 
+
+16:59 we can
+17:01 
+
+17:01 can also
+17:02 
+
+17:02 divide we can do
+17:04 
+
+17:04 anything we want here right and then
+17:06 
+
+17:06 again we can chain it with
+17:08 
+
+17:08 all these different operations
+17:13 
+
+17:13 um
+17:14 
+
+17:14 and then uh
+17:16 
+
+17:16 yeah so we can do that we can also do
+17:19 
+
+17:19 compare numbers element-wise so
+17:21 
+
+17:21 comparison operations are also
+17:23 
+
+17:23 element-wise operations so let's say if
+17:25 
+
+17:25 we want to do element-wise
+17:27 
+
+17:27 uh
+17:30 
+
+17:30 comparison with
+17:32 
+
+17:32 so let's say we want to see
+17:34 
+
+17:34 if elements of this array which elements
+17:36 
+
+17:36 of this array are higher or equal to two
+17:39 
+
+17:39 and then yeah so let's print it
+17:42 
+
+17:42 so we see that the first one is
+17:45 
+
+17:45 less than two second one is less than
+17:47 
+
+17:47 two
+17:48 
+
+17:48 but this one is higher or equal to two
+17:51 
+
+17:51 because it's two and then the same is
+17:53 
+
+17:53 true for um
+17:56 
+
+17:56 for the rest right
+17:58 
+
+17:58 so we can do this with
+18:01 
+
+18:01 elements
+18:03 
+
+18:03 with just numbers right or we can do it
+18:05 
+
+18:05 with other arrays so let's say
+18:07 
+
+18:07 we can see which elements of
+18:11 
+
+18:11 array a are greater than the elements of
+18:13 
+
+18:13 a b
+18:14 
+
+18:14 and then we see okay
+18:18 
+
+18:18 like this one is actually smaller the
+18:20 
+
+18:20 second one
+18:21 
+
+18:21 is also smaller because zero is more
+18:23 
+
+18:23 than one
+18:24 
+
+18:24 uh one is smaller than one point four 44
+18:28 
+
+18:28 but this one like for this one actually
+18:31 
+
+18:31 two is bigger
+18:32 
+
+18:32 then three is bigger and four is bigger
+18:35 
+
+18:35 right so that's why we have false false
+18:37 
+
+18:37 and then through through so we can do it
+18:39 
+
+18:39 uh
+18:40 
+
+18:40 you know
+18:42 
+
+18:42 for compare elements of multiple arrays
+18:46 
+
+18:46 and we can also see which elements of a
+18:50 
+
+18:50 are actually greater than
+18:53 
+
+18:53 a b
+18:54 
+
+18:54 if we write something like this
+18:57 
+
+18:57 and let me execute it and then explain
+19:01 
+
+19:01 so what happens here
+19:02 
+
+19:02 is uh
+19:04 
+
+19:04 so this
+19:07 
+
+19:07 this statement returns a boolean array
+19:09 
+
+19:09 like that right
+19:11 
+
+19:11 so it returns an array with false false
+19:13 
+
+19:13 through through
+19:15 
+
+19:15 and
+19:16 
+
+19:16 when we do this
+19:20 
+
+19:20 it basically returns all the elements of
+19:22 
+
+19:22 array a
+19:24 
+
+19:24 for which this condition is true right
+19:27 
+
+19:27 so we know for this element this
+19:28 
+
+19:28 condition is true for this element and
+19:30 
+
+19:30 for this element
+19:31 
+
+19:31 and these are elements
+19:34 
+
+19:34 uh two three and four right and this way
+19:37 
+
+19:37 we can
+19:38 
+
+19:38 look at all the elements that uh
+19:41 
+
+19:41 that satisfy this condition
+19:44 
+
+19:44 so these were element-wise operators
+19:47 
+
+19:47 operations
+19:49 
+
+19:49 and
+19:50 
+
+19:50 there are different kinds of uh
+19:52 
+
+19:52 operations
+19:54 
+
+19:54 that i call summarizing operations
+19:56 
+
+19:56 because instead of returning
+19:58 
+
+19:58 another
+19:60 
+
+19:60 array like here so when we do let's say
+20:02 
+
+20:02 when we do this comparison operation we
+20:05 
+
+20:05 compare a with
+20:06 
+
+20:06 2 we get another array
+20:08 
+
+20:08 but there are some operations that
+20:10 
+
+20:10 instead of returning and you array
+20:12 
+
+20:12 return
+20:14 
+
+20:14 a single number so an example of this is
+20:16 
+
+20:16 the
+20:17 
+
+20:17 min
+20:18 
+
+20:18 operation
+20:20 
+
+20:20 so mean returns the
+20:21 
+
+20:21 smallest number in this case it's
+20:24 
+
+20:24 zero
+20:25 
+
+20:25 you can also return the next maximum
+20:27 
+
+20:27 number maximal which is four
+20:30 
+
+20:30 you can also compute the sum of all the
+20:32 
+
+20:32 arrays which is 10 here so it's like
+20:35 
+
+20:35 zero plus one plus two plus three plus
+20:37 
+
+20:37 four is zero or you can compute the
+20:40 
+
+20:40 average number which is mean
+20:42 
+
+20:42 right so these are
+20:44 
+
+20:44 summarizing operators there is also
+20:46 
+
+20:46 standard deviation if you're interested
+20:49 
+
+20:49 and this is how you
+20:52 
+
+20:52 do this and it of course works also for
+20:55 
+
+20:55 two-dimensional um
+20:57 
+
+20:57 so which one is f
+20:60 
+
+20:60 we have
+21:01 
+
+21:01 let's say n right so we have this n so
+21:04 
+
+21:04 we can also compute the sum of all the
+21:06 
+
+21:06 elements of m and
+21:09 
+
+21:09 or find the minimal number and so on
+21:13 
+
+21:13 so this is a quick introduction there
+21:14 
+
+21:14 are of course more a lot more useful
+21:17 
+
+21:17 functions in
+21:18 
+
+21:18 numpy so i'll include the link where you
+21:21 
+
+21:21 can read
+21:22 
+
+21:22 more about some of the things so there
+21:24 
+
+21:24 are things like
+21:27 
+
+21:27 let's say if you want to find
+21:29 
+
+21:29 the minimal number in each row of your
+21:32 
+
+21:32 two-dimensional array what do you do
+21:35 
+
+21:35 or
+21:36 
+
+21:36 what if you want to sort and things like
+21:37 
+
+21:37 this one so for that check the link
+21:41 
+
+21:41 and in the next lesson we will quickly
+21:43 
+
+21:43 go through the basics of linear algebra
+21:45 
+
+21:45 and we will talk about the
+21:47 
+
+21:47 multiplication operations

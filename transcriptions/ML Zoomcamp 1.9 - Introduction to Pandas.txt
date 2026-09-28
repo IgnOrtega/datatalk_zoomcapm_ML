@@ -1,0 +1,2233 @@
+00:00 welcome back this is lesson nine of
+00:02 
+
+00:02 machine learning zoom cup session one
+00:04 
+
+00:04 and we will talk about pandas so this is
+00:07 
+
+00:07 the last lesson for session one
+00:10 
+
+00:10 took a bit longer than i expected
+00:13 
+
+00:13 and yeah let's let's start pandas is a
+00:15 
+
+00:15 library for and manipulating tabular
+00:17 
+
+00:17 data in python
+00:19 
+
+00:19 so
+00:21 
+
+00:21 by now hopefully you have installed
+00:23 
+
+00:23 everything
+00:24 
+
+00:24 including pandas and again like in case
+00:27 
+
+00:27 of numpy we use an alias for referring
+00:31 
+
+00:31 to pandas so we import pandas spd
+00:34 
+
+00:34 so the main abstraction the main data
+00:37 
+
+00:37 structure we use in pandas is called the
+00:39 
+
+00:39 data frame which is basically a table so
+00:42 
+
+00:42 let's create a simple one we will use a
+00:45 
+
+00:45 data set that i prepared
+00:47 
+
+00:47 specifically for this session
+00:50 
+
+00:50 so i take it from
+00:53 
+
+00:53 github repo that you'll find the link
+00:57 
+
+00:57 in the description so this is the data
+00:58 
+
+00:58 set this is how it looks like
+01:01 
+
+01:01 so this is a subset of a
+01:04 
+
+01:04 data set that we will use uh for the
+01:06 
+
+01:06 next session uh for predicting the price
+01:09 
+
+01:09 of a car
+01:10 
+
+01:10 so it has five cars um
+01:13 
+
+01:13 and these are the characteristics of a
+01:16 
+
+01:16 car
+01:17 
+
+01:17 make model year
+01:18 
+
+01:18 engine horsepower number of cylinders
+01:21 
+
+01:21 transmission type vehicle style and this
+01:24 
+
+01:24 is the price
+01:25 
+
+01:25 so we have the the data in this format
+01:28 
+
+01:28 so this is a list of lists and then we
+01:30 
+
+01:30 have a separate variable that defines
+01:34 
+
+01:34 the columns so let's let me copy it
+01:38 
+
+01:38 and
+01:40 
+
+01:40 paste it here
+01:41 
+
+01:41 so again so this is a list of lists so
+01:44 
+
+01:44 each sub list of this list is a row in
+01:47 
+
+01:47 the table so each row is a car and then
+01:51 
+
+01:51 for the first column here it's make the
+01:55 
+
+01:55 second one model
+01:56 
+
+01:56 year
+01:57 
+
+01:57 engine so horsepower and so on
+02:00 
+
+02:00 so this is uh now we can turn it into a
+02:03 
+
+02:03 data frame so for that we
+02:06 
+
+02:06 create a data frame
+02:07 
+
+02:07 using this
+02:09 
+
+02:09 this function data frame it's
+02:11 
+
+02:11 constructor so if we just in create it
+02:14 
+
+02:14 with data
+02:16 
+
+02:16 it doesn't know what the columns are so
+02:18 
+
+02:18 it just puts 0 1 2 3 4 because it
+02:22 
+
+02:22 doesn't know what this column means mean
+02:25 
+
+02:25 and we can let it know what each of the
+02:28 
+
+02:28 column means by using a special
+02:30 
+
+02:30 parameter
+02:31 
+
+02:31 columns and we can say that it should be
+02:35 
+
+02:35 equal to columns so basically if we do
+02:37 
+
+02:37 this
+02:38 
+
+02:38 then pandas knows that okay for
+02:41 
+
+02:41 so this make this is model year and so
+02:43 
+
+02:43 on
+02:45 
+
+02:45 so let's save it into a data frame
+02:48 
+
+02:48 so usually i call data frames dfs and
+02:51 
+
+02:51 yeah it's not the only way you can
+02:53 
+
+02:53 create a data frame there are
+02:55 
+
+02:55 many other ways so for example again if
+02:58 
+
+02:58 we go to
+02:59 
+
+02:59 this github repo so it can be so this is
+03:03 
+
+03:03 like a more compact way
+03:06 
+
+03:06 so here
+03:07 
+
+03:07 we don't
+03:08 
+
+03:08 mention the name of the column in every
+03:11 
+
+03:11 row so we just mentioned it once at the
+03:14 
+
+03:14 at the end but it's also possible to
+03:18 
+
+03:18 have a list of dictionaries so a
+03:20 
+
+03:20 dictionary so this is a python
+03:22 
+
+03:22 dictionary and then here we basically
+03:24 
+
+03:24 say
+03:25 
+
+03:25 we explicitly specify the value for each
+03:28 
+
+03:28 of the columns
+03:30 
+
+03:30 so this is
+03:31 
+
+03:31 first car then this is the second car
+03:34 
+
+03:34 and we have uh many cars like that
+03:38 
+
+03:38 and
+03:38 
+
+03:38 yeah so if we have a list of
+03:40 
+
+03:40 dictionaries
+03:42 
+
+03:42 we can also use them to create a data
+03:45 
+
+03:45 frame so let me paste it
+03:48 
+
+03:48 and
+03:49 
+
+03:49 so again pd
+03:51 
+
+03:51 data frame
+03:53 
+
+03:53 and then all we need to provide is just
+03:55 
+
+03:55 this list of dictionaries and then so
+03:58 
+
+03:58 here we don't specify we don't provide
+04:01 
+
+04:01 the names of columns it just infers them
+04:04 
+
+04:04 the names of columns from the
+04:05 
+
+04:05 dictionaries so because we have the keys
+04:08 
+
+04:08 here and the values so
+04:11 
+
+04:11 pandas uses keys as the column names
+04:15 
+
+04:15 so
+04:16 
+
+04:16 let's write it to a data frame
+04:20 
+
+04:20 this is a really small data frame but
+04:22 
+
+04:22 what i usually do when i read the larger
+04:25 
+
+04:25 data frame is the first thing i do is
+04:28 
+
+04:28 look at the first couple of rows
+04:30 
+
+04:30 so yeah well for that we
+04:33 
+
+04:33 for that i use the head method which
+04:35 
+
+04:35 returns the first
+04:37 
+
+04:37 rows so since our data frame is quite
+04:40 
+
+04:40 small it returns the first five rows
+04:43 
+
+04:43 uh but yeah we can say let's return me
+04:46 
+
+04:46 only the first two rows
+04:49 
+
+04:49 then yeah so this is one of the first
+04:51 
+
+04:51 thing i do after loading a data frame
+04:53 
+
+04:53 let's say from a cc file
+04:55 
+
+04:55 or from a sql query i do i look at the
+04:58 
+
+04:58 data using the head method okay so we
+05:01 
+
+05:01 have this data frame
+05:03 
+
+05:03 and every
+05:05 
+
+05:05 column of this data frame
+05:07 
+
+05:07 is a series so this is a special
+05:11 
+
+05:11 game so this is an abstraction from
+05:13 
+
+05:13 pandas
+05:14 
+
+05:14 that data frame is a table and the table
+05:18 
+
+05:18 consists of multiple series and each
+05:20 
+
+05:20 column is a panda series
+05:23 
+
+05:23 and if we want to access a particular
+05:25 
+
+05:25 series
+05:26 
+
+05:26 in a data frame so if we just want to
+05:28 
+
+05:28 access this the column make so we just
+05:31 
+
+05:31 use this documentation right so we just
+05:34 
+
+05:34 write
+05:35 
+
+05:35 dataframe.make
+05:37 
+
+05:37 another option is instead of using the
+05:40 
+
+05:40 dot notation we use the brackets
+05:42 
+
+05:42 notation
+05:43 
+
+05:43 so we specify the name
+05:46 
+
+05:46 of the column we want to extract
+05:49 
+
+05:49 here
+05:50 
+
+05:50 and use the brackets
+05:52 
+
+05:52 and this is the same
+05:54 
+
+05:54 and as you see so here we have some
+05:56 
+
+05:56 columns that have spaces in them so we
+05:59 
+
+05:59 cannot really use dot notation here it
+06:01 
+
+06:01 will now say okay i don't know what is
+06:03 
+
+06:03 that
+06:04 
+
+06:04 so for these cases let's say when we
+06:06 
+
+06:06 have minuses or when we have uh spaces
+06:09 
+
+06:09 there the only way we can access the
+06:12 
+
+06:12 variable is using this brackets notation
+06:15 
+
+06:15 also we can access multiple rows at the
+06:17 
+
+06:17 same time so let's say if we want to get
+06:20 
+
+06:20 a subset of our data frame
+06:22 
+
+06:22 that contains only
+06:25 
+
+06:25 make
+06:27 
+
+06:27 model
+06:28 
+
+06:28 and price
+06:30 
+
+06:30 so we
+06:31 
+
+06:31 what we do
+06:32 
+
+06:32 is we
+06:33 
+
+06:33 put a list inside brackets so that's why
+06:36 
+
+06:36 we have these double brackets and in
+06:38 
+
+06:38 this list we say which
+06:41 
+
+06:41 columns we want to have so in this case
+06:43 
+
+06:43 we want to have make model and price and
+06:46 
+
+06:46 it returns uh a data frame that has only
+06:49 
+
+06:49 these three columns right so it doesn't
+06:51 
+
+06:51 have anything else
+06:53 
+
+06:53 yeah so this is our data frame and let's
+06:55 
+
+06:55 say we want to add another column to
+06:57 
+
+06:57 this data frame so let's say we want to
+06:60 
+
+06:60 to add a column called id
+07:03 
+
+07:03 so we can do this
+07:05 
+
+07:05 by
+07:07 
+
+07:07 using this notation again brackets
+07:10 
+
+07:10 and
+07:12 
+
+07:12 so if we just try to get id it says okay
+07:15 
+
+07:15 i don't know what is that
+07:18 
+
+07:18 but we can say we can create a new
+07:20 
+
+07:20 column
+07:21 
+
+07:21 and
+07:22 
+
+07:22 [Music]
+07:23 
+
+07:23 this is how we do this so we use the
+07:25 
+
+07:25 same notation as here and we just say
+07:28 
+
+07:28 okay for this
+07:29 
+
+07:29 we want to
+07:31 
+
+07:31 have a
+07:33 
+
+07:33 new column
+07:34 
+
+07:34 that we will call id
+07:37 
+
+07:37 that contains numbers from one to five
+07:39 
+
+07:39 this way we do this and then now you see
+07:42 
+
+07:42 that there is a column called id
+07:46 
+
+07:46 that we can now extract
+07:50 
+
+07:50 and we can actually also replace it if
+07:52 
+
+07:52 we want so let's say
+07:54 
+
+07:54 we want to change it instead of this we
+07:57 
+
+07:57 want to
+07:59 
+
+07:59 have
+07:60 
+
+07:60 a different
+08:02 
+
+08:02 different set of values
+08:05 
+
+08:05 so now
+08:06 
+
+08:06 we replace it
+08:08 
+
+08:08 if we want to delete a column we use the
+08:11 
+
+08:11 del operator which deletes
+08:15 
+
+08:15 a column from this
+08:17 
+
+08:17 so this is very similar to
+08:19 
+
+08:19 dictionaries if we want to remove
+08:20 
+
+08:20 something from dictionary we use the
+08:22 
+
+08:22 dell operator and
+08:25 
+
+08:25 here we can do the same with pandas
+08:28 
+
+08:28 and you see this column is gone yeah so
+08:31 
+
+08:31 we talked about columns and in data
+08:33 
+
+08:33 frame maybe you see here
+08:37 
+
+08:37 numbers here so these are ids of rows
+08:40 
+
+08:40 so this is how we can refer to each row
+08:43 
+
+08:43 and this is actually called index right
+08:46 
+
+08:46 so if we
+08:48 
+
+08:48 look at the index so we see that there
+08:50 
+
+08:50 is an index called range index that
+08:52 
+
+08:52 starts with zero so this is the first
+08:54 
+
+08:54 one
+08:55 
+
+08:55 and
+08:56 
+
+08:56 stops at 5 5 is not
+08:59 
+
+08:59 inclusive like usually it's exclusive
+09:01 
+
+09:01 so we have and index that goes from 0 to
+09:04 
+
+09:04 4. all the series of these
+09:07 
+
+09:07 data frame
+09:08 
+
+09:08 they all have the same index so let's
+09:11 
+
+09:11 say if we access
+09:13 
+
+09:13 make
+09:14 
+
+09:14 you see we have this
+09:17 
+
+09:17 again these numbers here these are the
+09:19 
+
+09:19 indices this is the index of make and
+09:21 
+
+09:21 again if we
+09:22 
+
+09:22 try to access the index we see this is
+09:25 
+
+09:25 the same index that the data frame has
+09:28 
+
+09:28 so using this index we can
+09:30 
+
+09:30 access the elements of the data frame
+09:34 
+
+09:34 so
+09:35 
+
+09:35 let's say we have we want to access
+09:37 
+
+09:37 element
+09:38 
+
+09:38 one and two then we use uh
+09:42 
+
+09:42 lock so lock stands for location i think
+09:45 
+
+09:45 so let's say if we want to get the
+09:47 
+
+09:47 element that is indexed by one we use
+09:50 
+
+09:50 lock
+09:52 
+
+09:52 and we get the row
+09:55 
+
+09:55 let me show it once again
+09:57 
+
+09:57 so this is the
+09:60 
+
+09:60 this row indexed by one and we get this
+10:03 
+
+10:03 row here and then we also can return
+10:05 
+
+10:05 multiple rows
+10:08 
+
+10:08 see so we can
+10:10 
+
+10:10 use this lock to get multiple rows and
+10:13 
+
+10:13 this is what we look at
+10:14 
+
+10:14 so this is the index
+10:16 
+
+10:16 we can actually replace this index so we
+10:18 
+
+10:18 can use something else
+10:20 
+
+10:20 so let's say if instead of that
+10:23 
+
+10:23 we want to use
+10:25 
+
+10:25 some
+10:26 
+
+10:26 id
+10:27 
+
+10:27 so it could be a
+10:30 
+
+10:30 b
+10:31 
+
+10:31 c d
+10:34 
+
+10:34 e
+10:36 
+
+10:36 so now index is different you see this
+10:39 
+
+10:39 is what we use
+10:40 
+
+10:40 and this
+10:42 
+
+10:42 no longer works it says
+10:44 
+
+10:44 i don't know what you're talking about
+10:45 
+
+10:45 there are no records with these
+10:48 
+
+10:48 ids in the index so now we need to use
+10:52 
+
+10:52 let's say
+10:53 
+
+10:53 b
+10:54 
+
+10:54 and c to refer to this particular
+10:57 
+
+10:57 records in the data frame we however
+10:60 
+
+10:60 still can refer to
+11:02 
+
+11:02 a positional index so this is usual
+11:05 
+
+11:05 index right and then there is a
+11:06 
+
+11:06 positional index and positional index
+11:09 
+
+11:09 this is what we usually use
+11:11 
+
+11:11 in
+11:12 
+
+11:12 in lists or uh numpy arrays so this is
+11:16 
+
+11:16 like uh when it refers to a position
+11:20 
+
+11:20 from uh
+11:21 
+
+11:21 zero to four so this is what we
+11:23 
+
+11:23 previously had as a range range index
+11:26 
+
+11:26 we still can refer to elements uh using
+11:30 
+
+11:30 positional index except instead of lock
+11:33 
+
+11:33 we will need to use i look so let's say
+11:35 
+
+11:35 if we want to get
+11:37 
+
+11:37 element index by one
+11:40 
+
+11:40 we use i lock one and
+11:43 
+
+11:43 again we can
+11:45 
+
+11:45 ask
+11:46 
+
+11:46 multiple elements and this is how we use
+11:48 
+
+11:48 it
+11:49 
+
+11:49 so
+11:50 
+
+11:50 if you see that the index is still the
+11:51 
+
+11:51 all index but we use the positional
+11:54 
+
+11:54 index to refer to the elements
+11:56 
+
+11:56 to the records of this data frame and
+11:58 
+
+11:58 now we have this strange index right so
+12:01 
+
+12:01 let's say if we want to come back to the
+12:04 
+
+12:04 usual index which is
+12:07 
+
+12:07 sequential coming from 0 to 1 what we
+12:10 
+
+12:10 use is we use the function called reset
+12:12 
+
+12:12 index
+12:14 
+
+12:14 and yeah what it does
+12:16 
+
+12:16 it again
+12:19 
+
+12:19 it resets the index to the sequential
+12:21 
+
+12:21 index
+12:22 
+
+12:22 and it keeps the previous index and it
+12:25 
+
+12:25 creates a new column called index
+12:28 
+
+12:28 to keep the values from the old index
+12:30 
+
+12:30 and uh
+12:32 
+
+12:32 if we let's say if we don't need the
+12:33 
+
+12:33 values of the old index we use this
+12:35 
+
+12:35 parameter called drop true which yeah
+12:38 
+
+12:38 which drops the
+12:40 
+
+12:40 the index and just keeps the new one
+12:43 
+
+12:43 actually this function doesn't change
+12:45 
+
+12:45 the
+12:46 
+
+12:46 the data frame so it creates a new data
+12:49 
+
+12:49 frame you see so here the original data
+12:51 
+
+12:51 frame is still unchanged
+12:54 
+
+12:54 so here it returns a new data frame that
+12:56 
+
+12:56 has the same data but the new index
+12:59 
+
+12:59 so what we can do if we want to
+13:02 
+
+13:02 uh completely forget about the old one
+13:04 
+
+13:04 we just reassign
+13:06 
+
+13:06 to
+13:07 
+
+13:07 to this df variable so we kind of
+13:09 
+
+13:09 overwrite the old data frame with a new
+13:11 
+
+13:11 one
+13:12 
+
+13:12 and yeah so now we have we're back to
+13:15 
+
+13:15 the data frame we had
+13:20 
+
+13:20 okay so yeah i actually talked about
+13:22 
+
+13:22 accessing elements already so this was
+13:24 
+
+13:24 about this lock and i lock so now let's
+13:28 
+
+13:28 talk about element y separations like in
+13:31 
+
+13:31 numpy we
+13:32 
+
+13:32 remember in numpy when we have an array
+13:35 
+
+13:35 we can apply an operation to an array to
+13:39 
+
+13:39 all the elements of this array right so
+13:41 
+
+13:41 for example if we multiply an array by 2
+13:44 
+
+13:44 then all the elements of that array get
+13:46 
+
+13:46 multiplied by two so actually the same
+13:49 
+
+13:49 uh
+13:50 
+
+13:50 we can do the same with pandas
+13:53 
+
+13:53 so let's say we have this engine hp
+13:56 
+
+13:56 column let's say we want to divide it by
+13:59 
+
+13:59 hundred
+14:00 
+
+14:00 so this is how we do it this is exactly
+14:02 
+
+14:02 the same uh as with numpy array so here
+14:06 
+
+14:06 yeah i didn't talk about this done so
+14:08 
+
+14:08 this is just you know this denotes
+14:12 
+
+14:12 a missing number so for this uh pro we
+14:15 
+
+14:15 don't know what is the engine horsepower
+14:17 
+
+14:17 so we just don't know this value is
+14:19 
+
+14:19 missing
+14:20 
+
+14:20 and when you divide so for this one it
+14:22 
+
+14:22 doesn't do anything but the rest it
+14:24 
+
+14:24 divides the rest by 100 or yeah we can
+14:28 
+
+14:28 multiply it by two basically we can do
+14:31 
+
+14:31 everything we can do in numpy but here
+14:34 
+
+14:34 we operate on
+14:36 
+
+14:36 series from pandas not on numpy arrays
+14:39 
+
+14:39 and the main difference between the two
+14:41 
+
+14:41 is that here you have
+14:43 
+
+14:43 an index here you have a name
+14:45 
+
+14:45 but it's pretty much the same and
+14:48 
+
+14:48 under the hood pandas actually uses
+14:49 
+
+14:49 numpy
+14:51 
+
+14:51 so and
+14:53 
+
+14:53 like
+14:55 
+
+14:55 like in numpy
+14:57 
+
+14:57 we have
+14:59 
+
+14:59 so like in pandas
+15:00 
+
+15:00 we can do this multiplication
+15:03 
+
+15:03 and so on element wise we can also have
+15:06 
+
+15:06 some logical operators so for example if
+15:08 
+
+15:08 we
+15:09 
+
+15:09 want to
+15:11 
+
+15:11 find all the records that were created
+15:13 
+
+15:13 after
+15:14 
+
+15:14 uh 2010
+15:17 
+
+15:17 let's say 2015
+15:19 
+
+15:19 right so
+15:20 
+
+15:20 we see that
+15:22 
+
+15:22 this
+15:23 
+
+15:23 this
+15:24 
+
+15:24 and these records were created after
+15:26 
+
+15:26 2015.
+15:28 
+
+15:28 so this is how we do this
+15:30 
+
+15:30 right so this is very similar to
+15:33 
+
+15:33 to numpy and again
+15:36 
+
+15:36 so i'm already talking about filtering
+15:39 
+
+15:39 so let's say if we want to look at all
+15:41 
+
+15:41 the records that were produced that were
+15:45 
+
+15:45 all the cars that were manufactured
+15:47 
+
+15:47 after year
+15:49 
+
+15:49 2015
+15:50 
+
+15:50 this is how we do this so there are two
+15:52 
+
+15:52 parts here
+15:54 
+
+15:54 so the first part is
+15:56 
+
+15:56 this part inside right so this is the
+15:59 
+
+15:59 condition
+16:01 
+
+16:01 so it returns a new series
+16:03 
+
+16:03 with a binary series with false and true
+16:06 
+
+16:06 values only
+16:08 
+
+16:08 and
+16:09 
+
+16:09 what this thing does here it looks at
+16:12 
+
+16:12 the values that are true
+16:14 
+
+16:14 and returns only them
+16:16 
+
+16:16 we have a new data frame
+16:20 
+
+16:20 which contains only rows that were
+16:22 
+
+16:22 produced after 2012
+16:25 
+
+16:25 and
+16:26 
+
+16:26 let's say if we want to find all cars
+16:28 
+
+16:28 that are nissan
+16:30 
+
+16:30 and then we
+16:31 
+
+16:31 write something like this make
+16:34 
+
+16:34 equals to nissan and then we have two
+16:37 
+
+16:37 cars that are manufactured by nissan
+16:40 
+
+16:40 we can actually combine
+16:43 
+
+16:43 this so let's say if we want to
+16:46 
+
+16:46 get cars that are
+16:48 
+
+16:48 manufactured by nissan
+16:51 
+
+16:51 and
+16:52 
+
+16:52 and produced
+16:54 
+
+16:54 after 2015
+16:56 
+
+16:56 so this is what we do
+16:58 
+
+16:58 we combine them
+16:60 
+
+17:00 using this logical and
+17:02 
+
+17:02 operation
+17:04 
+
+17:04 and yeah it's just one record
+17:07 
+
+17:07 okay so let's talk a bit about string
+17:09 
+
+17:09 operators so this is something that
+17:12 
+
+17:12 numpy doesn't have so numpy is mostly
+17:14 
+
+17:14 used for processing numbers and in
+17:17 
+
+17:17 pandas will often have strings so that's
+17:19 
+
+17:19 why uh
+17:21 
+
+17:21 there are also a couple of useful
+17:23 
+
+17:23 things for manipulating strings
+17:26 
+
+17:26 so let's take
+17:28 
+
+17:28 vehicle style column
+17:32 
+
+17:32 so this is a thing and we see that uh
+17:36 
+
+17:36 sometimes here so this is sedan with
+17:39 
+
+17:39 capital s this is done with a lower
+17:43 
+
+17:43 case letter
+17:44 
+
+17:44 so yeah it would be nice if we can
+17:46 
+
+17:46 somehow standardize it so in python
+17:49 
+
+17:49 there is a
+17:51 
+
+17:51 function there is a method from the
+17:53 
+
+17:53 string class called logger
+17:55 
+
+17:55 which takes a string and turns it into
+17:58 
+
+17:58 a lowercase so let's say returns capital
+18:01 
+
+18:01 case to a lowercase and keeps
+18:04 
+
+18:04 lowercase letters
+18:05 
+
+18:05 so we can what we want to do is we want
+18:07 
+
+18:07 to apply this function to every element
+18:10 
+
+18:10 of uh
+18:11 
+
+18:11 series for that we can use this thing
+18:15 
+
+18:15 called str that allows to
+18:17 
+
+18:17 invoke stream methods
+18:20 
+
+18:20 on the entire
+18:22 
+
+18:22 series so we can do this
+18:24 
+
+18:24 so we can say let's apply the lower
+18:27 
+
+18:27 function on all the strings from here
+18:31 
+
+18:31 and it gives us a lowercase you see like
+18:34 
+
+18:34 everything turned
+18:36 
+
+18:36 all the capital letters turned into
+18:38 
+
+18:38 lowercase letters another thing we can
+18:40 
+
+18:40 do is we can replace all the spaces with
+18:44 
+
+18:44 underscores
+18:45 
+
+18:45 so because sometimes
+18:47 
+
+18:47 maybe you have underscore sometimes you
+18:48 
+
+18:48 don't so this is a typical
+18:50 
+
+18:50 pre-processing step when you work with
+18:52 
+
+18:52 text
+18:53 
+
+18:53 in case of usual string let's say we
+18:55 
+
+18:55 have machine
+18:57 
+
+18:57 zoom comp and then there is a method
+18:59 
+
+18:59 called replace
+19:01 
+
+19:01 and then first it gets the character you
+19:03 
+
+19:03 want to replace and then second is what
+19:06 
+
+19:06 you want to replace with right so you
+19:08 
+
+19:08 want to replace this one by this one
+19:12 
+
+19:12 so and then it replaces all the
+19:14 
+
+19:14 accuracies of space by the underscore
+19:17 
+
+19:17 so we want to
+19:19 
+
+19:19 do the same here
+19:21 
+
+19:21 so we can just copy this
+19:23 
+
+19:23 and apply it again using this str thing
+19:27 
+
+19:27 to all the elements of
+19:29 
+
+19:29 series and you see so here we have a
+19:32 
+
+19:32 space here this space is
+19:35 
+
+19:35 replaced by an underscore
+19:37 
+
+19:37 and
+19:38 
+
+19:38 we can actually change this so first we
+19:41 
+
+19:41 can uh so you see it's actually it
+19:44 
+
+19:44 doesn't change it it returns a new
+19:46 
+
+19:46 series with the modification so actually
+19:48 
+
+19:48 see even though we lower case here here
+19:51 
+
+19:51 it says it still stays capital case
+19:54 
+
+19:54 right so because it doesn't overwrite
+19:56 
+
+19:56 the series it returns a new series with
+19:59 
+
+19:59 the new values
+20:01 
+
+20:01 and we can actually chain them to first
+20:04 
+
+20:04 replace and then lowercase and here we
+20:07 
+
+20:07 have something that is
+20:09 
+
+20:09 let's say more uniform
+20:12 
+
+20:12 and then what we can do next is uh
+20:15 
+
+20:15 because
+20:16 
+
+20:16 this
+20:17 
+
+20:17 data frame still has the old values
+20:20 
+
+20:20 right
+20:22 
+
+20:22 so what we can do is we can replace them
+20:25 
+
+20:25 with this clean version so for that we
+20:28 
+
+20:28 use the assignment operator
+20:30 
+
+20:30 and we just override
+20:32 
+
+20:32 this vehicle style the value
+20:34 
+
+20:34 with the new
+20:36 
+
+20:36 new value
+20:38 
+
+20:38 and now if we look at the data frame
+20:41 
+
+20:41 we see oops sorry
+20:44 
+
+20:44 so look at the data frame and we see
+20:46 
+
+20:46 that the values are overwritten so next
+20:49 
+
+20:49 thing we will look at
+20:51 
+
+20:51 is summarizing operators so like in
+20:54 
+
+20:54 numpy we have this element wise
+20:55 
+
+20:55 operators
+20:57 
+
+20:57 and summarizing operators
+20:59 
+
+20:59 the same thing
+21:01 
+
+21:01 we have the same summarizing operators
+21:03 
+
+21:03 in pandas so let's take it
+21:07 
+
+21:07 the price
+21:08 
+
+21:08 that's
+21:09 
+
+21:09 msrp
+21:12 
+
+21:12 so we have this price variable so we
+21:13 
+
+21:13 again can look at the mean value which
+21:16 
+
+21:16 is 2
+21:18 
+
+21:18 000
+21:19 
+
+21:19 max value so this is pretty much the
+21:21 
+
+21:21 same as we have a number
+21:24 
+
+21:24 right and mean for example
+21:27 
+
+21:27 this is the average number
+21:31 
+
+21:31 but
+21:32 
+
+21:32 in addition to that there is a useful
+21:36 
+
+21:36 function called describe which
+21:38 
+
+21:38 reports all the useful statistics so
+21:41 
+
+21:41 first it tells you how many
+21:43 
+
+21:43 records are there like what is the size
+21:46 
+
+21:46 of this um
+21:48 
+
+21:48 what is the size of the series what is
+21:50 
+
+21:50 the mean value what is the standard
+21:52 
+
+21:52 deviation what is the minimal
+21:54 
+
+21:54 then it also returns
+21:56 
+
+21:56 the percentiles like 25th percentile so
+21:59 
+
+21:59 individual percentile and the max value
+22:01 
+
+22:01 so it gives you
+22:03 
+
+22:03 um
+22:04 
+
+22:04 like a lot of
+22:06 
+
+22:06 information
+22:08 
+
+22:08 and we can actually do the same thing
+22:10 
+
+22:10 but for the entire data frame so we can
+22:12 
+
+22:12 just call describe
+22:14 
+
+22:14 on the data frame and what it does it
+22:16 
+
+22:16 looks at it finds all the
+22:19 
+
+22:19 numerical columns so we have four
+22:21 
+
+22:21 numerical columns here we have here
+22:23 
+
+22:23 engine horsepower engine cylinders and
+22:26 
+
+22:26 price
+22:27 
+
+22:27 so for all the variables for all the
+22:30 
+
+22:30 columns that are numeric so of course it
+22:32 
+
+22:32 cannot compute the mean value of model
+22:34 
+
+22:34 or make so it can only look at numerical
+22:37 
+
+22:37 values so it looks at all the numerical
+22:39 
+
+22:39 values and computes
+22:41 
+
+22:41 these summary statistics for them
+22:43 
+
+22:43 so this is useful
+22:45 
+
+22:45 and
+22:46 
+
+22:46 yes what i also often do is i use round
+22:50 
+
+22:50 here to just look at
+22:52 
+
+22:52 to round it
+22:53 
+
+22:53 up to two
+22:54 
+
+22:54 decimal points so it makes it a bit more
+22:57 
+
+22:57 compact
+22:59 
+
+22:59 there are some things we can also do for
+23:02 
+
+23:02 uh
+23:02 
+
+23:02 string for sticks or we call them
+23:05 
+
+23:05 categorical variables so for columns
+23:08 
+
+23:08 with strings so let's say we have this
+23:10 
+
+23:10 make column
+23:14 
+
+23:14 and we want to understand how many
+23:16 
+
+23:16 unique values are there
+23:18 
+
+23:18 so we see that for example there are two
+23:20 
+
+23:20 nissans but the rest are unique
+23:22 
+
+23:22 so if we want to calculate how many
+23:24 
+
+23:24 unique values are there we use this n
+23:27 
+
+23:27 unique
+23:28 
+
+23:28 function and we just say okay here are
+23:31 
+
+23:31 four unique values
+23:34 
+
+23:34 and actually we can apply it so to the
+23:36 
+
+23:36 entire data frame and then it will tell
+23:39 
+
+23:39 us how many unique values
+23:41 
+
+23:41 are there for all the columns of the
+23:43 
+
+23:43 data frame so there are four unique
+23:45 
+
+23:45 areas for make there are
+23:47 
+
+23:47 so basically for every so there are only
+23:49 
+
+23:49 two transmission types
+23:51 
+
+23:51 so it's manual or automatic
+23:54 
+
+23:54 yeah so you can get a summary then uh we
+23:58 
+
+23:58 mentioned that there is one
+24:01 
+
+24:01 here this
+24:02 
+
+24:02 nan which is a missing value and when it
+24:05 
+
+24:05 comes to machine learning we don't want
+24:07 
+
+24:07 to
+24:08 
+
+24:08 have these missing values so we want to
+24:10 
+
+24:10 know how many of them and we want to do
+24:12 
+
+24:12 something with them
+24:14 
+
+24:14 so for that we can
+24:17 
+
+24:17 use this is null
+24:19 
+
+24:19 function
+24:20 
+
+24:20 that returns a
+24:22 
+
+24:22 another data frame a new data frame
+24:25 
+
+24:25 where for each cell it says true if
+24:28 
+
+24:28 a value is missing see we have this true
+24:31 
+
+24:31 here
+24:31 
+
+24:31 and it says false if the value is not
+24:34 
+
+24:34 missing
+24:35 
+
+24:35 so only one
+24:36 
+
+24:36 only one cell has a missing value that's
+24:39 
+
+24:39 why it has
+24:42 
+
+24:42 true here
+24:43 
+
+24:43 and the rest
+24:44 
+
+24:44 are not missing
+24:46 
+
+24:46 so this is not always super useful so
+24:49 
+
+24:49 what we can do
+24:50 
+
+24:50 now is we want to understand here each
+24:53 
+
+24:53 column how many missing values are there
+24:56 
+
+24:56 and for that we call the sum method
+24:60 
+
+24:60 and when we do that
+25:02 
+
+25:02 we
+25:03 
+
+25:03 so it's sums across columns so it
+25:06 
+
+25:06 applies the sum to each column
+25:08 
+
+25:08 and
+25:09 
+
+25:09 then it tells
+25:10 
+
+25:10 how many
+25:12 
+
+25:12 missing values are there in each column
+25:14 
+
+25:14 so and you see that there is one for
+25:17 
+
+25:17 engine horsepower and the rest are not
+25:19 
+
+25:19 missing so we are almost
+25:21 
+
+25:21 over so there's uh two things that i
+25:24 
+
+25:24 want to talk about the first is grouping
+25:27 
+
+25:27 this one we want to
+25:29 
+
+25:29 do something like group by
+25:31 
+
+25:31 so if you know sql let's say if we have
+25:34 
+
+25:34 a
+25:35 
+
+25:35 query like that let me type it
+25:40 
+
+25:40 so let's say we have a query like that
+25:44 
+
+25:44 and
+25:45 
+
+25:45 if you know sql so let me translate this
+25:47 
+
+25:47 query to human language
+25:49 
+
+25:49 so we want to group by we want to
+25:53 
+
+25:53 so we want to
+25:54 
+
+25:54 compute the average price per
+25:56 
+
+25:56 transmission type so we want to see what
+25:58 
+
+25:58 is the mean price for all the manual
+26:01 
+
+26:01 uh transmission types for and for all
+26:03 
+
+26:03 the automatic transmission types so we
+26:06 
+
+26:06 basically want to first group by
+26:08 
+
+26:08 transmission type and then within each
+26:11 
+
+26:11 group we want to compute the average
+26:12 
+
+26:12 number
+26:13 
+
+26:13 so for in sql
+26:15 
+
+26:15 it will look like that
+26:18 
+
+26:18 so this is a query
+26:19 
+
+26:19 that we would write in sql and let's
+26:21 
+
+26:21 translate this clearly to pandas now
+26:25 
+
+26:25 so in pandas we have a
+26:28 
+
+26:28 method called group by
+26:30 
+
+26:30 and here we specify what we want to
+26:32 
+
+26:32 group by which column
+26:34 
+
+26:34 this variable transmission type right so
+26:36 
+
+26:36 we want to group by it
+26:39 
+
+26:39 so yeah this is what we'll write here
+26:42 
+
+26:42 group by transmission type
+26:44 
+
+26:44 and then we have this me
+26:47 
+
+26:47 mr
+26:48 
+
+26:48 msrp
+26:50 
+
+26:50 variable which is price
+26:53 
+
+26:53 manufacturer suggested retail price
+26:56 
+
+26:56 price or just price and then we want to
+26:58 
+
+26:58 compute the mean number
+27:00 
+
+27:00 or let's say if you want to
+27:02 
+
+27:02 compute the minimum number
+27:04 
+
+27:04 or
+27:05 
+
+27:05 the
+27:06 
+
+27:06 maximal number so this is how you do
+27:09 
+
+27:09 this
+27:11 
+
+27:11 uh everything in pandas is backed by
+27:13 
+
+27:13 numpy
+27:15 
+
+27:15 so let's say if we have so this
+27:19 
+
+27:19 msrp
+27:21 
+
+27:21 right so which is uh a series if we want
+27:25 
+
+27:25 to get the
+27:26 
+
+27:26 underlying numpy array we just use
+27:29 
+
+27:29 the values field
+27:30 
+
+27:30 and it returns
+27:32 
+
+27:32 the underlying number
+27:36 
+
+27:36 then the last useful thing
+27:38 
+
+27:38 i want to show you is
+27:40 
+
+27:40 we have this data frame and for creating
+27:42 
+
+27:42 this data frame we used
+27:45 
+
+27:45 a list of dictionaries right so this is
+27:48 
+
+27:48 what we used for creating it
+27:50 
+
+27:50 and sometimes you need to convert a
+27:54 
+
+27:54 pandas data frame back to this form back
+27:57 
+
+27:57 to a list of dictionaries
+27:59 
+
+27:59 and for this what you do is
+28:03 
+
+28:03 use a function called to
+28:05 
+
+28:05 dict
+28:06 
+
+28:06 and then you specify that you want to do
+28:09 
+
+28:09 this per record so orient while you use
+28:13 
+
+28:13 records
+28:14 
+
+28:14 and it gives you a list with
+28:16 
+
+28:16 dictionaries that you can do something
+28:18 
+
+28:18 with them like you can save it to a file
+28:21 
+
+28:21 or something like this so it's pretty
+28:23 
+
+28:23 useful
+28:25 
+
+28:25 and in the next
+28:26 
+
+28:26 video it will not be a lesson just a
+28:28 
+
+28:28 video with a summary of everything we
+28:30 
+
+28:30 learned
+28:31 
+
+28:31 during this session
+28:33 
+
+28:33 so see you soon

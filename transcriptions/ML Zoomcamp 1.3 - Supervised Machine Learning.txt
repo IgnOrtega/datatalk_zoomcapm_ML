@@ -1,0 +1,1501 @@
+00:02 okay welcome back this is the third
+00:04 
+
+00:04 lesson of
+00:05 
+
+00:05 our first session of machine learning
+00:07 
+
+00:07 zone comp and we will talk about
+00:09 
+
+00:09 supervised machine learning
+00:10 
+
+00:10 so we'll
+00:12 
+
+00:12 define more formally what supervised
+00:14 
+
+00:14 machine learning is and we will talk
+00:16 
+
+00:16 about a couple of examples like
+00:17 
+
+00:17 recursion classification and ranking so
+00:20 
+
+00:20 let's start
+00:21 
+
+00:21 so in lesson one we talked about
+00:24 
+
+00:24 an example of price prediction so we
+00:27 
+
+00:27 wanted to predict the price of a car
+00:29 
+
+00:29 and what we did is we kind of supervised
+00:33 
+
+00:33 the the model we were teachers of a
+00:36 
+
+00:36 model
+00:37 
+
+00:37 and we showed the model different
+00:39 
+
+00:39 examples we showed models different cars
+00:42 
+
+00:42 and for each car we showed the price and
+00:45 
+
+00:45 we did it for all the cars we had
+00:48 
+
+00:48 and we this way we supervised the
+00:51 
+
+00:51 the algorithms the machines we showed
+00:53 
+
+00:53 them for this kind of cars this is what
+00:56 
+
+00:56 the price should be and this is the
+00:59 
+
+00:59 essence behind
+01:00 
+
+01:00 this is the idea behind supervised
+01:02 
+
+01:02 machine learning so in all these cases
+01:04 
+
+01:04 we have this label and this is how we
+01:06 
+
+01:06 supervise machine learning we show them
+01:09 
+
+01:09 we teach the machines by showing them
+01:11 
+
+01:11 examples and from these examples the
+01:14 
+
+01:14 machine is able to learn
+01:16 
+
+01:16 the patterns and use these patterns to
+01:18 
+
+01:18 generalize to new examples so let's say
+01:21 
+
+01:21 when we have a car for which we don't
+01:24 
+
+01:24 know a price
+01:25 
+
+01:25 then the machines using the patterns
+01:28 
+
+01:28 they extracted they can predict the
+01:30 
+
+01:30 price of a car right so we teach
+01:34 
+
+01:34 we teach the algorithms
+01:36 
+
+01:36 and we also talked about a different
+01:38 
+
+01:38 example
+01:39 
+
+01:39 of spam prediction
+01:41 
+
+01:41 so it was exactly the same so we
+01:45 
+
+01:45 move the teachers we are showing the
+01:46 
+
+01:46 machines different uh
+01:48 
+
+01:48 example of spam and non-spam messages
+01:51 
+
+01:51 and just by looking at these examples
+01:53 
+
+01:53 the algorithm was able to pick the
+01:56 
+
+01:56 patterns and understand uh okay if there
+01:58 
+
+01:58 is the word deposit maybe this is more
+02:01 
+
+02:01 likely to be
+02:03 
+
+02:03 a spam message right
+02:06 
+
+02:06 so these are the examples we saw so far
+02:09 
+
+02:09 and this is what we actually need to
+02:13 
+
+02:13 uh this is how the data looks like so we
+02:16 
+
+02:16 don't of course show pictures we don't
+02:19 
+
+02:19 just show text not always
+02:21 
+
+02:21 um so in some cases we do show pictures
+02:24 
+
+02:24 we do show text but most of the time we
+02:27 
+
+02:27 need to extract features right
+02:29 
+
+02:29 we need to extract we need to show and
+02:32 
+
+02:32 we need to tell the models what exactly
+02:34 
+
+02:34 we want them to predict we tell the
+02:36 
+
+02:36 model okay we want to predict if
+02:39 
+
+02:39 something is palm or not spawn so
+02:42 
+
+02:42 one means palm zero means not spam but
+02:45 
+
+02:45 most models don't care if it's spam or
+02:47 
+
+02:47 something else or they care if it's zero
+02:50 
+
+02:50 or one right
+02:52 
+
+02:52 so we have these features we have this
+02:53 
+
+02:53 target variable and we'll put this in
+02:56 
+
+02:56 the model
+02:57 
+
+02:57 and
+02:58 
+
+02:58 we can uh
+03:01 
+
+03:01 make it a bit more formal so for like
+03:04 
+
+03:04 machine learning actually is a branch of
+03:07 
+
+03:07 computer science and mathematics of
+03:09 
+
+03:09 applied mathematics so it uses
+03:11 
+
+03:11 mathematics statistics and so on to be
+03:14 
+
+03:14 able to extract these patterns so it can
+03:16 
+
+03:16 see that
+03:17 
+
+03:17 let's say this feature
+03:19 
+
+03:19 uh
+03:20 
+
+03:20 is called deposit right
+03:22 
+
+03:22 and if we see that uh
+03:24 
+
+03:24 often when we see it that if which is
+03:27 
+
+03:27 this feature is one then
+03:29 
+
+03:29 more often than not than not uh
+03:32 
+
+03:32 yeah in three out of four cases
+03:35 
+
+03:35 i'm like this is probably what example
+03:37 
+
+03:37 but in 50 of the cases actually
+03:41 
+
+03:41 if the word deposit is there
+03:43 
+
+03:43 then it's
+03:44 
+
+03:44 a spam so a model tries to extract
+03:47 
+
+03:47 patterns like that
+03:48 
+
+03:48 using concepts from mathematics and
+03:51 
+
+03:51 statistics
+03:52 
+
+03:52 so this is what it relies on
+03:55 
+
+03:55 and we will now define it a bit more
+03:57 
+
+03:57 formally so
+03:59 
+
+03:59 this feature matrix so this is called
+04:01 
+
+04:01 feature matrix
+04:03 
+
+04:03 feature matrix
+04:06 
+
+04:06 and we call it usually using
+04:09 
+
+04:09 capital x
+04:12 
+
+04:12 right so this is our matrix and matrix
+04:16 
+
+04:16 is a
+04:17 
+
+04:17 like two-dimensional array
+04:19 
+
+04:19 where
+04:20 
+
+04:20 rows are our observations or objects for
+04:23 
+
+04:23 which we want to predict something
+04:25 
+
+04:25 and columns are features right so this
+04:28 
+
+04:28 is first uh spam is a message this is a
+04:31 
+
+04:31 second message and we have all this
+04:33 
+
+04:33 message messages as the role of this
+04:35 
+
+04:35 matrix
+04:36 
+
+04:36 and then for each row we have a
+04:38 
+
+04:38 corresponding like we have
+04:40 
+
+04:40 a matrix y
+04:42 
+
+04:42 right so this is uh
+04:44 
+
+04:44 actually this is a lowercase y
+04:48 
+
+04:48 so this is um
+04:49 
+
+04:49 a vector right so this vector
+04:53 
+
+04:53 e
+04:54 
+
+04:54 for each row of the matrix we know if
+04:57 
+
+04:57 this is spamanot so it just contains
+04:60 
+
+04:60 zeros and ones in this case right
+05:03 
+
+05:03 so we have this x and y capital x is the
+05:06 
+
+05:06 matrix with feature a smaller lowercase
+05:09 
+
+05:09 y is our vector with um
+05:13 
+
+05:13 with target variable
+05:15 
+
+05:15 and
+05:16 
+
+05:16 i know that many of you um
+05:18 
+
+05:18 like maybe you studied math but uh
+05:20 
+
+05:20 forgot long time ago so you can think of
+05:23 
+
+05:23 this as y as one dimensional array
+05:27 
+
+05:27 so it's just an array with numbers right
+05:29 
+
+05:29 so there's
+05:30 
+
+05:30 zero one uh zero and so on so this is a
+05:34 
+
+05:34 one dimensional array right and x is a
+05:38 
+
+05:38 two-dimensional array so it's an array
+05:39 
+
+05:39 of arrays so we have uh
+05:42 
+
+05:42 basically like here we have six
+05:45 
+
+05:45 uh
+05:46 
+
+05:46 six observations so we have six arrays
+05:48 
+
+05:48 inside and this is a two-dimensional
+05:50 
+
+05:50 array or a table right so you can
+05:53 
+
+05:53 think of this as just two-dimensionality
+05:56 
+
+05:56 right so we have this
+05:58 
+
+05:58 and now we need to
+06:00 
+
+06:00 put this in a model right so what we
+06:03 
+
+06:03 usually do so we have
+06:05 
+
+06:05 so we have our
+06:07 
+
+06:07 feature matrix x
+06:09 
+
+06:09 right
+06:10 
+
+06:10 and
+06:11 
+
+06:11 we want to produce
+06:13 
+
+06:13 why so we want to
+06:16 
+
+06:16 when we teach
+06:18 
+
+06:18 a model when we train a model
+06:21 
+
+06:21 we want to
+06:22 
+
+06:22 be as close to this
+06:24 
+
+06:24 y as possible right and we do this by
+06:28 
+
+06:28 training this function g
+06:30 
+
+06:30 so g
+06:32 
+
+06:32 is nothing else but our model
+06:35 
+
+06:35 it's our model
+06:39 
+
+06:39 that
+06:40 
+
+06:40 takes in
+06:41 
+
+06:41 that takes in this matrix x
+06:43 
+
+06:43 and that produces something that
+06:47 
+
+06:47 is approximately close to
+06:49 
+
+06:49 the target variable y
+06:51 
+
+06:51 so this is target variable
+06:54 
+
+06:54 target
+06:56 
+
+06:56 and these are our features
+07:03 
+
+07:03 so
+07:04 
+
+07:04 again
+07:05 
+
+07:05 the goal of machine learning is to be
+07:07 
+
+07:07 able to train
+07:09 
+
+07:09 to
+07:09 
+
+07:09 come up with this function g
+07:12 
+
+07:12 that takes in the feature matrix
+07:14 
+
+07:14 and produces something that is as close
+07:17 
+
+07:17 as possible to the target variable right
+07:20 
+
+07:20 and uh yeah so in our example so target
+07:24 
+
+07:24 could be the price of a car
+07:26 
+
+07:26 g
+07:27 
+
+07:27 um x could be
+07:30 
+
+07:30 like all the information about cars
+07:32 
+
+07:32 model make mileage and so on
+07:35 
+
+07:35 and we want to train our model g
+07:38 
+
+07:38 in such a way when it takes the x all
+07:40 
+
+07:40 this information about the car it
+07:42 
+
+07:42 produces the price that is as close as
+07:45 
+
+07:45 possible to the price of a uh of a car
+07:48 
+
+07:48 and remember if you remember the example
+07:50 
+
+07:50 the
+07:51 
+
+07:51 actual price of a car was 1.5 000
+07:55 
+
+07:55 um and
+07:57 
+
+07:57 actually the actual price was 1.1 000
+07:60 
+
+07:60 and the model predicted 1.5 it's not
+08:02 
+
+08:02 always possible to
+08:05 
+
+08:05 predict the exact price but we want it
+08:08 
+
+08:08 to be as close as possible right and in
+08:11 
+
+08:11 this case it's close enough
+08:12 
+
+08:12 for our purpose
+08:14 
+
+08:14 so this is a formal definition of
+08:16 
+
+08:16 supervised machine learning
+08:18 
+
+08:18 so this is the goal is to produce this
+08:20 
+
+08:20 function engine
+08:23 
+
+08:23 and then the output of this g
+08:27 
+
+08:27 so we already talked a bit about the
+08:29 
+
+08:29 output of
+08:31 
+
+08:31 the
+08:33 
+
+08:33 price prediction model so the output was
+08:36 
+
+08:36 a number
+08:38 
+
+08:38 the price of a
+08:39 
+
+08:39 car in case of spam classification the
+08:42 
+
+08:42 output was uh
+08:44 
+
+08:44 probability right so again this is our x
+08:48 
+
+08:48 right
+08:50 
+
+08:50 and this is our predictions so we take
+08:52 
+
+08:52 our function g which is our model
+08:55 
+
+08:55 and
+08:56 
+
+08:56 we
+08:58 
+
+08:58 put our x the the features and it
+09:02 
+
+09:02 produces these predictions right so and
+09:04 
+
+09:04 these predictions they are
+09:07 
+
+09:07 like let's say the original target was
+09:09 
+
+09:09 one for this one it's palm for this
+09:11 
+
+09:11 maybe zero
+09:12 
+
+09:12 zero
+09:13 
+
+09:13 uh i know one zero one and we try to be
+09:18 
+
+09:18 as close
+09:19 
+
+09:19 to the target as possible right
+09:22 
+
+09:22 so and this is this process of
+09:26 
+
+09:26 looking at the features and then coming
+09:29 
+
+09:29 up with this
+09:30 
+
+09:30 g is called training
+09:33 
+
+09:33 so we have this
+09:36 
+
+09:36 function and
+09:38 
+
+09:38 based on the output it produces and
+09:40 
+
+09:40 based on the target variable that we
+09:42 
+
+09:42 have
+09:43 
+
+09:43 we have different types of supervised
+09:46 
+
+09:46 machine learning
+09:47 
+
+09:47 so in the first case
+09:49 
+
+09:49 and this was the case for
+09:51 
+
+09:51 the car price prediction example
+09:54 
+
+09:54 so this is a
+09:56 
+
+09:56 an example of a regression problem so
+09:59 
+
+09:59 this is
+09:60 
+
+09:60 the function
+10:01 
+
+10:01 g here in this case returns a number
+10:05 
+
+10:05 that is um like between zero and uh
+10:09 
+
+10:09 plus infinity so from zero dollars to
+10:12 
+
+10:12 however many dollars
+10:15 
+
+10:15 and uh
+10:16 
+
+10:16 yeah so basically the
+10:19 
+
+10:19 the the function g here
+10:21 
+
+10:21 outputs the price uh the prediction for
+10:23 
+
+10:23 the price right and
+10:25 
+
+10:25 there are other examples of regression
+10:27 
+
+10:27 problems
+10:29 
+
+10:29 that
+10:30 
+
+10:30 anything that outputs number from
+10:34 
+
+10:34 can be any number from minus minus
+10:35 
+
+10:35 infinity to
+10:37 
+
+10:37 plus infinity or
+10:38 
+
+10:38 whatever range
+10:40 
+
+10:40 it is a regression problem so for
+10:42 
+
+10:42 example if you want to predict the price
+10:43 
+
+10:43 of uh the price of house
+10:45 
+
+10:45 and we say okay this is the house with
+10:48 
+
+10:48 this kind of characteristics like a
+10:50 
+
+10:50 number of square meters number of rooms
+10:53 
+
+10:53 uh distance from the center distance
+10:55 
+
+10:55 from the closest
+10:57 
+
+10:57 subway station and so on
+10:59 
+
+10:59 and
+11:01 
+
+11:01 based on all this information we can say
+11:03 
+
+11:03 that this house costs for example 1
+11:05 
+
+11:05 million or something like this so these
+11:08 
+
+11:08 are all examples of regression problem
+11:10 
+
+11:10 and
+11:11 
+
+11:11 usually the output in this case
+11:14 
+
+11:14 is always a number
+11:16 
+
+11:16 then there's a very different type of
+11:18 
+
+11:18 supervised machine learning problem type
+11:20 
+
+11:20 is called classification when
+11:24 
+
+11:24 we don't output a number but we output a
+11:26 
+
+11:26 category so for example if we
+11:30 
+
+11:30 look at a picture and we say on this
+11:32 
+
+11:32 picture we have a car
+11:33 
+
+11:33 so this is a picture of a car
+11:35 
+
+11:35 then this is a classification problem
+11:37 
+
+11:37 right we
+11:39 
+
+11:39 our input is the picture the output is
+11:42 
+
+11:42 car right so we classify this picture as
+11:44 
+
+11:44 a picture of a car
+11:46 
+
+11:46 then the spam example we talked about
+11:50 
+
+11:50 it's also classification
+11:52 
+
+11:52 so we have all these
+11:55 
+
+11:55 characteristics of
+11:57 
+
+11:57 an email and then based on this
+11:59 
+
+11:59 characteristic we predict if something
+12:01 
+
+12:01 is spammer not so here
+12:04 
+
+12:04 the function g produces uh like the
+12:07 
+
+12:07 output is
+12:08 
+
+12:08 a category and the target file target
+12:10 
+
+12:10 variable most importantly is a category
+12:17 
+
+12:17 and then there are different
+12:19 
+
+12:19 subclasses of classification
+12:22 
+
+12:22 so there are there is multi-class
+12:25 
+
+12:25 classification when we want to classify
+12:28 
+
+12:28 something into multiple different
+12:30 
+
+12:30 categories so for example let's say we
+12:32 
+
+12:32 have images and this could be images of
+12:35 
+
+12:35 cars this could be images of cats or
+12:38 
+
+12:38 images of talks and we need to classify
+12:42 
+
+12:42 images into three different categories
+12:44 
+
+12:44 this is a multi-class category and of
+12:46 
+
+12:46 course it can be
+12:47 
+
+12:47 ten categories it can be
+12:49 
+
+12:49 a thousand categories it can be
+12:51 
+
+12:51 as many categories
+12:53 
+
+12:53 as you need so as long as it's more than
+12:56 
+
+12:56 two because for two there is a special
+12:60 
+
+13:00 subtype of classification problem which
+13:03 
+
+13:03 is called a binary classification
+13:05 
+
+13:05 problem
+13:06 
+
+13:06 and this is the example we already
+13:08 
+
+13:08 looked at
+13:09 
+
+13:09 so for sperm classification it was a
+13:11 
+
+13:11 case of binary classification problem
+13:14 
+
+13:14 and
+13:15 
+
+13:15 there we wanted to predict if something
+13:17 
+
+13:17 is spam or not
+13:19 
+
+13:19 and if you remember super stomach was 1
+13:22 
+
+13:22 or 0 and actually the function g that we
+13:25 
+
+13:25 had
+13:26 
+
+13:26 would output
+13:28 
+
+13:28 a probability between 0 and 1 right
+13:32 
+
+13:32 and the target variable looked like
+13:36 
+
+13:36 just an array with ones and zeros
+13:39 
+
+13:39 so that's why for binary classification
+13:42 
+
+13:42 they're like a special it's a special
+13:44 
+
+13:44 subtype of classification problem that
+13:46 
+
+13:46 is
+13:48 
+
+13:48 very widely used in practice
+13:51 
+
+13:51 and then there is a different type of uh
+13:54 
+
+13:54 different type of supervised learning
+13:56 
+
+13:56 which is called ranking
+13:59 
+
+13:59 we will not talk a lot about this course
+14:01 
+
+14:01 but i just want to mention it exists
+14:03 
+
+14:03 so ranking is usually used in
+14:06 
+
+14:06 cases when you want to run something so
+14:09 
+
+14:09 it can be a recommender system so for
+14:11 
+
+14:11 example
+14:12 
+
+14:12 i'm a user i go to an e-commerce website
+14:16 
+
+14:16 and there are many many products that i
+14:18 
+
+14:18 am potentially interested in
+14:20 
+
+14:20 how to select the most interesting one
+14:23 
+
+14:23 so what happens under the hood is there
+14:25 
+
+14:25 a function that
+14:26 
+
+14:26 ranks the items
+14:29 
+
+14:29 in such a way so the the function tries
+14:31 
+
+14:31 to understand for me so in this case uh
+14:34 
+
+14:34 uh like for me as a user
+14:37 
+
+14:37 what would be
+14:39 
+
+14:39 the let's say the probability that i
+14:41 
+
+14:41 like this item and it looks
+14:43 
+
+14:43 at all the items that are there and
+14:45 
+
+14:45 tries to
+14:46 
+
+14:46 score them give them a score
+14:48 
+
+14:48 can be just for simply still take let's
+14:51 
+
+14:51 think let's take a score from zero to
+14:53 
+
+14:53 one
+14:54 
+
+14:54 so this core everything that is there
+14:57 
+
+14:57 you assign it a score from zero to one
+14:59 
+
+14:59 then it takes all these items and
+15:01 
+
+15:01 returns the top six so here we have the
+15:04 
+
+15:04 top six right so these are
+15:07 
+
+15:07 the items that had the
+15:10 
+
+15:10 uh the biggest score so for example
+15:11 
+
+15:11 let's say this can be 0.7 this can be
+15:15 
+
+15:15 0.66
+15:17 
+
+15:17 uh i have no idea what is that actually
+15:19 
+
+15:19 but apparently this is something i
+15:21 
+
+15:21 potentially would like
+15:23 
+
+15:23 then
+15:24 
+
+15:24 you know i don't know a case for
+15:27 
+
+15:27 uh headphones and things like this so
+15:29 
+
+15:29 they basically score everything
+15:30 
+
+15:30 and then they sort everything by the
+15:33 
+
+15:33 score and then they show me show me top
+15:36 
+
+15:36 six results so this is how a recommended
+15:39 
+
+15:39 system works and this is an example of a
+15:43 
+
+15:43 ranking problem right so we want to have
+15:45 
+
+15:45 ranked list of items that i
+15:47 
+
+15:47 will probably want to buy right
+15:50 
+
+15:50 and if you think about this google is
+15:52 
+
+15:52 doing something similar
+15:53 
+
+15:53 so that if i go to google and drive
+15:56 
+
+15:56 machine learning zoomcamp it wants to
+15:59 
+
+15:59 show not only what is relevant but also
+16:01 
+
+16:01 what is most interesting for me so they
+16:04 
+
+16:04 look at all the documents in the world
+16:06 
+
+16:06 that contain this particular
+16:09 
+
+16:09 uh
+16:10 
+
+16:10 phrase right and then they score them
+16:14 
+
+16:14 uh
+16:15 
+
+16:15 they want to see how likely that
+16:17 
+
+16:17 this document is relevant for me so they
+16:19 
+
+16:19 again maybe have for this documented
+16:21 
+
+16:21 probability of relevance is uh 0.9
+16:25 
+
+16:25 then for this one maybe 0.85 and so on
+16:29 
+
+16:29 so they basically show uh there they
+16:31 
+
+16:31 rank by this relevant score and then
+16:34 
+
+16:34 they showed
+16:35 
+
+16:35 the most relevant as the first one so
+16:38 
+
+16:38 this is an example of uh
+16:40 
+
+16:40 ranking again
+16:42 
+
+16:42 and
+16:43 
+
+16:43 for e-commerce
+16:44 
+
+16:44 like for e-commerce
+16:47 
+
+16:47 shops and marketplaces like colleagues
+16:49 
+
+16:49 this search problem is also
+16:52 
+
+16:52 quite important so we if you want let's
+16:55 
+
+16:55 say to buy an iphone you go to olix and
+16:58 
+
+16:58 you
+16:59 
+
+16:59 uh type iphone in search so you want to
+17:02 
+
+17:02 we want to show the user what is most
+17:04 
+
+17:04 relevant for this particular user so
+17:06 
+
+17:06 this is again an example of
+17:08 
+
+17:08 a ranking problem
+17:11 
+
+17:11 and yeah
+17:13 
+
+17:13 in
+17:14 
+
+17:14 summary so
+17:16 
+
+17:16 supervised machine learning is
+17:20 
+
+17:20 about teaching computer teaching an
+17:23 
+
+17:23 algorithm by showing different examples
+17:27 
+
+17:27 and the examples i usually we put them
+17:30 
+
+17:30 in matrix x and then we have the vector
+17:33 
+
+17:33 y so in matrix x we have
+17:36 
+
+17:36 we call it the feature matrix these are
+17:38 
+
+17:38 all vector characteristics of an item
+17:41 
+
+17:41 for which we want to make a prediction
+17:44 
+
+17:44 and y is the prediction we want to make
+17:46 
+
+17:46 right so this is what we want to learn
+17:48 
+
+17:48 from
+17:49 
+
+17:49 and
+17:50 
+
+17:50 then the goal of supervised learning is
+17:52 
+
+17:52 to come up with a function g
+17:55 
+
+17:55 right
+17:57 
+
+17:57 and in such a way that when we apply
+18:00 
+
+18:00 this g to our
+18:02 
+
+18:02 feature matrix we get something very
+18:05 
+
+18:05 close to our target variable right
+18:07 
+
+18:07 and here inside g and we will talk about
+18:10 
+
+18:10 throughout the course what this g looks
+18:12 
+
+18:12 like exactly so here this g actually
+18:15 
+
+18:15 tries to extract patterns from this
+18:18 
+
+18:18 matrix x
+18:20 
+
+18:20 in such a way when we apply this matrix
+18:22 
+
+18:22 x to g
+18:23 
+
+18:23 we get something that is very close to
+18:25 
+
+18:25 target variable so this is the essence
+18:27 
+
+18:27 of supervised machine learning and then
+18:30 
+
+18:30 based on the type of target variable we
+18:33 
+
+18:33 can have
+18:34 
+
+18:34 regression classification which can be
+18:37 
+
+18:37 multi-class classification or binary and
+18:40 
+
+18:40 we can have ranking right
+18:43 
+
+18:43 and in this course we will focus mostly
+18:46 
+
+18:46 on
+18:47 
+
+18:47 classification and we will have a
+18:49 
+
+18:49 chapter also it will be the next lesson
+18:51 
+
+18:51 we will talk about regression
+18:53 
+
+18:53 and actually the case of binary
+18:55 
+
+18:55 classification this is
+18:58 
+
+18:58 probably the most
+18:60 
+
+18:60 widely used
+19:02 
+
+19:02 type of machine learning i would say of
+19:04 
+
+19:04 supervised machine learning and
+19:07 
+
+19:07 you definitely need to
+19:09 
+
+19:09 you will definitely have a problem that
+19:11 
+
+19:11 can be solved um as a binary
+19:13 
+
+19:13 classification problem when you work
+19:15 
+
+19:15 with machine learning
+19:17 
+
+19:17 so that's it for this lesson so in the
+19:20 
+
+19:20 next lesson
+19:21 
+
+19:21 we
+19:22 
+
+19:22 will look at the bigger picture of
+19:24 
+
+19:24 organizing machine learning projects and
+19:26 
+
+19:26 we will talk about a special methodology
+19:28 
+
+19:28 for organizing machine learning projects
+19:30 
+
+19:30 called crisp them

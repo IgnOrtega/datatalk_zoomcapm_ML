@@ -1,0 +1,1690 @@
+00:01 okay
+00:01 
+
+00:01 um hi everyone welcome back so
+00:05 
+
+00:05 now we have lesson four from session
+00:07 
+
+00:07 number one of machine learning zone camp
+00:09 
+
+00:09 and we will talk about processes for
+00:11 
+
+00:11 machine learning projects
+00:13 
+
+00:13 in the previous lecture we talked in the
+00:15 
+
+00:15 previous lesson we talked about
+00:17 
+
+00:17 supervised machine learning now we'll
+00:19 
+
+00:19 take a step back and
+00:21 
+
+00:21 look at the big picture and see how
+00:24 
+
+00:24 processes are organized so the plan for
+00:26 
+
+00:26 today
+00:27 
+
+00:27 is we'll talk about a specific
+00:29 
+
+00:29 methodology methodology for organizing
+00:31 
+
+00:31 ml projects called crisp them
+00:34 
+
+00:34 chris vm stands for cross industries
+00:36 
+
+00:36 standard processing data mining i think
+00:40 
+
+00:40 and then we'll cover the entire process
+00:43 
+
+00:43 from the problem understanding to
+00:44 
+
+00:44 deployment there are actually six steps
+00:46 
+
+00:46 and we will talk about each of these
+00:48 
+
+00:48 steps
+00:49 
+
+00:49 and we again will use our spam detection
+00:52 
+
+00:52 example to illustrate how exactly we can
+00:54 
+
+00:54 use this methodology for our projects so
+00:57 
+
+00:57 let's start
+00:59 
+
+00:59 so for machine learning projects we
+01:01 
+
+01:01 first need to understand uh the problem
+01:03 
+
+01:03 we need to collect the data we need to
+01:05 
+
+01:05 train the model and we need to use it
+01:08 
+
+01:08 and methodologies like chrisdem and
+01:11 
+
+01:11 others help us to actually organize it
+01:13 
+
+01:13 in a way that is manageable and we know
+01:15 
+
+01:15 what actually needs to happen in in
+01:17 
+
+01:17 which order right
+01:19 
+
+01:19 so we will talk about the some example
+01:21 
+
+01:21 and to remind you uh the idea behind
+01:23 
+
+01:23 this stunt detection
+01:26 
+
+01:26 system is we get some
+01:28 
+
+01:28 mail right so then we extract some
+01:31 
+
+01:31 features from this email
+01:33 
+
+01:33 we put them in the model
+01:35 
+
+01:35 the model
+01:36 
+
+01:36 gives some
+01:38 
+
+01:38 score for each email and let's say if
+01:41 
+
+01:41 the score is uh
+01:42 
+
+01:42 um higher than
+01:44 
+
+01:44 50 percent it goes to the spam folder if
+01:47 
+
+01:47 it's slower than 60 or 50
+01:50 
+
+01:50 then it goes to the inbox right so this
+01:53 
+
+01:53 is the spam detector
+01:55 
+
+01:55 system that we talked about previously
+01:57 
+
+01:57 and now we'll see how we can actually
+01:60 
+
+01:60 use this dm uh to work on this problem
+02:04 
+
+02:04 so chris dm as i said is
+02:07 
+
+02:07 across industry standard process for
+02:09 
+
+02:09 data mining which is a methyl
+02:11 
+
+02:11 methodology that talks how machine
+02:14 
+
+02:14 learning projects should be organized
+02:17 
+
+02:17 it's a pretty old methodology so it's uh
+02:19 
+
+02:19 it was invented in i think 90s
+02:22 
+
+02:22 from by ibm even though it's
+02:26 
+
+02:26 quite old it's still very useful uh even
+02:28 
+
+02:28 today after
+02:30 
+
+02:30 25
+02:31 
+
+02:31 or something like that years after its
+02:33 
+
+02:33 invention it's still useful so some
+02:36 
+
+02:36 things are a bit outdated but
+02:38 
+
+02:38 surprisingly it really stood the test of
+02:41 
+
+02:41 time and it still can be used today
+02:44 
+
+02:44 almost with no modifications so let's
+02:46 
+
+02:46 talk about this so yeah there are six
+02:48 
+
+02:48 steps
+02:49 
+
+02:49 so in the first step business
+02:51 
+
+02:51 understanding we try to understand the
+02:53 
+
+02:53 problem and then there are many other
+02:55 
+
+02:55 steps one of them is modeling where we
+02:57 
+
+02:57 actually
+02:59 
+
+02:59 train our model and then there is a step
+03:01 
+
+03:01 of deployment when our model is used so
+03:04 
+
+03:04 let's talk about each of these steps
+03:07 
+
+03:07 and we'll try to map our
+03:10 
+
+03:10 spam detection example to this
+03:12 
+
+03:12 methodology
+03:14 
+
+03:14 so the first step is the business
+03:16 
+
+03:16 understanding step so here the goal is
+03:19 
+
+03:19 to identify the problem with we want to
+03:21 
+
+03:21 solve
+03:23 
+
+03:23 and
+03:24 
+
+03:24 we really want to understand this
+03:26 
+
+03:26 problem so we want to
+03:28 
+
+03:28 understand
+03:29 
+
+03:29 if this problem is important and most
+03:31 
+
+03:31 importantly is we want to
+03:35 
+
+03:35 measure to understand how we measure the
+03:37 
+
+03:37 success of our project
+03:38 
+
+03:38 one important thing we need to ask
+03:40 
+
+03:40 ourselves at this step is
+03:42 
+
+03:42 do we actually need machine learning
+03:44 
+
+03:44 right because often for many problems we
+03:47 
+
+03:47 don't need machine learning at all
+03:50 
+
+03:50 and uh yeah sometimes like if we have a
+03:54 
+
+03:54 hammer everything looks like an l
+03:56 
+
+03:56 but we really need to think like is
+03:58 
+
+03:58 machine learning uh right solution for
+04:01 
+
+04:01 this
+04:03 
+
+04:03 so let's take our example of spam
+04:05 
+
+04:05 detection is uh
+04:07 
+
+04:07 first we want to understand the problem
+04:09 
+
+04:09 so
+04:10 
+
+04:10 problem is that users complain about
+04:12 
+
+04:12 spam right
+04:14 
+
+04:14 yes users complain so what we need to do
+04:16 
+
+04:16 is understand
+04:17 
+
+04:17 to what extent it's a problem right
+04:20 
+
+04:20 a lot of users complain or maybe it's
+04:22 
+
+04:22 just one user yeah so we need to
+04:24 
+
+04:24 understand that
+04:27 
+
+04:27 like to also perhaps understand how
+04:30 
+
+04:30 impactful our project is and to
+04:33 
+
+04:33 motivate uh like to say like we really
+04:36 
+
+04:36 need to invest time into doing this
+04:38 
+
+04:38 then we need to
+04:40 
+
+04:40 understand if machine learning is
+04:42 
+
+04:42 actually the right
+04:43 
+
+04:43 tool for solving this problem right so
+04:46 
+
+04:46 maybe
+04:47 
+
+04:47 we will be fine with just developing a
+04:50 
+
+04:50 rule-based system right or just
+04:52 
+
+04:52 developing some heuristic
+04:54 
+
+04:54 without investing a lot of time and
+04:57 
+
+04:57 resources in developing a machine
+04:58 
+
+04:58 learning system
+04:60 
+
+04:60 right
+05:01 
+
+05:01 and at this step like let's say if we
+05:04 
+
+05:04 decide to go with machine learning right
+05:08 
+
+05:08 so we need to understand what is
+05:11 
+
+05:11 what is the actual problem we try to
+05:13 
+
+05:13 solve so can we
+05:15 
+
+05:15 reduce the amount of sperm messages
+05:17 
+
+05:17 right or reduce the amount of complaints
+05:19 
+
+05:19 about spam
+05:20 
+
+05:20 but we need to come up with some
+05:24 
+
+05:24 metric some way of measuring it so
+05:27 
+
+05:27 if we can measure the number of sperm
+05:28 
+
+05:28 messages then we can say okay we want to
+05:30 
+
+05:30 reduce this number of small messages
+05:33 
+
+05:33 and it's important here to instead of
+05:35 
+
+05:35 just saying hey we want to reduce the
+05:37 
+
+05:37 number of sperm messages we also want to
+05:39 
+
+05:39 say
+05:40 
+
+05:40 how much exactly we want to reduce it
+05:42 
+
+05:42 because like how do we measure success
+05:45 
+
+05:45 how do we then say that this project is
+05:47 
+
+05:47 actually successful so we need to say
+05:50 
+
+05:50 okay we want to reduce the amount of
+05:52 
+
+05:52 sperm messages by 50 so it has to be
+05:55 
+
+05:55 some number attached to the kpi
+05:58 
+
+05:58 right
+05:59 
+
+05:59 so once we have this once we decided
+06:02 
+
+06:02 that machine learning is actually the
+06:04 
+
+06:04 right tool for this problem we made sure
+06:06 
+
+06:06 we understood the problem and we came up
+06:08 
+
+06:08 with a way to measure success
+06:12 
+
+06:12 we go to the next step and we try to
+06:14 
+
+06:14 understand what data is actually
+06:15 
+
+06:15 available for us to solve the problem
+06:18 
+
+06:18 because
+06:19 
+
+06:19 for machine learning we really need to
+06:20 
+
+06:20 have data if there is no data then we
+06:23 
+
+06:23 cannot have any machine learning so this
+06:25 
+
+06:25 step we really need to make sure that
+06:27 
+
+06:27 the data is available and if it's not we
+06:29 
+
+06:29 need to understand how we can
+06:32 
+
+06:32 get it what is missing what is not so we
+06:34 
+
+06:34 basically need to understand what is uh
+06:36 
+
+06:36 there maybe perhaps we need to
+06:39 
+
+06:39 uh to buy a data source or maybe
+06:43 
+
+06:43 start collecting some data right and in
+06:45 
+
+06:45 our particular example
+06:47 
+
+06:47 so for example we for the spam case we
+06:50 
+
+06:50 have a spam button
+06:51 
+
+06:51 uh so first we want to understand like
+06:54 
+
+06:54 does it really work well like what
+06:56 
+
+06:56 happens when a user click on this
+07:00 
+
+07:00 is the data reliable there do we always
+07:03 
+
+07:03 track the clicks right do we always when
+07:05 
+
+07:05 a user clicks we can say that uh
+07:08 
+
+07:08 the data actually is recorded
+07:11 
+
+07:11 and then uh we also need to ask if this
+07:14 
+
+07:14 data is good enough maybe users click
+07:18 
+
+07:18 on spam
+07:20 
+
+07:20 they say messages are spam when they
+07:22 
+
+07:22 aren't actually spam
+07:25 
+
+07:25 so this can happen right
+07:27 
+
+07:27 and if we use such data then our system
+07:31 
+
+07:31 will our machine learning algorithm
+07:33 
+
+07:33 we'll just learn from this data right
+07:35 
+
+07:35 and we will try to mimic this behavior
+07:38 
+
+07:38 and it will also try to predict
+07:40 
+
+07:40 something a spam even though it's not
+07:43 
+
+07:43 spam because this is the kind of
+07:45 
+
+07:45 training data used so we need to
+07:47 
+
+07:47 understand and often manually analyze
+07:49 
+
+07:49 look at the data and try to understand
+07:52 
+
+07:52 if this is good enough
+07:55 
+
+07:55 and we also need to ask ourselves if
+07:56 
+
+07:56 this data is large enough so
+07:60 
+
+07:60 maybe if this data set is small like we
+08:02 
+
+08:02 have only 10 records or something like
+08:04 
+
+08:04 this
+08:05 
+
+08:05 then yeah we cannot do much so we need
+08:07 
+
+08:07 to collect more data
+08:09 
+
+08:09 and this could be an output on this step
+08:11 
+
+08:11 saying hey right now we're not ready but
+08:14 
+
+08:14 we need to have i don't know two three
+08:16 
+
+08:16 thousand records before we even can
+08:19 
+
+08:19 start doing anything else
+08:21 
+
+08:21 yeah so this is what we do at this data
+08:24 
+
+08:24 understanding step understanding what
+08:25 
+
+08:25 data is available
+08:28 
+
+08:28 if something is missing
+08:30 
+
+08:30 what is missing and how there are some
+08:32 
+
+08:32 problems in tracking that we need to fix
+08:34 
+
+08:34 before we actually move on and base our
+08:37 
+
+08:37 model on this
+08:39 
+
+08:39 data and
+08:41 
+
+08:41 yeah here we sometimes may
+08:44 
+
+08:44 find out that uh you know some things we
+08:47 
+
+08:47 don't have some data
+08:49 
+
+08:49 or
+08:50 
+
+08:50 let's say we understand that our problem
+08:53 
+
+08:53 uh is not
+08:55 
+
+08:55 like our problem is different so
+08:58 
+
+08:58 sometimes
+09:03 
+
+09:03 these steps sometimes we can learn new
+09:04 
+
+09:04 information about the problem
+09:07 
+
+09:07 and it uh
+09:09 
+
+09:09 what we learned that this step may
+09:10 
+
+09:10 influence our
+09:12 
+
+09:12 initial understanding of the problem so
+09:14 
+
+09:14 actually here we can go back and revise
+09:17 
+
+09:17 everything we did in the first step and
+09:19 
+
+09:19 then
+09:20 
+
+09:20 come back to the data understanding
+09:21 
+
+09:21 stuff again
+09:23 
+
+09:23 so after data understanding stuff we
+09:25 
+
+09:25 have data preparation step so here we
+09:29 
+
+09:29 already analyzed the data we know that
+09:31 
+
+09:31 we have enough data we know that the
+09:33 
+
+09:33 data is reliable it can be used
+09:36 
+
+09:36 and it's sufficiently
+09:38 
+
+09:38 sufficient
+09:40 
+
+09:40 sufficiently big so now we move to the
+09:42 
+
+09:42 next step and we take this data and
+09:45 
+
+09:45 transform it in such a way that it can
+09:47 
+
+09:47 be put in a machine learning algorithm
+09:49 
+
+09:49 usually here it means extracting
+09:51 
+
+09:51 different features right if you remember
+09:54 
+
+09:54 that uh for most of the models um like
+09:57 
+
+09:57 for the examples for that we talked
+09:58 
+
+09:58 about we actually needed to extract some
+10:01 
+
+10:01 um some features from
+10:04 
+
+10:04 you know
+10:05 
+
+10:05 from the data right
+10:07 
+
+10:07 and also at this step we need to
+10:10 
+
+10:10 clean the data remove all the noise
+10:13 
+
+10:13 let's say sometimes users accidentally
+10:16 
+
+10:16 mark
+10:17 
+
+10:17 spam messages
+10:19 
+
+10:19 users accidentally mark good messages
+10:21 
+
+10:21 spam
+10:22 
+
+10:22 so maybe there is a way to clean this
+10:24 
+
+10:24 data then we
+10:25 
+
+10:25 [Music]
+10:27 
+
+10:27 like it's called uh built into pipelines
+10:30 
+
+10:30 so by pipeline i mean we have like a
+10:32 
+
+10:32 sequence of steps
+10:34 
+
+10:34 that takes the raw data
+10:37 
+
+10:37 and
+10:38 
+
+10:38 there's some transformation
+10:40 
+
+10:40 and then it produces clean data
+10:44 
+
+10:44 so we need to write all this code for
+10:46 
+
+10:46 doing this and then finally we need to
+10:48 
+
+10:48 convert our data in a tabular format
+10:51 
+
+10:51 which means
+10:52 
+
+10:52 tabular something that can be put in
+10:54 
+
+10:54 machine learning model right because
+10:56 
+
+10:56 yeah so here is an example for our stump
+10:58 
+
+10:58 detection system so let's say we have
+11:00 
+
+11:00 all these emails
+11:02 
+
+11:02 we have
+11:03 
+
+11:03 the spam data right and this pipeline
+11:07 
+
+11:07 would put together everything into a
+11:09 
+
+11:09 tubular format where we clearly know who
+11:12 
+
+11:12 the sender is who the receiver is the
+11:14 
+
+11:14 subject the body etc and most
+11:16 
+
+11:16 importantly we have our target variable
+11:20 
+
+11:20 and then we can take this
+11:22 
+
+11:22 and do
+11:23 
+
+11:23 extract features from this data right
+11:25 
+
+11:25 and the features this is something that
+11:26 
+
+11:26 we had talked about uh
+11:29 
+
+11:29 previously in previous lessons is uh
+11:31 
+
+11:31 like everything you can extract from
+11:33 
+
+11:33 this for example i think the last column
+11:36 
+
+11:36 was
+11:37 
+
+11:37 if there is a word deposit in this and
+11:40 
+
+11:40 yeah so here's the word deposit and
+11:42 
+
+11:42 maybe here here this
+11:44 
+
+11:44 one uh goes here right so we do this
+11:47 
+
+11:47 feature
+11:48 
+
+11:48 extraction
+11:50 
+
+11:50 so once the data is prepared uh it's
+11:53 
+
+11:53 ready and it's in
+11:56 
+
+11:56 this format right you remember that we
+11:59 
+
+11:59 talked about this capital x
+12:02 
+
+12:02 and small y so once the data is in this
+12:05 
+
+12:05 format
+12:06 
+
+12:06 we can actually train the model so the
+12:08 
+
+12:08 machine learning actual machine learning
+12:10 
+
+12:10 happens at this step
+12:13 
+
+12:13 so here what we do is we try different
+12:16 
+
+12:16 models and we select the best one
+12:19 
+
+12:19 there are many different models and
+12:22 
+
+12:22 in this course throughout the course
+12:23 
+
+12:23 we'll talk about all of them we'll talk
+12:25 
+
+12:25 about logistic regression decision tree
+12:27 
+
+12:27 neural network and there are many many
+12:29 
+
+12:29 other models so this step we actually
+12:31 
+
+12:31 need to try different models and see
+12:34 
+
+12:34 which one works best
+12:36 
+
+12:36 so this is where my actual machine
+12:37 
+
+12:37 learning happens
+12:39 
+
+12:39 and
+12:40 
+
+12:40 just
+12:42 
+
+12:42 in the next lesson we actually will talk
+12:44 
+
+12:44 in more details how we are going to
+12:47 
+
+12:47 choose the best model right
+12:50 
+
+12:50 sometimes often we find out that the
+12:52 
+
+12:52 features we extracted they are not
+12:54 
+
+12:54 sufficient we need to go back and
+12:57 
+
+12:57 add more features
+12:59 
+
+12:59 or
+12:60 
+
+12:60 we discovered that there are some data
+13:01 
+
+13:01 issues we need to go back to like go
+13:04 
+
+13:04 back and fix them so that's why
+13:07 
+
+13:07 like there is this
+13:08 
+
+13:08 you quite often need to go back to the
+13:10 
+
+13:10 data preparation step and adjust
+13:12 
+
+13:12 something there
+13:13 
+
+13:13 to make your model better
+13:16 
+
+13:16 after we do this so here at this step we
+13:19 
+
+13:19 selected the best possible model
+13:22 
+
+13:22 after that we need to measure how well
+13:27 
+
+13:27 this model is performing so we need to
+13:29 
+
+13:29 go back to the business understanding
+13:31 
+
+13:31 step and
+13:32 
+
+13:32 remember what was the goal that we set
+13:36 
+
+13:36 and
+13:37 
+
+13:37 if you remember that the goal we said
+13:39 
+
+13:39 was to reduce the amount of spam by 50
+13:42 
+
+13:42 so now we look back at the goal we look
+13:45 
+
+13:45 at the actual results
+13:47 
+
+13:47 because we take the model and apply it
+13:50 
+
+13:50 and we ask ourselves have we reached the
+13:51 
+
+13:51 goal do our
+13:53 
+
+13:53 metrics improve and um yeah like if we
+13:58 
+
+13:58 reduced did we reduce by 50
+14:00 
+
+14:00 or we let's say reduced by 30 right is
+14:04 
+
+14:04 30 good enough or not so here we do
+14:07 
+
+14:07 evaluation of our model
+14:09 
+
+14:09 and uh
+14:11 
+
+14:11 actually it can happen
+14:12 
+
+14:12 that we need to go back to this data
+14:15 
+
+14:15 understanding or to do business
+14:17 
+
+14:17 understanding stuff maybe we realized
+14:19 
+
+14:19 that
+14:22 
+
+14:22 the goal we set was not achieve
+14:24 
+
+14:24 achievable right
+14:25 
+
+14:25 so
+14:26 
+
+14:26 we can do some sort of retrospective and
+14:29 
+
+14:29 understand
+14:30 
+
+14:30 did we
+14:32 
+
+14:32 actually like was it a successful
+14:33 
+
+14:33 project or not right
+14:35 
+
+14:35 and
+14:36 
+
+14:36 here
+14:38 
+
+14:38 yeah we can either go back and start
+14:40 
+
+14:40 again
+14:41 
+
+14:41 using all the information we learned
+14:42 
+
+14:42 about the project or we can just say
+14:45 
+
+14:45 okay like this looks like a waste of
+14:47 
+
+14:47 time we don't want to spend time working
+14:49 
+
+14:49 on this project because uh
+14:51 
+
+14:51 yeah it's hopeless
+14:53 
+
+14:53 and then we can just stop working on
+14:54 
+
+14:54 this project right but if everything
+14:56 
+
+14:56 works well we go to the
+14:59 
+
+14:59 next step deployment and here i actually
+15:01 
+
+15:01 say that
+15:02 
+
+15:02 evaluation and deployment often
+15:06 
+
+15:06 come together
+15:07 
+
+15:07 because this is
+15:09 
+
+15:09 as i mentioned this framework is from
+15:11 
+
+15:11 90s right and maybe in 90s uh first they
+15:15 
+
+15:15 were doing aviation and then deployment
+15:17 
+
+15:17 but today
+15:19 
+
+15:19 the way we
+15:20 
+
+15:20 we evaluate models is often through
+15:23 
+
+15:23 deployment so we
+15:25 
+
+15:25 deploy a model then we see how well the
+15:28 
+
+15:28 model is doing and then we conclude if
+15:30 
+
+15:30 um
+15:31 
+
+15:31 things are good or not
+15:33 
+
+15:33 and usually it means that we test the
+15:35 
+
+15:35 model on real users right
+15:38 
+
+15:38 it's called
+15:39 
+
+15:39 online evaluation right so we evaluate
+15:41 
+
+15:41 it on real users usually we don't
+15:43 
+
+15:43 evaluate it on all users we let's say if
+15:46 
+
+15:46 we have
+15:47 
+
+15:47 all the users we take only
+15:50 
+
+15:50 i don't know five percent of users and
+15:52 
+
+15:52 evaluate our model there and if we see
+15:55 
+
+15:55 that this model actually works well
+15:58 
+
+15:58 then we roll out the model to the
+16:00 
+
+16:00 remaining users this is uh like this is
+16:03 
+
+16:03 what we call a deployment actually
+16:06 
+
+16:06 because at this deployment
+16:08 
+
+16:08 step we deploy the model to production
+16:09 
+
+16:09 to all the users right
+16:12 
+
+16:12 and then
+16:13 
+
+16:13 yeah so here at this deployment step
+16:17 
+
+16:17 the what is important is
+16:20 
+
+16:20 like how well maintainable the model is
+16:23 
+
+16:23 so here
+16:24 
+
+16:24 um if on this step on monitoring step uh
+16:28 
+
+16:28 we were focusing more on machine
+16:30 
+
+16:30 learning
+16:31 
+
+16:31 here the focus on engineering so here we
+16:34 
+
+16:34 want to make sure that the service is
+16:36 
+
+16:36 monitored
+16:38 
+
+16:38 that it's maintainable the quality is
+16:40 
+
+16:40 good
+16:41 
+
+16:41 and basically all the best engineering
+16:43 
+
+16:43 practices uh
+16:45 
+
+16:45 uh
+16:46 
+
+16:46 come in the picture here so this is
+16:48 
+
+16:48 where we really care about this because
+16:51 
+
+16:51 when we deploy our service
+16:53 
+
+16:53 it has to work right it has to be
+16:55 
+
+16:55 reliable and this is uh the step where
+16:57 
+
+16:57 we actually care about this
+16:60 
+
+16:60 after doing all the previous steps right
+17:02 
+
+17:02 so then we care about uh scalability and
+17:05 
+
+17:05 other things
+17:07 
+
+17:07 and of course we don't stop here it's
+17:09 
+
+17:09 not like we deployed something and
+17:10 
+
+17:10 forget about this
+17:12 
+
+17:12 we iterate because in machine learning
+17:15 
+
+17:15 projects they have very
+17:17 
+
+17:17 like
+17:21 
+
+17:21 yeah so we don't stop at the deployment
+17:24 
+
+17:24 we
+17:25 
+
+17:25 again
+17:27 
+
+17:27 learn from the process and we come back
+17:30 
+
+17:30 again to business understanding step and
+17:32 
+
+17:32 see okay we deployed this model how can
+17:35 
+
+17:35 we actually improve it
+17:37 
+
+17:37 like should we improve it is it good or
+17:39 
+
+17:39 not
+17:40 
+
+17:40 maybe we say it's good enough for now
+17:42 
+
+17:42 but half a year later we see that there
+17:45 
+
+17:45 are some problems we come back to this
+17:47 
+
+17:47 business understanding sub
+17:49 
+
+17:49 and go uh
+17:51 
+
+17:51 follow this process one more time so we
+17:54 
+
+17:54 have another iteration we define a new
+17:55 
+
+17:55 business
+17:57 
+
+17:57 goal we look at the available data we
+17:59 
+
+17:59 see if maybe there is a new data source
+18:01 
+
+18:01 that we need and we
+18:03 
+
+18:03 do another
+18:05 
+
+18:05 another loop
+18:07 
+
+18:07 through this
+18:08 
+
+18:08 and actually it's a very good idea to
+18:11 
+
+18:11 always start simple
+18:13 
+
+18:13 so like here on the business
+18:15 
+
+18:15 understanding step
+18:17 
+
+18:17 we
+18:18 
+
+18:18 do something very simple so we quickly
+18:20 
+
+18:20 move through the iteration we do the
+18:22 
+
+18:22 evaluation here and then we deploy we
+18:25 
+
+18:25 learn from this process right we see
+18:27 
+
+18:27 that okay a simple model is useful and
+18:30 
+
+18:30 now you go back to business
+18:31 
+
+18:31 understanding step again
+18:33 
+
+18:33 and you try to make this model a bit
+18:35 
+
+18:35 more complex right and you do uh
+18:38 
+
+18:38 two three iterations uh fast iterations
+18:41 
+
+18:41 like this and then uh at the end it's uh
+18:44 
+
+18:44 the iterations are small you don't waste
+18:47 
+
+18:47 a lot of time and you can quickly show
+18:49 
+
+18:49 that
+18:50 
+
+18:50 the things you're working on are quite
+18:52 
+
+18:52 useful
+18:54 
+
+18:54 so
+18:55 
+
+18:55 um yeah that's the process so let me
+18:58 
+
+18:58 just quickly
+18:60 
+
+18:60 uh go through the process once more just
+19:02 
+
+19:02 to summarize everything we learned today
+19:05 
+
+19:05 so there are six steps increase them
+19:07 
+
+19:07 process so the first step is business
+19:08 
+
+19:08 understanding sub so here we define a
+19:11 
+
+19:11 goal that is measurable and we always
+19:13 
+
+19:13 need to
+19:14 
+
+19:14 ask if actually ml machine learning is
+19:17 
+
+19:17 the right tool for solving the problem
+19:19 
+
+19:19 then we go to the next step where we
+19:22 
+
+19:22 understand which data are there
+19:25 
+
+19:25 which data sets are there is the data
+19:28 
+
+19:28 good enough for our purpose or not do we
+19:31 
+
+19:31 need to get more data different kind of
+19:33 
+
+19:33 data or just more volume
+19:35 
+
+19:35 all these questions we ask ourselves on
+19:37 
+
+19:37 the data understanding step then we
+19:38 
+
+19:38 prepare the data we transform it into
+19:41 
+
+19:41 such a format that is possible to put in
+19:44 
+
+19:44 machine learning so here we
+19:46 
+
+19:46 usually talk about data pipelines and
+19:48 
+
+19:48 future extraction and things like this
+19:50 
+
+19:50 then we go to the next step where the
+19:52 
+
+19:52 actual machine learning happens so here
+19:54 
+
+19:54 our goal is to try different models and
+19:56 
+
+19:56 select the best one
+19:58 
+
+19:58 after that we
+20:00 
+
+20:00 make sure that the best model we
+20:02 
+
+20:02 selected on the previous
+20:04 
+
+20:04 step actually leaves up to our
+20:06 
+
+20:06 expectations so it
+20:08 
+
+20:08 can reach the goal
+20:10 
+
+20:10 that we set in the business
+20:12 
+
+20:12 understanding step
+20:13 
+
+20:13 and here we might revise the goal and do
+20:15 
+
+20:15 another iteration or completely closer
+20:17 
+
+20:17 project and then at the deployment phase
+20:21 
+
+20:21 uh step we roll out the model to all the
+20:23 
+
+20:23 users
+20:25 
+
+20:25 and then important thing is we always
+20:27 
+
+20:27 need to iterate right so we start simple
+20:30 
+
+20:30 we learn from feedback we improve and we
+20:33 
+
+20:33 make multiple iterations
+20:37 
+
+20:37 and
+20:39 
+
+20:39 that's it for uh for overview of clip
+20:42 
+
+20:42 them
+20:44 
+
+20:44 and in the next lesson we focus more on
+20:47 
+
+20:47 the modeling stuff because at the end
+20:49 
+
+20:49 this course is more about machine
+20:50 
+
+20:50 learning so we'll talk about more
+20:52 
+
+20:52 details of this particular step in the
+20:54 
+
+20:54 last
+20:56 
+
+20:56 lesson

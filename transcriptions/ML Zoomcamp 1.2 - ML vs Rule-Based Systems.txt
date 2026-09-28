@@ -1,0 +1,468 @@
+00:01 welcome to the second lesson of our
+00:03 first session of machinery and zoom comp
+00:06 and we will talk we will compare um
+00:08 machine learning
+00:10 systems with rule based systems in the
+00:12 previous lesson we talked about
+00:15 an example where how we can use machine
+00:17 learning for predicting the price of a
+00:19 car
+00:20 and
+00:21 now in this lesson we will compare
+00:24 um like the old way
+00:26 of doing things without machine learning
+00:28 and with uh using machine learning
+00:32 and we will illustrate this
+00:35 using spam detection example
+00:38 so imagine that you have a system
+00:40 so
+00:42 this is a system for
+00:44 emails right so usually
+00:46 you have gmail or outlook somewhere you
+00:48 have
+00:50 emails and you use this for talking to
+00:52 your colleagues
+00:54 for work related things for chatting
+00:56 with friends
+00:57 and so on so like each row here
+01:00 is an email right
+01:03 and everything works well so you can
+01:06 send emails receive emails and then at
+01:08 some point users of our system start
+01:10 complaining about unsolicited emails so
+01:13 it can be promotions
+01:15 about discounts that people have
+01:18 aren't subscribed to so this unsolicited
+01:21 promotions
+01:22 or even fraudulent messages that try to
+01:26 um
+01:27 people try to cheat
+01:29 other people and ask them to
+01:31 give some money
+01:33 so
+01:34 and we want to fight this so we want to
+01:36 fight all these males we don't want our
+01:38 users to receive these emails so we want
+01:41 to develop a spam detection system so we
+01:44 want to take these emails
+01:46 and let's say have a folder for spam
+01:49 here
+01:51 and send all the emails that are spam to
+01:54 this folder right so this is the system
+01:55 we want to develop
+01:58 and for that we want to
+02:02 to build a classifier that classifies
+02:05 things into spam or not spam right
+02:09 so what we can do is we can just take
+02:11 all the spam messages and try to come up
+02:14 with
+02:15 some
+02:16 [Music]
+02:17 to find some patterns so what makes a
+02:20 spam message spam right and what we can
+02:23 see here
+02:24 is um
+02:25 for example
+02:27 we analyze the data and we see that all
+02:29 mails that come from
+02:31 this particular email promotions at
+02:33 online.com they're all spam messages or
+02:36 we can see that if
+02:38 a tax review
+02:39 is in the title then it's also a spam
+02:42 message or tax review and all the
+02:44 messages from this domain
+02:46 online.com they are all
+02:49 spam messages and we can come up with uh
+02:51 rules
+02:52 like okay if sender is
+02:54 promotionsonline.com
+02:56 then it's spam
+02:58 because we did some analysis and we saw
+03:00 that all males from this particular
+03:03 center they're all spam right
+03:05 and then we can see if subject contains
+03:07 tax review like we see here
+03:10 and if the domain of the sender is
+03:13 online.com then in all the examples we
+03:16 saw internalized all these messages for
+03:18 spam
+03:19 so we can say that if title contains tax
+03:22 review and center domain is online then
+03:24 it's fun otherwise it's a good email
+03:26 right so we have all these three rules
+03:29 right
+03:30 what we can do with these rules now
+03:32 we can write a simple program and then
+03:35 code these rules using for example
+03:37 python so we just sit down and write
+03:40 a few lines of python code where we
+03:42 encode these rules saying okay if
+03:45 sender is this particular sender
+03:47 promotion set online.com then it's spam
+03:49 if title contains tax interview and the
+03:52 sender the domain of the sender is
+03:54 online.com then it's pump in all other
+03:57 cases we can see that this
+03:60 is a good email so we
+04:02 we write this code we deploy the system
+04:04 and it works until people start
+04:07 complaining about
+04:09 other different unsolicited messages and
+04:13 um you know for example in this case
+04:16 uh
+04:16 yeah this is a different kind of email
+04:19 that people get that talks about
+04:21 deposit so you want a price if you want
+04:25 to get it you have to pay a small fee
+04:28 ten dollars and
+04:30 transfer this to this account so this is
+04:32 the kind of messages people start
+04:33 complaining about we analyze and we see
+04:36 that
+04:37 if
+04:38 all these spam messages contain deposit
+04:40 all good messages don't contain deposit
+04:43 so we come
+04:44 with a fee with a rule that says if a
+04:47 body contains a word deposit then we
+04:49 mark this message as spam
+04:52 that works fine for a little while
+04:55 yeah we implement this it works fine for
+04:56 a little wine while
+04:58 until a user
+05:01 uses a work deposit for
+05:03 a
+05:04 genuine person would for a totally
+05:07 legitimate reason right so somebody
+05:10 pedro
+05:11 uh
+05:12 paid the deposit and now he wants to get
+05:14 the deposit again
+05:16 so he uses the word deposit but our
+05:18 system incorrectly classifies this
+05:20 message of spam and puts this into a
+05:21 spam folder
+05:23 right so we do analysis again we do
+05:27 we see okay how we can make sure that
+05:30 this doesn't happen so how can we
+05:33 separate
+05:34 good emails that contain the word
+05:35 deposit from bad emails that contain the
+05:37 word deposit and we come with
+05:40 other rules and we encode these rules
+05:42 again with python
+05:43 and we do this over and over again and
+05:46 you can imagine that this is a never
+05:47 ending process because
+05:50 spam keeps changing
+05:52 the rules uh
+05:54 they need to
+05:56 to we need to keep them up to date so we
+05:58 constantly need to to change them as
+06:00 well
+06:01 some all the rules don't work
+06:04 and we write a lot of code we wrote more
+06:06 write more code more and more and more
+06:09 and more and at the end it becomes a
+06:11 nightmare to maintain
+06:13 all this code
+06:14 and
+06:16 it's very difficult the system
+06:19 just every time we change something
+06:21 things break
+06:23 in
+06:24 different places
+06:25 so this is a situation when we need to
+06:28 think okay is there other tool that we
+06:31 can use to solve these problems and the
+06:33 other tool for this is machine learning
+06:35 so we can actually
+06:37 use machine learning to solve this
+06:39 problem
+06:40 in a different way
+06:42 so the way we do this is we first need
+06:44 to get the data and by that i mean in
+06:47 this particular case all the emails
+06:51 then we need to extract some features
+06:53 from these emails so things that we can
+06:56 use to describe emails all these
+06:57 characteristics of emails then we need
+06:60 to extract these features and then we
+07:02 use
+07:03 this to train the model and then after
+07:05 that we can once we train the model we
+07:07 can use this model for classifying
+07:10 messages into spam and not spam
+07:13 so for getting data what usually email
+07:15 providers do
+07:16 they have this uh spam folder right that
+07:19 people can just uh
+07:21 use to mark email as unwanted
+07:24 spam and then it usually goes to the
+07:26 spam folder
+07:27 so
+07:28 if we have a button like that we can
+07:30 just take all the data that users
+07:32 generated because users tell us hey this
+07:35 message is spam so we can take all the
+07:37 emails we have we can take emails that
+07:40 are spam we can take emails
+07:42 that are not spam and we can use them
+07:44 for training in a model right
+07:46 so we took this so we took the emails
+07:49 we took the the labels spam or not spam
+07:53 now we need to define and calculate
+07:54 features
+07:55 and features can be very simple like um
+07:59 things like
+08:00 is the the title long like what is the
+08:03 length of the title if the title is uh
+08:06 longer than uh 10 then this feature is
+08:10 true if the title is 10 or less then the
+08:13 feature is false right and then we can
+08:16 features like this about the length of
+08:18 the body
+08:19 about the particular sender
+08:21 uh and so on and you if you remember
+08:24 that this uh
+08:26 that
+08:27 these features like about this
+08:29 particular sender or the domain or the
+08:31 word deposit they actually come from
+08:35 the rules we have so
+08:37 most of these features
+08:39 um
+08:41 they are based on the rules we
+08:43 previously had and it's actually a good
+08:45 idea
+08:46 to start with the rules so first you
+08:48 don't jump immediately into using
+08:50 machine learning so first you
+08:52 do a rule-based system and then you can
+08:55 use these rules
+08:56 as features for
+08:59 a machine learning system right like we
+09:01 did here
+09:02 and so here we have six features each
+09:05 like this is called the binary feature
+09:08 because we have features that are either
+09:10 true or false so they can only take two
+09:13 values that's why they're called binary
+09:14 features we have six of them
+09:17 and we can encode all our emails with
+09:20 this feature so let's see how we can do
+09:22 this
+09:23 so we have an email right
+09:27 and
+09:28 we want to extract these six features so
+09:30 first we look at the length of the title
+09:32 so the title is longer than 10
+09:36 10 characters and
+09:37 that's why
+09:38 the feature is true so here like it's
+09:41 true
+09:42 but
+09:43 yeah so we encode true as one and false
+09:46 as zero so for us
+09:49 the value of this feature is true
+09:51 so it's one
+09:52 then the second feature is length of the
+09:54 body so the body is pretty long so this
+09:57 the value of this feature is also true
+09:59 then the next one is about the sender
+10:02 name so the the email
+10:06 so the email is not promotions at
+10:08 online.com so that's why the value of
+10:10 this feature is zero
+10:12 the next sender is uh
+10:15 not
+10:16 this email that is or hard to read so
+10:19 again the value of this feature is zero
+10:23 then uh
+10:25 we see that the domain of the email is
+10:28 actually test.com so if you see let's
+10:31 test here
+10:33 uh
+10:33 so that's why so for this particular
+10:36 feature it's true so we'll have one here
+10:40 and the same for the last one so the
+10:42 description contains the word deposit
+10:44 it's here
+10:45 so that's why for this particular
+10:46 feature the value is
+10:49 actually should be true
+10:56 yeah and finally we know that this
+10:58 particular email is spam because the
+11:01 user marked this email spam so we know
+11:03 that the value uh
+11:06 so the target variable is one
+11:08 so we take this
+11:09 and we put this as our data set so all
+11:12 the features we extracted plus the
+11:14 target variable
+11:15 and we do this for other email for
+11:17 another email for another email and so
+11:20 on until we
+11:22 take all our emails and extract these
+11:24 features from
+11:26 from them
+11:27 and this is what we have right so we
+11:29 have our data set and we have the target
+11:32 variable
+11:33 right so this is our
+11:35 our data
+11:37 and what we do next
+11:38 is we need to
+11:41 use this data to train a model so we
+11:43 take this
+11:44 and if you remember so we put this into
+11:47 a machine learning algorithm so feature
+11:50 features and target variable go in
+11:54 so we train a model
+11:56 and sometimes we call this process of
+11:57 training is fitting so we hit a model
+12:00 and then the output
+12:02 is a model
+12:05 the model that we can use for
+12:08 predicting the if a message is palm or
+12:11 not so we take this model
+12:14 uh let's see we have a model here that
+12:16 we've
+12:18 trained previously right and now
+12:21 for each of
+12:22 [Music]
+12:24 the messages we have
+12:26 we have some
+12:27 predictions right so for example for
+12:29 this message
+12:31 uh our prediction is
+12:34 we say that the probability that this
+12:36 message is spam is 0.8 meaning that it's
+12:39 80 percent likely that this message is
+12:42 right for example for the the second one
+12:45 can be 60
+12:46 uh maybe this one is not spam so only 10
+12:49 percent likelihood that this email is
+12:51 spam then maybe this one is
+12:55 0.01 so very unlikely that this is pump
+12:59 for the next one could be i know 70
+13:01 percent and maybe 40 right
+13:06 then so we have this uh outputs from the
+13:08 model so the model outputs probabilities
+13:11 right so it thinks that
+13:13 this message looks like spam and i'm
+13:15 sure about that with uh
+13:17 probability so my confidence level let's
+13:20 say is 80 right
+13:22 so now we actually need to
+13:24 to make a decision should we put this in
+13:26 a spam folder or not right so this is
+13:29 the decision we need to make
+13:30 and we can say if something is
+13:33 uh greater or equals to 0.5 so if
+13:36 something has more than 50 percent
+13:40 chance of being spam then we put this in
+13:42 a spam folder
+13:43 so for this uh for this one say it's
+13:46 spam
+13:48 because it's uh more than 50
+13:50 so this one is also spam
+13:53 this one is actually good because uh
+13:55 yeah it's less than five uh 0.5 right
+13:58 it's less than 50
+13:60 so this one is also good this one looks
+14:03 like spam seventy percent is more than
+14:05 fifty percent and forty percent is a
+14:07 good message right
+14:09 and uh
+14:11 everything that we predicted as spam it
+14:14 will go to the spam folder everything
+14:16 that is good will go to the inbox and
+14:19 this is how we can use our model
+14:21 so now to summarize let's illustrate the
+14:24 difference between these two approaches
+14:26 between the rule based systems and
+14:29 between uh machine learning so in
+14:32 rule-based systems so we hope we have
+14:34 software
+14:35 so uh
+14:37 our system this is what we
+14:40 this is what we called right so we
+14:41 needed to extracted some rules to
+14:43 extract some rules and write code right
+14:46 so we write some code
+14:49 and
+14:50 then we have some data
+14:53 we have these emails that we want to
+14:55 score
+14:56 so we have
+14:58 data
+14:59 and we have code
+15:01 and then for these emails using this
+15:03 code
+15:04 we
+15:06 have predictions right so this is our
+15:08 outcome
+15:10 so if
+15:11 something is spam
+15:14 or not spam
+15:16 right
+15:17 so we hard code these rules into our
+15:19 software system
+15:21 and our software system makes decisions
+15:24 and we as as we discussed this system is
+15:27 at some point becomes quite difficult to
+15:29 maintain
+15:30 that's why machine learning algo in
+15:32 machine learning
+15:33 it's a bit different
+15:35 so in machine learning so in case of
+15:38 usual software
+15:39 we produce outcome right so we hard code
+15:42 the outcome in the code
+15:45 but in case of machine learning
+15:47 outcome
+15:49 is
+15:50 the input to machine learning algorithm
+15:52 so we know that something is spam and we
+15:54 put this
+15:55 to a machine learning so we say
+15:59 if something is spam or not
+16:02 right
+16:03 and then we have the data so this is our
+16:07 emails and for each email we know if
+16:10 something is spammer not so we feed this
+16:12 in a system
+16:14 and then the output is a model
+16:18 and then we can use this model to make
+16:20 predictions for cases when we don't know
+16:23 the outcome so cases when we only have
+16:26 data
+16:27 then we can use this
+16:28 to
+16:29 uh to make the predictions so we take
+16:32 data
+16:34 we take model
+16:37 and it produces outcome
+16:42 for cases for which we don't know
+16:44 whether a message is common not we can
+16:46 use this model
+16:47 in our system to
+16:49 sort
+16:51 to sort messages into spam or inbox
+16:55 okay so we talked about
+16:57 a spam classification example and we
+16:59 illustrated the difference between the
+17:00 rule based systems and
+17:02 machine learning and in the next lesson
+17:05 we will talk about supervised learning
+17:08 so
+17:09 all we discussed
+17:11 like examples of price prediction
+17:13 and spam predictions these are examples
+17:16 of supervised machine learning and we
+17:18 formalize this concept a bit more
+17:21 and we talk about different kinds of
+17:23 supervised machine learning like
+17:25 regression classification and ranking
