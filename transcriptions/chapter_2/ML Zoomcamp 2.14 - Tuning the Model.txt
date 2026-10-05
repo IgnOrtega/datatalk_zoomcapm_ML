@@ -1,0 +1,11 @@
+# ML Zoomcamp 2.14 — Tuning the Model
+
+[00:00] Welcome back. This is lesson 14 of Machine Learning Zoomcamp, session 2, and now we will talk about finding the best parameter — the best regularization parameter — for our linear regression model. In the previous section we talked about regularization as a way to solve the problem of duplicated columns in our data, and we noticed that this `r` affects the quality of our model. What we want to do is find the best value for this `r`. So what we will do now is use the validation set for finding the best value: we will just try a bunch of
+
+[00:47] different values for `r`, starting from zero, then something smaller, and then we'll just gradually increase it — maybe something like this; maybe not too small, yeah — and then maybe we even try one, and then ten. So what we do now is go through these values of `r`: we try every `r` from this list, we apply it to our model, and we see what happens. Now we just need to print the results. Let's print the regularization parameter, then let's
+
+[01:35] also print the bias term, and we print the score. What we see is that for zero regularization the bias term is huge and the RMSE is also huge, but even a little bit of regularization improves it. The score doesn't really change that much; it starts to become a bit worse as we increase the regularization, and when it's 10 it's even worse. Okay. And here the bias term also: the more regularization we add, the smaller the bias term is. And it looks like maybe this 0.01 is a good one, because the model hasn't
+
+[02:23] started to degrade in performance, and it's just not too large, not too big. I think this is good enough. I don't think it actually matters here — it could be this one or this one, it doesn't matter — so we can just go with this one. Let's train our model once again, and we will just print the score. So we just selected the best regularization parameter, we trained our model with this regularization parameter, and we were able to see that it works on the validation set. Now what we need to do
+
+[03:10] is check this on the test dataset as well, and this is what we will do in the next lecture.

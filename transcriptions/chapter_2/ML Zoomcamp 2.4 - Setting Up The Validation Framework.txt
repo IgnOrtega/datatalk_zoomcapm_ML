@@ -1,0 +1,49 @@
+# ML Zoomcamp 2.4 — Setting Up the Validation Framework
+
+> Nota: la transcripción original comienza a mitad de frase.
+
+[00:00] ...Zoomcamp session two, and we will talk about setting up the validation framework. So if you remember, in the last session we talked about validating models and about the model selection process, and we said that for validating the model we need to take our dataset and split it into three parts. The first part we use for training, the second part we use for validation, and the last part we use for testing. So we train a model, we check whether it works fine on the validation dataset, and we leave
+
+[00:45] this test dataset only for the end. We use it only very, very occasionally, very infrequently, only to check if our model is doing well. So we need to take our dataset and split it into three parts, right: train, validation and test. And then from each of these parts we create the feature matrix X and the target variable y. So this is train, this one is validation, and also the one for test. Okay, so this is what we need to do,
+
+[01:31] and this is what we'll do now with pandas. So first of all, we will do this 60/20/20 split: it will be 20%, 20% and 60%. So we need to calculate how much 20% actually is. The size of our data frame — actually, we should have looked at this at the very beginning when we loaded it — is almost 12,000 records, and 20% of that is approximately 2,400, right? And of course
+
+[02:21] we don't want a number that is a fraction; we want a number that is an integer, so we round it using `int`. So let's do this for all three. This `n` variable will be the length of our data frame. Then the size of the validation dataset, `n_val`, will be 20% of `n`, and then we round it. Then `n_test` will be the same, so this is the size of our test dataset. And then `n_train` will be the size of our train dataset, so we can write 0.6 here.
+
+[03:08] But we can have a problem: now the sizes can be different. So let's check `n_val + n_test + n_train`. Ideally it should be the same as `n`, but you see, because of rounding it's not the same. So we cannot split it using these values, because `n`, the number of records in our data frame, is actually bigger than the sum of these sizes. So to make sure that we don't accidentally leave out a few records, what we do
+
+[03:53] instead is this: we take this part out, take this part out, and whatever is left after taking these two out, we take for training. For that we just do `n - n_val - n_test`. And now they should add up; now they're the same. So now we know the size of each dataset. Let's just look at the size of each: for training it's 7,000, for validation it's almost 2,400.
+
+[04:40] So these are the sizes of our data frames. Now we know the sizes, and we need to take a part of the data frame of each size. For that we can use this `iloc` thing that we talked about in the introduction to pandas. We mentioned that it's possible to give it a list and it returns a subset of the data frame. It's actually also possible to use a
+
+[05:26] range. So let's say we want to get the first 10 records: we can do something like this, `df.iloc[:10]`. It means from the beginning till 10, and again 10 is not inclusive, so it's from zero to nine, and we get the first records. And it also works if, let's say, we want to get from ten to twenty: we do this, `df.iloc[10:20]`. And let's say we want to get something till the end, however many records there are: let's say from 10, and we get the remaining ones. This is how we do it; it just knows
+
+[06:14] that if we use this notation, it's from this one to the end, right? So potentially what we can do is say, okay, give us the first 2,382 records, and we will use them for validation. Let's call it `df_val`. Then we can say, okay, everything after this one up to the next — whatever, 4,700-something —
+
+[06:59] will be the test dataset. So we actually need to sum them. So this is test, right? So now we have these two, and then `df_train` will be everything that is left, so we just take this one till the end, right? And now we have this. But here is a problem: it's sequential, right? Let's say in our validation dataset we now have all the BMWs, and we don't have BMWs in train, right? We see that there is some order in this dataset. So we need
+
+[07:47] to shuffle these records, to make sure that there are BMWs in all three datasets. And in general it's always a good idea to shuffle the data: if there is some accidental order in the data, we want to break it. For that, if you remember, in this `iloc` we can specify an arbitrary sequence of numbers, and it will return the rows in this order. So what we can do is take the numbers from zero to n, then reshuffle them.
+
+[08:34] So these are the numbers from zero to n minus one, right? We reshuffle them, so we have, say, 10 here, then 1, then 10,000 and so on, and here 0, for example. And then we take the first twenty percent for validation, twenty percent for test, and the remaining for train. Okay, so let's implement that. Actually, I think
+
+[09:24] it might make more sense to do it slightly differently. Let's say we take the data for train first, then from `n_train` to `n_train + n_val` for validation, and then we take the rest for test. I think it's a bit more logical to basically follow the same order. So first we take this out, then this one, and then the rest. Okay, so now we want to generate a sequence of numbers from zero to n minus one. For that we use a function from NumPy called `arange`; it does exactly that, it generates a sequence of numbers. So let's
+
+[10:15] call it `idx`, short for index. And then what we want to do now is shuffle it. For that there is a function in `np.random` called `shuffle`, and we just do that, and now our index is shuffled. And now, if we take the first 60% of that, we can use it for our train dataset, right? So let's now just replace this here. We just need to add one more thing inside: instead of
+
+[11:01] getting rows directly with `iloc`, we get them through this index. Maybe let me just show you what happens with `iloc` if we take the first ten: when it's shuffled, you see it takes the first 10 in shuffled order, right? So we want to do this, but not with 10, but with the number of records we have: 60%, 20% and 20%. And this is what we have. So we did the split.
+
+[11:53] The problem with this is that when you run it on your computer, you will have different records here: the first one will not be Porsche, or not GMC, but something else. To make sure it's reproducible, we usually set a random seed. We talked a bit about that in the introduction to NumPy: we want to make results reproducible. For that we use `seed`, right, and we set the seed to some number, let's say two. And let's again generate this index, then shuffle it, and then take a subset. So now the first one is Chevrolet, and if we do it one more time, it's the same value. And on your computer, when you do this, if you have the same version of NumPy,
+
+[12:41] you will have the same subset. And that's actually what we need to do. So now we have three datasets. Let's check the length of these datasets: train, validation... and it should be 7,000. Let's check one more time, because it should be
+
+[13:29] this way, right? So it should be from 0 to 7,000. Okay, now it's correct. And a few things before we finish. Now when we look at train, we see that this index changes, right? Here we have numbers in this shuffled order, and sometimes it's just inconvenient. We don't really need to know what the original index of this record was, so what we can do is reset the index. We talked about this operation in
+
+[14:17] the introduction. We don't need this index column, that's why we drop it, and we reassign the result back to this data frame. So you see, now it's from zero to 7,000. And finally the same for validation and test. Okay, and then we need to do some transformation of our y. This `df_train` is something we'll use to make our feature matrix X. But if you remember, for this `msrp` in our `df_train`, we actually need to
+
+[15:04] apply the log transformation, this `log1p`. Yeah, so this is the log transformation. And instead of keeping the series, let's immediately get the values: instead of using a pandas series, let's get a NumPy array immediately, because we don't need all these indexes and other things. And that will be our y variable for train, and we do the same for validation and test. Okay, now we have these variables.
+
+[15:54] And the last thing that we need to do is remove this `msrp` variable from our data frames. For that we use the `del` operator. We need to delete it because we might accidentally use it, and we want to avoid this: if we accidentally use it, then we will use the price variable as a feature for predicting the price, and of course our model will be perfect, and we might spend a lot of time figuring out what's wrong. It happened to me many times that the target variable accidentally got into the data frame, and that's why, after splitting the data, I always try to take it out into a separate
+
+[16:42] variable and delete it from the data frame completely, to make sure that I don't accidentally use it for training purposes. Okay, so now we have our data. Let's check the length; it should be correct. Yeah. So what we did in this lesson was implement this framework for validation manually: we didn't use a library for that, we just used plain pandas and NumPy, and we saw how to split our dataset into three parts. And now we are actually ready to move to
+
+[17:34] the training part. So in the next lesson we will talk about linear regression.

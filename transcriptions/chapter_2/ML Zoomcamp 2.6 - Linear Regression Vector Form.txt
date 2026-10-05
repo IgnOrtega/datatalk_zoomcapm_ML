@@ -1,0 +1,37 @@
+# ML Zoomcamp 2.6 — Linear Regression: Vector Form
+
+[00:01] Welcome back. This is lesson six of session two of Machine Learning Zoomcamp. We already talked about the linear regression model and we saw how it works on one simple example, and now we'll try to generalize it to a vector form, and look at all the matrices we have. Remember, we talked about this capital X here; so how do we go from this notation to this one? Let's talk about this. First of all, let's again write it for a single vector. Remember, we have the
+
+[00:49] bias term, and then we have a sum that goes from 1 to n, where we multiply each feature by its weight. This is the formula; this is how we make a prediction for a specific car. And if you look at this, you can see that this is nothing else but a dot product. We talked about dot products: this is vector-vector multiplication. And we can actually rewrite it slightly differently, using this vector multiplication notation. So this will be the vector
+
+[01:36] xi, we transpose it, and we multiply it with the weights vector. This notation is a bit more compact. So we can implement this. We already have this linear regression function; let's adjust it. First we will create a function that does the dot product, and if you remember, we already implemented this; we called it vector-vector multiplication. We start with `result`, which is zero, and then for each element we multiply them
+
+[02:25] with each other, `xi[j] * w[j]`, and of course sum, and we return the result. This is our `dot` product. So we don't need anything here anymore. Now the result will be just `w0` plus the dot product between `xi` and `w`. So, using this function, our code simplifies quite a bit. So now we implemented this, and as we discussed,
+
+[03:13] if we use NumPy, we can just use NumPy's `dot`. Okay, we can make it even shorter. Let's look at this. Now we have this bias term that is kind of hanging out there all alone, without any x, so we can try to bring it into this dot product. For that, we can imagine that there is one extra feature in our car; let's call it xi0, and this feature is always one.
+
+[04:02] Let me just move it a little bit. If it's one, it means that it doesn't really affect anything, so we can imagine that it doesn't exist; it's always one. Then our vector w becomes w0, w1, w2, and so on up to wn. So this is an (n+1)-dimensional vector: we have n elements here and then one extra one. And then this x
+
+[04:51] vector, the features, becomes xi0, xi1, xi2, and so on, up to xin, and here xi0 is just one. And when we do the dot product between them — this way or the other way around, it doesn't matter — we multiply w0 with one, which leaves us with w0, and then we basically have the dot product between the rest, like previously. So it's equivalent to what we
+
+[05:41] have, and it means that we can just use the dot product notation for the entire linear regression. So let's do this. We can call it `w_new` — we don't need to do it inside — so this will be our new vector with weights. In Python, if you use plus on lists, it creates a new list where it just prepends the element at the beginning, so this is exactly what we need. And now this `w_new` contains
+
+[06:30] the bias term and then the rest of the weights. Then we do the same with `xi`: we just prepend 1 at the beginning. And now we do a dot product between this and this `w`, and the result should be the same as before. So we see that the result is the same. Okay, so now we have linear regression in vector form. Now let's go back to thinking about all the examples, not just one. In this case we have this matrix, capital X, remember,
+
+[07:19] and in this matrix we always have ones at the beginning, because we have one here all the time. And then for each row we have the features. Let's say it's the first row: x11, x12, x13, and so on. These are the features of the first row, these are the features of the second row, and so on. Then for the last one — we could call it n, but we already have n here, so let's call it m —
+
+[08:08] we have xm1 up to xmn. So this X for us is m by (n+1): there are m rows and n+1 columns. And then we have the vector w, the weights: w0, w1, up to wn. What we need to do is, for each of these rows, multiply the row by this vector, and then we do the same with this one,
+
+[08:57] and the same with this one. So for the result, let's call the rows x1, x2, x3, up to xm: we have x1 dot product with w, the same for the second, and then the same for the last one. And these are our predictions. If we do this for all the rows, all the cars we have in the dataset, this will be our vector of predictions, ŷ. So this is what we predict,
+
+[09:47] and you probably can recognize by now that this looks very similar to matrix multiplication. In fact, it is matrix-vector multiplication. So what we need to do to apply linear regression is: we take this matrix X, we take this vector w, and we just multiply them, and this is our model. We just need to perform matrix-vector multiplication. I think we can implement this. Just as an example, let's say we have
+
+[10:37] more different observations. Remember, we need to add ones. Let's say this one has 148 horsepower, then 24 miles per gallon, and then it has a popularity of 1,300. Then let's take another x, and another one; let me just make it aligned a bit. This one, let's say, has 132 horsepower, and this one has 300-something. Let me just copy it here. It's not
+
+[11:27] very popular, but it's very powerful. This one has 25, and let's say it's quite popular. So we have these observations, and now we can put them into a matrix. For that, X becomes a list of lists; you can take a look at this. And if we put this into NumPy, it turns this list of lists into a matrix, a two-dimensional NumPy array. So we have it, and we have our `w_new`
+
+[12:15] vector. What we need to do now is just the multiplication between this matrix and this vector, `X.dot(w_new)`. Okay, and here we have predictions. Now we have three cars, and for each car we have a prediction of what the price for this car is. So this is how we can actually implement linear regression. It will be something like a `linear_regression` function, and we have all of that, and we
+
+[13:03] do the matrix-vector multiplication in `linear_regression`, and we have the results. Okay, so now we know how to do this for multiple rows at the same time. We first generalized it and went from just writing a for loop to recognizing that this is a dot product between a vector with features and a vector with weights. Then we noticed that we can make it even shorter by adding a fictional feature, one — like a virtual feature — to our feature vector, so it became even shorter. And then we generalized it to
+
+[13:49] many examples, to a complete feature matrix, and we saw that it's actually nothing else but matrix-vector multiplication. And you may have been wondering where these w's come from, how we set the values for them. This is something that we will talk about in the next lesson.
